@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 14:04:05 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/13 11:52:06 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/07/18 13:47:21 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,34 +19,12 @@ Contact::Contact( void ) {
 	return;
 }
 
-std::string	Contact::get_first_name()
+std::string	Contact::set_info()
 {
-	return this->first_name;
-}
-
-std::string	Contact::get_last_name()
-{
-	return this->first_name;
-}
-
-std::string	Contact::get_nick_name()
-{
-	return this->first_name;
-}
-
-std::string	Contact::get_first_name()
-{
-	return this->first_name;
-}
-
-std::string	Contact::get_first_name()
-{
-	return this->first_name;
-}
-
-std::string	Contact::get_first_name()
-{
-	return this->first_name;
+	std::cout << std::endl;
+	std::cout << "Enter the first name : ";
+	std::cin >> this->_firstName;
+	return (0);
 }
 
 Contact::~Contact( void ) {
