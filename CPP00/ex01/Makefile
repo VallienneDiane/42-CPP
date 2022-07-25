@@ -6,7 +6,7 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 11:41:14 by dvallien          #+#    #+#              #
-#    Updated: 2022/05/23 15:59:34 by dvallien         ###   ########.fr        #
+#    Updated: 2022/07/25 10:59:33 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ INCLUDES	=	PhoneBook.hpp	\
 				Contact.hpp
 
 SRC			= 	PhoneBook.cpp	\
+				Contact.cpp		\
 				main.cpp
 
 OBJS		=	$(addprefix $(PATH_OBJS), $(SRC:.cpp=.o))
