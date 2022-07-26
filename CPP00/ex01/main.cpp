@@ -6,14 +6,11 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 15:23:14 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/25 17:00:06 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/07/26 14:26:15 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include <iomanip>
-#include "PhoneBook.hpp"
+# include "PhoneBook.hpp"
 
 void	print_menu( void )
 {
@@ -40,23 +37,45 @@ void	print_header( void )
 	std::cout << "|";
 }
 
-void	display_contact(int index)
+int	is_digit( std::string field_index )
 {
-	while (index < 0 || index > 7)
+	int			i;
+
+	i = 0;
+	while (field_index[i])
 	{
-		std::cout << "Choose an index : ";
-		std::cin.clear();
-		std::cin >> index;
+		if (!isdigit(field_index[i]))
+			return (1);
+		i++;
 	}
+	return (0);
+}
+
+int check_index(void)
+{
+	std::string field_index;
+
+	while (getline(std::cin, field_index))
+	{
+		if (field_index.empty() || is_digit(field_index) == 1 || field_index.size() > 1)
+			std::cout << "Choose an index : ";
+		else if (std::stoi(field_index) < 0 || std::stoi(field_index) > 7)
+			std::cout << "Choose an index : ";
+		else
+			return (std::stoi(field_index));
+		std::cin.clear();
+	}
+	return (0);
 }
 
 int	main()
 {
 	PhoneBook	phoneBook;
 	std::string input;
+	int			index;
 	int			nbContact;
 	int			i;
-	int			index;
+
 
 	nbContact = 0;
 	index = 0;
@@ -64,9 +83,9 @@ int	main()
 	{
 		print_menu();
 		getline(std::cin, input);
-		if(input == "ADD") // if(input.compare("ADD") == 0) 
+		if(input == "ADD")
 		{
-			phoneBook.contact[nbContact].set_info();
+			phoneBook.create_contact(nbContact);
 			if (nbContact == 7)
 				nbContact = 0;
 			else
@@ -75,18 +94,16 @@ int	main()
 		else if (input == "SEARCH")
 		{
 			print_header();
-			i = 0;
-			while (i < 8)
-			{
-				phoneBook.contact[i].get_info(i);
-				i++;
-			}
+			i = -1;
+			while (++i < 8)
+				phoneBook.get_contact(i);
 			std::cout << std::endl;
 			std::cout << "Choose an index : ";
-			std::cin >> index;
-			display_contact(index);
-			phoneBook.contact[index].get_info(index);
+			index = check_index();
+			phoneBook.get_one_contact(index);
 		}
+		else if (input == "EXIT")
+			return (0);
 	}
 	return (0);
 }

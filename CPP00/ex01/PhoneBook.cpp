@@ -6,18 +6,31 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:20:55 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/25 16:32:25 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/07/26 14:26:53 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "PhoneBook.hpp"
+# include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook( void ) {	
 	return;
 }
 
 PhoneBook::~PhoneBook( void ) {
-	// std::cout << "Destructor called" << std::endl;
-	// return;
+	return;
+}
+
+void	PhoneBook::create_contact( int index_contact )
+{
+	this->contact[index_contact].set_info();
+}
+
+void	PhoneBook::get_contact( int index_contact )
+{
+	this->contact[index_contact].get_info(index_contact);
+}
+
+void	PhoneBook::get_one_contact( int index_contact )
+{
+	this->contact[index_contact].print_info();
 }
