@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:34:36 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/27 16:17:43 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/07/27 16:24:14 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	Account::_displayTimestamp( void )
 void	Account::displayAccountsInfos( void )
 {
 	_displayTimestamp();
+
 	std::cout << "accounts:" << _nbAccounts << ";";
 	std::cout << "total:"<<  _totalAmount << ";";
 	std::cout << "deposits:"<< _totalNbDeposits << ";";
@@ -84,14 +85,16 @@ void	Account::displayAccountsInfos( void )
 
 void	Account::makeDeposit( int deposit )
 {
+	int		amount = this->_amount;
 	this->_amount += deposit;
+	_totalAmount += deposit;
+	this->_nbDeposits++;
 
 	std::cout << "index:" << this->_accountIndex << ";";
-	std::cout << "p_amount:" << this->_amount << ";";
-	std::cout << "deposits:" << this->_nbDeposits << std::endl;
+	std::cout << "p_amount:" << amount << ";";
+	std::cout << "deposits:" << deposit << std::endl;
 	std::cout << "amount:" << this->_totalAmount << ";";
-	std::cout << "nb_deposits:" << this->_totalNbDeposits << ";";
-	this->_totalNbDeposits++;
+	std::cout << "nb_deposits:" << this->_nbDeposits << ";";
 }
 
 bool Account::makeWithdrawal( int withdrawal )
