@@ -6,15 +6,16 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 11:41:14 by dvallien          #+#    #+#              #
-#    Updated: 2022/05/23 14:45:59 by dvallien         ###   ########.fr        #
+#    Updated: 2022/07/27 11:09:10 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	megaphone
+NAME		=	dreams
 
 PATH_OBJS	=	./.OBJS/
 
-SRC			= 	megaphone.cpp
+SRC			= 	Account.cpp \
+				tests.cpp	
 
 OBJS		=	$(addprefix $(PATH_OBJS), $(SRC:.cpp=.o))
 
