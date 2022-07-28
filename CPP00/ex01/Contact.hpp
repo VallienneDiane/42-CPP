@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:08:17 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/28 13:12:08 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/07/28 17:55:42 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class Contact {
 	public:
 		Contact( void );
 		~Contact( void );
-		void	set_info( void );
-		void	get_info( int );
-		void	print_info( void );
+		void	setInfo( void );
+		void	getInfo( int );
+		void	printInfo( void );
 		
 	private:
 		std::string _firstName;

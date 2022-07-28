@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 14:04:05 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/28 13:19:39 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/07/28 17:58:35 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,30 @@ Contact::~Contact( void ) {
 	return;
 }
 
-std::string	set_field( std::string field_name)
+std::string	setField( std::string fieldName)
 {
 	std::string str;
 	
-	std::cout << "Enter the " + field_name + " : ";
+	std::cout << "Enter the " + fieldName + " : ";
 	while (std::getline(std::cin, str))
 	{
 		if (!str.empty())
 			return (str);
-		std::cout << "Enter the " + field_name + " : ";
+		std::cout << "Enter the " + fieldName + " : ";
 	}
 	return (str);
 }
 
-void	Contact::set_info( void )
+void	Contact::setInfo( void )
 {
-	this->_firstName = set_field("first name");
-	this->_lastName = set_field("last name");
-	this->_nickName = set_field("nick name");
-	this->_phoneNumber = set_field("phone number");
-	this->_darkestSecret = set_field("darkest secret");
+	this->_firstName = setField("first name");
+	this->_lastName = setField("last name");
+	this->_nickName = setField("nick name");
+	this->_phoneNumber = setField("phone number");
+	this->_darkestSecret = setField("darkest secret");
 }
 
-void	check_str_wide( std::string value)
+void	checkStrWidth( std::string value)
 {
 	if (value.length() > 10)
 		std::cout << value.substr(0, 9) + ".";
@@ -51,7 +51,7 @@ void	check_str_wide( std::string value)
 		std::cout << value;
 }
 
-void	Contact::print_info( void )
+void	Contact::printInfo( void )
 {
 	std::cout << std::endl;
 	std::cout << "--- Contact informations ---" << std::endl;
@@ -62,20 +62,20 @@ void	Contact::print_info( void )
 	std::cout << "Darkest secret : " + this->_darkestSecret << std::endl;
 }
 
-void	Contact::get_info( int index )
+void	Contact::getInfo( int index )
 {
 	std::cout << std::endl;
 	std::cout << std::setw(10);
 	std::cout << index;
 	std::cout << "|";
 	std::cout << std::setw(10);
-	check_str_wide(this->_firstName);
+	checkStrWidth(this->_firstName);
 	std::cout << "|";
 	std::cout << std::setw(10);
-	check_str_wide(this->_lastName);
+	checkStrWidth(this->_lastName);
 	std::cout << "|";
 	std::cout << std::setw(10);
-	check_str_wide(this->_nickName);
+	checkStrWidth(this->_nickName);
 	std::cout << "|";
 	std::cout << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:20:55 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/28 11:49:54 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/07/28 17:58:13 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,17 @@ PhoneBook::~PhoneBook( void ) {
 	return;
 }
 
-void	PhoneBook::create_contact( int index_contact )
+void	PhoneBook::createContact( int indexContact )
 {
-	this->contact[index_contact].set_info();
+	this->contact[indexContact].setInfo();
 }
 
-void	PhoneBook::get_contact( int index_contact )
+void	PhoneBook::getContact( int indexContact )
 {
-	this->contact[index_contact].get_info(index_contact);
+	this->contact[indexContact].getInfo(indexContact);
 }
 
-void	PhoneBook::get_one_contact( int index_contact )
+void	PhoneBook::getOneContact( int indexContact )
 {
-	this->contact[index_contact].print_info();
+	this->contact[indexContact].printInfo();
 }

@@ -6,13 +6,13 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 15:23:14 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/28 13:19:25 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/07/28 17:57:13 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-void	print_menu( void )
+void	printMenu( void )
 {
 	std::cout << std::endl;
 	std::cout << "Welcome into your phonebook, here you can " << std::endl;
@@ -24,7 +24,7 @@ void	print_menu( void )
 	std::cout << "Make your choice : ";
 }
 
-void	print_header( void )
+void	printHeader( void )
 {
 	std::cout << std::endl;
 	std::cout << std::setw(10) << "Index";
@@ -37,32 +37,32 @@ void	print_header( void )
 	std::cout << "|";
 }
 
-int	is_digit( std::string field_index )
+int	isDigit( std::string fieldIndex )
 {
 	int			i;
 
 	i = 0;
-	while (field_index[i])
+	while (fieldIndex[i])
 	{
-		if (!isdigit(field_index[i]))
+		if (!isdigit(fieldIndex[i]))
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-int check_index(void)
+int checkIndex(void)
 {
-	std::string field_index;
+	std::string fieldIndex;
 
-	while (std::getline(std::cin, field_index))
+	while (std::getline(std::cin, fieldIndex))
 	{
-		if (field_index.empty() || is_digit(field_index) == 1 || field_index.size() > 1)
+		if (fieldIndex.empty() || isDigit(fieldIndex) == 1 || fieldIndex.size() > 1)
 			std::cout << "Choose an index : ";
-		else if (std::stoi(field_index) < 0 || std::stoi(field_index) > 7)
+		else if (std::stoi(fieldIndex) < 0 || std::stoi(fieldIndex) > 7)
 			std::cout << "Choose an index : ";
 		else
-			return (std::stoi(field_index));
+			return (std::stoi(fieldIndex));
 		std::cin.clear();
 	}
 	return (0);
@@ -81,11 +81,11 @@ int	main()
 	nbContact = 0;
 	while (1 && !std::cin.eof())
 	{
-		print_menu();
+		printMenu();
 		std::getline(std::cin, input);
 		if(input == "ADD")
 		{
-			phoneBook.create_contact(nbContact);
+			phoneBook.createContact(nbContact);
 			if (nbContact == 7)
 				nbContact = 0;
 			else
@@ -93,14 +93,14 @@ int	main()
 		}
 		else if (input == "SEARCH")
 		{
-			print_header();
+			printHeader();
 			i = -1;
 			while (++i < 8)
-				phoneBook.get_contact(i);
+				phoneBook.getContact(i);
 			std::cout << std::endl;
 			std::cout << "Choose an index : ";
-			index = check_index();
-			phoneBook.get_one_contact(index);
+			index = checkIndex();
+			phoneBook.getOneContact(index);
 		}
 		else if (input == "EXIT")
 			return (0);
