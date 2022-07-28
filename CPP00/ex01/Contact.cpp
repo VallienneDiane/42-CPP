@@ -6,11 +6,11 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 14:04:05 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/26 14:28:35 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/07/28 11:54:11 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Contact.hpp"
+#include "Contact.hpp"
 
 Contact::Contact( void ) {
 	return;
@@ -25,7 +25,7 @@ std::string	set_field( std::string field_name)
 	std::string str;
 	
 	std::cout << "Enter the " + field_name + " : ";
-	while (getline(std::cin, str))
+	while (std::getline(std::cin, str))
 	{
 		if (!str.empty())
 			return (str);

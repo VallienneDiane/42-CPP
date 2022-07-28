@@ -6,11 +6,11 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 15:23:14 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/26 14:26:15 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/07/28 11:51:28 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "PhoneBook.hpp"
+#include "PhoneBook.hpp"
 
 void	print_menu( void )
 {
@@ -55,7 +55,7 @@ int check_index(void)
 {
 	std::string field_index;
 
-	while (getline(std::cin, field_index))
+	while (std::getline(std::cin, field_index))
 	{
 		if (field_index.empty() || is_digit(field_index) == 1 || field_index.size() > 1)
 			std::cout << "Choose an index : ";
@@ -82,7 +82,9 @@ int	main()
 	while (1)
 	{
 		print_menu();
-		getline(std::cin, input);
+		if (std::cin.eof())
+			return (0);
+		std::getline(std::cin, input);
 		if(input == "ADD")
 		{
 			phoneBook.create_contact(nbContact);
