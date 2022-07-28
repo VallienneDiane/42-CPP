@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 15:23:14 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/28 11:51:28 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/07/28 13:19:25 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,11 @@ int	main()
 	int			i;
 
 
-	nbContact = 0;
 	index = 0;
-	while (1)
+	nbContact = 0;
+	while (1 && !std::cin.eof())
 	{
 		print_menu();
-		if (std::cin.eof())
-			return (0);
 		std::getline(std::cin, input);
 		if(input == "ADD")
 		{
