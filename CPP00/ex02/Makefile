@@ -6,7 +6,7 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 11:41:14 by dvallien          #+#    #+#              #
-#    Updated: 2022/07/28 11:40:38 by dvallien         ###   ########.fr        #
+#    Updated: 2022/07/28 17:42:17 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@ NAME		=	test
 
 PATH_OBJS	=	./.OBJS/
 
+INCLUDES	=	Account.hpp
+				
 SRC			= 	Account.cpp \
 				tests.cpp	
 
@@ -28,7 +30,7 @@ all :		$(NAME)
 $(NAME) :	$(OBJS)
 			$(CPPC) $(OBJS) -o $(NAME)
 
-$(PATH_OBJS)%.o :	%.cpp
+$(PATH_OBJS)%.o :	%.cpp $(INCLUDES)
 					@mkdir -p $(PATH_OBJS)
 					$(CPPC) $(CPPFLAGS) -c $< -o $@
 

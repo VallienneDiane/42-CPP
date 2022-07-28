@@ -6,7 +6,7 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 11:41:14 by dvallien          #+#    #+#              #
-#    Updated: 2022/07/25 10:59:33 by dvallien         ###   ########.fr        #
+#    Updated: 2022/07/28 17:40:54 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC			= 	PhoneBook.cpp	\
 
 OBJS		=	$(addprefix $(PATH_OBJS), $(SRC:.cpp=.o))
 
+
 CPPC		=	c++
 CPPFLAGS	=	-Wall -Wextra -Werror -std=c++98
 RM			=	rm -rf
@@ -32,7 +33,7 @@ all :		$(NAME)
 $(NAME) :	$(OBJS)
 			$(CPPC) $(OBJS) -o $(NAME)
 
-$(PATH_OBJS)%.o :	%.cpp
+$(PATH_OBJS)%.o :	%.cpp $(INCLUDES)
 					@mkdir -p $(PATH_OBJS)
 					$(CPPC) $(CPPFLAGS) -c $< -o $@
 
