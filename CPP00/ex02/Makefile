@@ -6,11 +6,11 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 11:41:14 by dvallien          #+#    #+#              #
-#    Updated: 2022/07/27 11:09:10 by dvallien         ###   ########.fr        #
+#    Updated: 2022/07/28 11:40:38 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	dreams
+NAME		=	test
 
 PATH_OBJS	=	./.OBJS/
 
