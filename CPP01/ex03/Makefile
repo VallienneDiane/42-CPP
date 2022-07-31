@@ -6,11 +6,11 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 18:30:10 by dvallien          #+#    #+#              #
-#    Updated: 2022/07/30 17:35:27 by dvallien         ###   ########.fr        #
+#    Updated: 2022/07/31 11:36:53 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	zombie
+NAME		=	attack
 
 PATH_OBJS	=	./.OBJS/
 
