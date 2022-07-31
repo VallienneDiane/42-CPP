@@ -6,11 +6,11 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 18:30:10 by dvallien          #+#    #+#              #
-#    Updated: 2022/07/30 17:16:18 by dvallien         ###   ########.fr        #
+#    Updated: 2022/07/31 11:11:09 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	zombie
+NAME		=	brain
 
 PATH_OBJS	=	./.OBJS/
 

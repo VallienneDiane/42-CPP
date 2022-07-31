@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 17:16:25 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/30 17:28:12 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/07/31 11:10:39 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 int	main( void )
 {
-	std::string		hello = "HI THIS IS BRAIN";
-	std::string*	ptr_hello = &hello;
-	std::string&	ref_hello = hello;
+	std::string		string = "HI THIS IS BRAIN";
+	std::string		*stringPTR = &string;
+	std::string		&stringREF = string;
 
-	std::cout << "memory address of the string: " << &hello << std::endl;
-	std::cout << "memory address held by string pointer: "<< ptr_hello << std::endl;
-	std::cout << "memory address held by string reference: "<< &ref_hello << std::endl;
-	
-	std::cout << "value of string: " << hello << std::endl;
-	std::cout << "value of string pointer: " << *ptr_hello << std::endl;
-	std::cout << "value of string reference: " << ref_hello << std::endl;
+	std::cout << "memory address of the string: " << &string << std::endl;
+	std::cout << "memory address held by string pointer: "<< stringPTR << std::endl;
+	std::cout << "memory address held by string reference: "<< &stringREF << std::endl;
+	std::cout << "value of string: " << string << std::endl;
+	std::cout << "value of string pointer: " << *stringPTR << std::endl;
+	std::cout << "value of string reference: " << stringREF << std::endl;
 }
