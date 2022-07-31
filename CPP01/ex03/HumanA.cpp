@@ -6,15 +6,15 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 17:33:25 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/31 16:07:10 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/07/31 17:15:12 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA( std::string name, Weapon &weapon ): _name(name), _weapon(weapon)
+HumanA::HumanA( std::string name, Weapon &weapon ): _weapon(weapon)
 {
-	// this->_name = name;
+	this->_name = name;
 	std::cout << name << " has been created" << std::endl;
 	return;
 }
