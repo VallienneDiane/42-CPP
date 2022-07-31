@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:20:55 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/28 17:58:13 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/07/31 11:24:44 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ PhoneBook::~PhoneBook( void ) {
 	return;
 }
 
-void	PhoneBook::createContact( int indexContact )
+void	PhoneBook::setContact( int indexContact )
 {
 	this->contact[indexContact].setInfo();
 }

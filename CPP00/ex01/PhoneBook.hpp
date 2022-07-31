@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:07:16 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/28 17:58:04 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/07/31 11:24:37 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class PhoneBook {
 	public:
 		PhoneBook( void );
 		~PhoneBook( void );
-		void	createContact( int indexContact );
+		void	setContact( int indexContact );
 		void	getContact( int indexContact );
 		void	getOneContact( int indexContact );
 	
