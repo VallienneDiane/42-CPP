@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:16:39 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/31 18:10:04 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/06 14:16:51 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,40 @@
 #include <string>
 #include <fstream>
 
-void	replace(std::string filename, std::string s1, std::string s2)
+int	replace(std::string filename, std::string s1, std::string s2)
 {
-	std::ifstream	ifs(filename);
-	// std::ofstream ofs(filename);
-	std::string		buffer;
-	(void)s1;
-	(void)s2;
+	std::ifstream	ifs_read(filename);
+	std::ofstream	ofs_write("filename.replace");
+	std::string		line;
+	std::size_t		found_i;
 	
-	ifs >> buffer;
-	std::cout << buffer << std::endl;
-	// ofs << s1 << s2 << std::endl;
-	// std::cout << s1 << " " << s2 << std::endl;
-	ifs.close();
-	// ofs.close();
+	if (ifs_read.fail())
+	{
+		std::cout << "Error : fail open file" << std::endl;
+		return (1);
+	}
+	while (!s1.empty() && std::getline(ifs_read, line))
+	{
+		found_i = line.find(s1);
+		while (found_i != std::string::npos)
+		{
+			line.erase(found_i, s1.length());
+			line.insert(found_i, s2);
+			found_i += s2.size();
+			found_i = line.find(s1, found_i);
+		}
+		ofs_write << line << std::endl;
+	}
+	ifs_read.close();
+	ofs_write.close();
+	return (0);
 }
 
 int main(int ac, char **av)
 {
-	(void)ac;
-	std::string s1;
-	std::string s2;
-	
-	s1 = "Je suis un cornichon";
-	s2 = "Moule a gaufres";
-	replace(av[1], s1, s2);
-
+	if (ac == 4)
+		replace(av[1], av[2], av[3]);
+	else
+		std::cout << "Error: wrong number of arguments" << std::endl;
 	return (0);
 }
