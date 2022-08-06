@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:16:39 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/06 14:16:51 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/06 14:39:51 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 int	replace(std::string filename, std::string s1, std::string s2)
 {
 	std::ifstream	ifs_read(filename);
-	std::ofstream	ofs_write("filename.replace");
+	std::ofstream	ofs_write(filename + ".replace");
 	std::string		line;
 	std::size_t		found_i;
 	
