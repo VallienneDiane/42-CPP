@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 14:19:51 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/07 12:14:20 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/07 13:09:44 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,31 +43,21 @@ void	Harl::complain( std::string level )
 	switch(i)
 	{
 		case 0:
-			std::cout << "[ DEBUG ]" << std::endl;
 			(void)(this->*_ptrF[0])();
-			std::cout << "[ INFO ]" << std::endl;
 			(void)(this->*_ptrF[1])();
-			std::cout << "[ WARNING ]" << std::endl;
 			(void)(this->*_ptrF[2])();
-			std::cout << "[ ERROR ]" << std::endl;
 			(void)(this->*_ptrF[3])();
 			break;
 		case 1:
-			std::cout << "[ INFO ]" << std::endl;
 			(void)(this->*_ptrF[1])();
-			std::cout << "[ WARNING ]" << std::endl;
 			(void)(this->*_ptrF[2])();
-			std::cout << "[ ERROR ]" << std::endl;
 			(void)(this->*_ptrF[3])();
 			break;
 		case 2:
-			std::cout << "[ WARNING ]" << std::endl;
 			(void)(this->*_ptrF[2])();
-			std::cout << "[ ERROR ]" << std::endl;
 			(void)(this->*_ptrF[3])();
 			break;
 		case 3:
-			std::cout << "[ ERROR ]" << std::endl;
 			(void)(this->*_ptrF[3])();
 			break;
 		default:
@@ -78,20 +68,28 @@ void	Harl::complain( std::string level )
 
 void	Harl::_debug( void )
 {
+	std::cout << "[ DEBUG ]" << std::endl;
 	std::cout << "I love having extra cheese for my XL-double-cheese burger. I really do!" << std::endl;
+	std::cout << std::endl;
 }
 
 void	Harl::_info( void )
 {
+	std::cout << "[ INFO ]" << std::endl;
 	std::cout << "I can't believe adding extra cheese costs more money. You didn't put enough cheese in my burger!" << std::endl;
+	std::cout << std::endl;
 }
 
 void	Harl::_warning( void )
 {
+	std::cout << "[ WARNING ]" << std::endl;
 	std::cout << "I think I deserve to have some extra cheese for free." << std::endl;
+	std::cout << std::endl;
 }
 
 void	Harl::_error( void )
 {
+	std::cout << "[ ERROR ]" << std::endl;
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
+	std::cout << std::endl;
 }
