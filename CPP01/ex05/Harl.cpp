@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 14:19:51 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/06 17:14:28 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/07 11:16:14 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,34 @@
 
 Harl::Harl( void )
 {
-	std::cout << "Constructor called " << std::endl;
+	this->_ptrF[0] = (&Harl::_debug);
+	this->_ptrF[1] = (&Harl::_info);
+	this->_ptrF[2] = (&Harl::_warning);
+	this->_ptrF[3] = (&Harl::_error);
+	this->_lvl[0] = "DEBUG";
+	this->_lvl[1] = "INFO";
+	this->_lvl[2] = "WARNING";
+	this->_lvl[3] = "ERROR";
 	return ;
 }
 
 Harl::~Harl( void )
 {
-	std::cout << "Destructor called " << std::endl;
 	return ;
 }
 
 void	Harl::complain( std::string level )
 {
-	int				i;
-	void			(Harl::*ptrF[4])( void ); // declare pointeur sur fonction
-	std::string		lvl[4] = {
-					"debug",
-					"info",
-					"warning",
-					"error"
-	};
+	int	i;
 
-	ptrF[0] = (&Harl::_debug);
-	ptrF[1] = (&Harl::_info);
-	ptrF[2] = (&Harl::_warning);
-	ptrF[3] = (&Harl::_error);
 	i = -1;
-	while( ++i < 4 && lvl[i] == level)
+	while(++i < 4)
 	{
-		std::cout << "ici" << std::endl;
-		(this->*ptrF[i])();
+		if (this->_lvl[i] == level)
+		{
+			(void)(this->*_ptrF[i])();
+			return ;
+		}
 	}
 	
 }
