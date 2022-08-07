@@ -6,7 +6,7 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 18:30:10 by dvallien          #+#    #+#              #
-#    Updated: 2022/08/07 11:22:46 by dvallien         ###   ########.fr        #
+#    Updated: 2022/08/07 16:33:57 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ RM			=	rm -rf
 
 all :		$(NAME)
 
-$(NAME) :	$(OBJS)
+$(NAME) :	$(OBJS) Makefile
 			$(CPPC) $(OBJS) -o $(NAME)
 
 $(PATH_OBJS)%.o :	%.cpp $(INCLUDES)
