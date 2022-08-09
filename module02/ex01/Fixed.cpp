@@ -6,13 +6,13 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 11:55:13 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/08 16:40:41 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/09 11:52:01 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed( void )
+Fixed::Fixed( void ): _number(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 	return;
