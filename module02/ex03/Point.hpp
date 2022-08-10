@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:29:56 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/09 17:00:21 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/10 14:06:05 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class Point{
 		Point( const float x, const float y );
 		Point( const Point &source );
 		Point & operator=( const Point &source);
+		float	getX( void ) const;
+		float	getY( void ) const;
 		~Point( void );
 		
 	private:
@@ -32,5 +34,7 @@ class Point{
 		Fixed const _y;
 	
 };
+
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 #endif

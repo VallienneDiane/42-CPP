@@ -6,11 +6,12 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:30:10 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/09 17:00:31 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/10 14:10:01 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
+#include "Fixed.hpp"
 
 /******************************************/
 /*             CONSTRUCTORS               */
@@ -18,40 +19,40 @@
 
 Point::Point( void ) : _x(0), _y(0)
 {
-	std::cout << "Default constructor called" << std::endl;
 	return;
 }
 
-// Point::Point( const float x, const float y )
-// {
-// 	this->_x = x;
-// 	this->_y = y;
-// }
-
-Point::Point( const Point &source ) // : _number(source._number)
+Point::Point( const float x, const float y ) : _x(x), _y(y)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	return;
+}
+
+Point::Point( const Point &source ) : _x(source._x), _y(source._y)
+{
 	*this = source;
 }
 
-Point &	Point::operator=( const Point &source )
+Point &Point::operator=( const Point &source )
 {
-	std::cout << "Copy assignment operator called" << std::endl;
-	// this->_number = source.getRawBits();
+	(void)source;
 	return (*this);
 }
 
 Point::~Point( void )
 {
-	std::cout << "Destructor called" << std::endl;
 	return;
 }
 
 /******************************************/
-/*              FUNCTIONS                 */
+/*               FUNCTIONS                */
 /******************************************/
 
-// void	Fixed::setValue()
-// {
+float	Point::getX( void ) const
+{
+	return (this->_x.toFloat());
+}
 
-// }
+float	Point::getY( void ) const
+{
+	return (this->_y.toFloat());
+}
