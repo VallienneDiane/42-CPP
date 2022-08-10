@@ -6,14 +6,14 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:30:17 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/10 14:11:50 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/10 14:15:41 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 #include "Fixed.hpp"
 
-float calculate( Point const a, Point const b, Point const point)
+float areaParallelogram( Point const a, Point const b, Point const point)
 {
 	float result;
 
@@ -23,9 +23,9 @@ float calculate( Point const a, Point const b, Point const point)
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
-	float AB = calculate(a, b, point);
-	float BC = calculate(b, c, point);
-	float CA = calculate(c, a, point);
+	float AB = areaParallelogram(a, b, point);
+	float BC = areaParallelogram(b, c, point);
+	float CA = areaParallelogram(c, a, point);
 	
 	std::cout << "Dist AB :" << AB << std::endl;
 	std::cout << "Dist BC :" << BC << std::endl;
