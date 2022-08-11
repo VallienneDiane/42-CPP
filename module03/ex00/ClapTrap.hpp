@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:19:28 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/10 16:35:54 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/11 11:42:44 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,5 @@ class ClapTrap{
 		int			_energyPoints;
 		int			_attackDamage;
 };
-
-std::ostream &operator<<(std::ostream &stream, const ClapTrap &src);
 
 #endif
