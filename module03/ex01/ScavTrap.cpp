@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 13:30:59 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/11 16:36:35 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/14 16:09:36 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void ScavTrap::attack(const std::string& target)
 {
 	if (this->getHitP() <= 0 | this->getEnergyP() <= 0)
 	{
-		std::cout << PURPLE << "ScavTrap " << this->getName() << " is already dead, so he can't attack except if he became a zombie ... ";
+		std::cout << PURPLE << "ScavTrap " << this->getName() << " can't attack cause he is already dead ... ";
 		std::cout << PURPLE << "(Life:" << this->getHitP() << "pts & Energy:" << this->getEnergyP() << "pts)" << std::endl;
 	}
 	else
@@ -78,7 +78,7 @@ void ScavTrap::attack(const std::string& target)
 
 void ScavTrap::guardGate(void)
 {
-	std::cout << BLUE << "Passage en monde Gate keeper !" << std::endl;
+	std::cout << BLUE << "Mode Gate keeper activated !" << std::endl;
 }
 
 /**********************************************/

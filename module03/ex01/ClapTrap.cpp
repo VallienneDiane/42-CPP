@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:31:54 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/11 16:41:52 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/14 16:08:43 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ ClapTrap::ClapTrap(const ClapTrap &src): _name(src._name), _hitPoints(src._hitPo
 
 ClapTrap & ClapTrap::operator=(const ClapTrap &src)
 {
-	std::cout << GREEN << "ClapTrap copy assignment operator called : " << this->_name << std::endl;
 	this->_name = src._name;
 	this->_hitPoints = src._hitPoints;
 	this->_energyPoints = src._energyPoints;
 	this->_attackDamage = src._attackDamage;
+	std::cout << GREEN << "ClapTrap copy assignment operator called : " << this->_name << std::endl;
 	return (*this);
 }
 
@@ -100,7 +100,7 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (this->_hitPoints <= 0 | this->_energyPoints <= 0)
 	{
-		std::cout << PURPLE << "ClapTrap " << this->_name << " is already dead, so he can't attack except if he became a zombie ... ";
+		std::cout << PURPLE << "ClapTrap " << this->_name << " can't attack cause he is already dead ... ";
 		std::cout << PURPLE << "(Life:" << this->_hitPoints << "pts & Energy:" << this->_energyPoints << "pts)" << std::endl;
 	}
 	else
@@ -115,7 +115,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->_hitPoints <= 0 | this->_energyPoints <= 0)
 	{
-		std::cout << GREY << this->_name << " can't take damage because he is already dead";
+		std::cout << GREY << this->_name << " can't take damage cause he is already dead";
 		std::cout << GREY << "(Life:" << this->_hitPoints << "pts & Energy:" << this->_energyPoints << "pts)" << std::endl;
 	}
 	else
@@ -132,7 +132,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->_hitPoints <= 0 | this->_energyPoints <= 0)
 	{
-		std::cout << WHITE << this->_name << " can't be repaired because he's already dead";
+		std::cout << WHITE << this->_name << " can't be repaired cause he's already dead";
 		std::cout << WHITE << "(Life:" << this->_hitPoints << "pts & Energy:" << this->_energyPoints << "pts)" << std::endl;
 	}
 	else
