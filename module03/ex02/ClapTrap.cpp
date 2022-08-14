@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:31:54 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/11 16:41:52 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/14 10:34:49 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
 
-ClapTrap::ClapTrap(void): _name("unamed"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ClapTrap::ClapTrap(void): _name("noname"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << GREEN << "ClapTrap default constructor called : " << this->_name << std::endl;
 	return;

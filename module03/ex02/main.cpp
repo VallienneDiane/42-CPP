@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:18:40 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/11 16:49:24 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/14 10:36:16 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(void)
 	
 	std::cout << std::endl;
 	veryBadGuy.attack(unamed.getName());
-	unamed.takeDamage(20);
+	unamed.takeDamage(30);
 	unamed.setName("Joe");
 	unamed.beRepaired(10);
 	std::cout << std::endl;
@@ -33,13 +33,13 @@ int main(void)
 	unamed.takeDamage(20);
 	unamed.beRepaired(10);
 	std::cout << std::endl;
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		veryBadGuy.attack(grumpyGuy.getName());
-		grumpyGuy.takeDamage(20);
+		grumpyGuy.takeDamage(30);
 	}
 	badGuy.attack(grumpyGuy.getName());
-	grumpyGuy.takeDamage(20);
+	grumpyGuy.takeDamage(30);
 	grumpyGuy.beRepaired(10);
 	std::cout << std::endl;
 	grumpyGuy.attack(cat.getName());
@@ -48,8 +48,10 @@ int main(void)
 	target.attack(badGuy.getName());
 	std::cout << std::endl;
 	badGuy.attack(target.getName());
-	target.takeDamage(20);
+	target.takeDamage(30);
 	target.beRepaired(30);
+	std::cout << std::endl;
+	badGuy.highFivesGuys();
 	std::cout << std::endl;
 	return (0);
 }

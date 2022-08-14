@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 16:44:44 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/11 16:52:29 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/14 10:32:10 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ FragTrap & FragTrap::operator=(const FragTrap &src)
 /*			        FUNCTIONS                 */
 /* ********************************************/
 
-void FragTrap::highFivesGuys(void) // Cette fonction membre affiche une demande de high fives sur la sortie standard.
+void FragTrap::highFivesGuys(void)
 {
-	std::cout << BLUE << "High fives guys !" << std::endl;
+	std::cout << BLUE << this->_name << " : High fives guys ?" << std::endl;
 }
 
 /**********************************************/
