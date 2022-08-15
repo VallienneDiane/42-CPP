@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:27:38 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 11:18:56 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/15 13:57:15 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ Animal::Animal(const Animal &src) : _type(src._type)
 Animal & Animal::operator=(const Animal &src)
 {
 	this->_type = src._type;
+	std::cout << "Animal copy assignement operator called" << std::endl;
 	return (*this);
 }
 

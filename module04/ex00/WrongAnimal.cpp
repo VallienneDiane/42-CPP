@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 11:31:05 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 11:45:25 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/15 13:58:17 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ WrongAnimal::WrongAnimal( void ) : _type("WrongAnimal")
 WrongAnimal::WrongAnimal(const WrongAnimal &src) : _type(src._type)
 {
 	*this = src;
-	std::cout << "WrongAnimal copy constrcutor called" << std::endl;
+	std::cout << "WrongAnimal copy constructor called" << std::endl;
 }
 
 WrongAnimal & WrongAnimal::operator=(const WrongAnimal &src)
 {
 	this->_type = src._type;
+	std::cout << "WrongAnimal copy assignment operator called" << std::endl;
 	return (*this);
 }
 

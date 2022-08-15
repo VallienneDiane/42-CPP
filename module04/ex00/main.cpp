@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:12:41 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 13:36:09 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/15 14:05:22 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int main(void)
 	meta->makeSound();
 	
 	std::cout << std::endl;
-	delete(garfield);
 	delete(idefix);
+	delete(garfield);
 	delete(meta);
 
 	// Wrong Cat print sound of Wronf Animal without keyword virtual
