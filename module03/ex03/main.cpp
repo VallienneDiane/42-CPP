@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:18:40 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/14 16:04:35 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/15 11:00:54 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,13 @@ int main(void)
 	DiamondTrap	diamondCat("Azrael");
 
 	std::cout << std::endl;
-
 	// Repairs
 	diamondCat.takeDamage(30);
+	diamondCat.beRepaired(10);
 	diamondCat.beRepaired(10);
 	std::cout << std::endl;
 
 	// Attacks
-	diamondCat.attack(target.getName());
-	diamondCat.attack(target.getName());
-	diamondCat.attack(target.getName());
-	diamondCat.attack(target.getName());
-	diamondCat.attack(target.getName());
 	diamondCat.attack(target.getName());
 	std::cout << std::endl;
 
