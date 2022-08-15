@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:29:19 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/14 17:00:25 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/15 11:25:54 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Dog : public Animal
 	public:
 		Dog(void);
 		virtual void makeSound(void) const;
-		~Dog(void);
+		virtual ~Dog(void);
 };
 
 #endif

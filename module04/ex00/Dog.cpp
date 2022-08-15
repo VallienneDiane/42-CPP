@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:33:29 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/14 17:01:19 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/15 11:23:17 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 Dog::Dog( void )
 {
-	this->_type = "dog";
+	this->_type = "Dog";
 	std::cout << "Dog default constructor called" << std::endl;
 	return;
 }
 
-
 void	Dog::makeSound(void) const
 {
-	std::cout << "Ouaf ouaf ouaf" << std::endl;
+	std::cout << "Ouaf ouaf" << std::endl;
 	return;
 }
 

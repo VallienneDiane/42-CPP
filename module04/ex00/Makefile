@@ -6,20 +6,26 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 18:30:10 by dvallien          #+#    #+#              #
-#    Updated: 2022/08/14 17:02:08 by dvallien         ###   ########.fr        #
+#    Updated: 2022/08/15 11:38:00 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	animal
+NAME		=	polymorphisme
 
 PATH_OBJS	=	./.OBJS/
 
-INCLUDES	=	Animal.hpp	\
-				Dog.hpp		\
+INCLUDES	=	Animal.hpp			\
+				Dog.hpp				\
+				Cat.hpp				\
+				WrongAnimal.hpp		\
+				WrongCat.hpp		\
 
 
-SRC			= 	Animal.cpp	\
-				Dog.cpp		\
+SRC			= 	Animal.cpp			\
+				Dog.cpp				\
+				Cat.cpp				\
+				WrongAnimal.cpp		\
+				WrongCat.cpp		\
 				main.cpp
 
 OBJS		=	$(addprefix $(PATH_OBJS), $(SRC:.cpp=.o))

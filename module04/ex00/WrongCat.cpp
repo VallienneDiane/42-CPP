@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 16:13:31 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 11:42:59 by dvallien         ###   ########.fr       */
+/*   Created: 2022/08/15 11:35:14 by dvallien          #+#    #+#             */
+/*   Updated: 2022/08/15 11:37:03 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#include "WrongCat.hpp"
 
-#include <iostream>
-#include <string>
-
-class Animal
+WrongCat::WrongCat( void )
 {
-	public:
-		Animal(void);
-		Animal(const Animal &src);
-		Animal & operator=(const Animal &src);
-		virtual void	makeSound(void) const;
-		std::string		getType(void) const;
-		virtual ~Animal(void);
-	
-	protected:
-		std::string _type;
-};
+	this->_type = "WrongCat";
+	std::cout << "WrongCat default constructor called" << std::endl;
+	return;
+}
 
-#endif
+void	WrongCat::makeSound(void) const
+{
+	std::cout << "Not a cat, bruuuh" << std::endl;
+	return;
+}
+
+WrongCat::~WrongCat( void )
+{
+	std::cout << "WrongCat destructor called" << std::endl;
+	return;
+}
