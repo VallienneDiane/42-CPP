@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:31:54 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/14 16:05:53 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/15 13:19:28 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoint
 
 ClapTrap::ClapTrap(const ClapTrap &src): _name(src._name), _hitPoints(src._hitPoints), _energyPoints(src._energyPoints), _attackDamage(src._attackDamage)
 {
-	std::cout << GREEN << "ClapTrap copy constructor called : " << this->_name << std::endl;
 	*this = src;
+	std::cout << GREEN << "ClapTrap copy constructor called : " << this->_name << std::endl;
 }
 
 ClapTrap & ClapTrap::operator=(const ClapTrap &src)
 {
-	std::cout << GREEN << "ClapTrap copy assignment operator called : " << this->_name << std::endl;
 	this->_name = src._name;
 	this->_hitPoints = src._hitPoints;
 	this->_energyPoints = src._energyPoints;
 	this->_attackDamage = src._attackDamage;
+	std::cout << GREEN << "ClapTrap copy assignment operator called : " << this->_name << std::endl;
 	return (*this);
 }
 
