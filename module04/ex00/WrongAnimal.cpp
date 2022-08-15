@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 11:31:05 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 13:58:17 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/15 14:21:30 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ WrongAnimal & WrongAnimal::operator=(const WrongAnimal &src)
 
 void	WrongAnimal::makeSound(void) const
 {
-	std::cout << "Wrong Animal sound" << std::endl;
+	std::cout << "croaaa croaaa" << std::endl;
 	return;
 }
 

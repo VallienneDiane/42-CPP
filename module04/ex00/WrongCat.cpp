@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 11:35:14 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 13:59:10 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/15 14:20:31 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ WrongCat	& WrongCat::operator=(const WrongCat &src)
 
 void	WrongCat::makeSound(void) const
 {
-	std::cout << "Not a cat, bruuuh" << std::endl;
+	std::cout << "tut tut " << std::endl;
 	return;
 }
 

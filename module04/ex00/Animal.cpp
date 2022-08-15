@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:27:38 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 13:57:15 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/15 14:20:52 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Animal & Animal::operator=(const Animal &src)
 
 void	Animal::makeSound(void) const
 {
-	std::cout << "Indistinct animal sound" << std::endl;
+	std::cout << "bruuuuuuh" << std::endl;
 	return;
 }
 

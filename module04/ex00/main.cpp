@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:12:41 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 14:05:22 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/15 14:25:40 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,30 +18,46 @@
 
 int main(void)
 {
+	// subject tests
 	const Animal* meta = new Animal();
-	const Animal* idefix = new Dog();
-	const Animal* garfield = new Cat();
-	// const WrongAnimal* grosminet = new WrongCat();
-	
-	// Each type of animal print his own sound 
-	std::cout << std::endl;
-	std::cout << idefix->getType() << " " << std::endl;
-	std::cout << garfield->getType() << " " << std::endl;
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
 	
 	std::cout << std::endl;
-	garfield->makeSound();
-	idefix->makeSound();
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	std::cout << std::endl;
+	i->makeSound();
+	j->makeSound();
 	meta->makeSound();
-	
 	std::cout << std::endl;
-	delete(idefix);
-	delete(garfield);
+	delete(i);
+	delete(j);
 	delete(meta);
+	std::cout << std::endl;
 
-	// Wrong Cat print sound of Wronf Animal without keyword virtual
-	// std::cout << std::endl;
-	// std::cout << grosminet->getType() << " " << std::endl;
-	// grosminet->makeSound();
-	// delete(grosminet);
+	// My tests
+	Animal		Titi;
+	Dog			Idefix;
+	Cat			Garfield;
+	WrongAnimal	Coffee;
+	WrongCat	Grosminet;
+
+	std::cout << std::endl;
+	std::cout << Titi.getType() << std::endl;
+	Titi.makeSound();
+	std::cout << std::endl;
+	std::cout << Idefix.getType() << std::endl;
+	Idefix.makeSound();
+	std::cout << std::endl;
+	std::cout << Garfield.getType() << std::endl;
+	Garfield.makeSound();
+	std::cout << std::endl;
+	std::cout << Coffee.getType() << std::endl;
+	Coffee.makeSound();
+	std::cout << std::endl;
+	std::cout << Grosminet.getType() << std::endl;
+	Grosminet.makeSound();
+	std::cout << std::endl;
 	return (0);
 }
