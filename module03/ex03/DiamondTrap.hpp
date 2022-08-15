@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 10:38:58 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 10:53:52 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/15 13:06:24 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap & operator=(const DiamondTrap &src);
 		~DiamondTrap(void);
 		void	whoAmI(void);
+		using ScavTrap::attack;
 
 	private:
 		std::string	_name;

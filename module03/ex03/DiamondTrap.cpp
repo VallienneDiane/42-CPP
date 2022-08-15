@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 10:39:28 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/14 15:58:39 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/15 13:17:22 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 DiamondTrap::DiamondTrap( void ) : _name("---")
 {
-	this->_hitPoints = FragTrap::HP;
-	this->_energyPoints = ScavTrap::EP;
-	this->_attackDamage = FragTrap::AD;
+	this->_hitPoints = FragTrap::_HP;
+	this->_energyPoints = ScavTrap::_EP;
+	this->_attackDamage = FragTrap::_AD;
 	std::cout << BLUE << "DiamondTrap default constructor called : " << this->_name << std::endl;
 	return;
 }
@@ -28,9 +28,9 @@ DiamondTrap::DiamondTrap( void ) : _name("---")
 DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name"), ScavTrap(name + "_clap_name"), FragTrap(name + "_clap_name")
 {
 	this->_name = name;
-	this->_hitPoints = FragTrap::HP;
-	this->_energyPoints = ScavTrap::EP;
-	this->_attackDamage = FragTrap::AD;
+	this->_hitPoints = FragTrap::_HP;
+	this->_energyPoints = ScavTrap::_EP;
+	this->_attackDamage = FragTrap::_AD;
 	std::cout << BLUE << "DiamondTrap name constructor called : " << name << std::endl;
 	return;
 }

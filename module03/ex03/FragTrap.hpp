@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 16:44:52 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/14 15:57:17 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/15 13:05:26 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,13 @@ class FragTrap : public virtual ClapTrap
 		FragTrap(const FragTrap &src);
 		FragTrap & operator=(const FragTrap &src);
 		void	highFivesGuys(void);
-		static const int	HP = 100;
-		static const int	AD = 30;
 		~FragTrap(void);
+		
+	protected:
+		const int	_HP;
+		const int	_EP;
+		const int	_AD;
+		
 };
 
 #endif

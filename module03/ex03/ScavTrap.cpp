@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 13:30:59 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/14 14:45:55 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/15 13:16:55 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,34 +16,30 @@
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
 
-ScavTrap::ScavTrap( void )
+ScavTrap::ScavTrap( void ) : _HP(100), _EP(50), _AD(20)
 {
 	this->_name = "unknow_scav";
-	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
+	this->_hitPoints = this->_HP;
+	this->_energyPoints = this->_EP;
+	this->_attackDamage = this->_AD;
 	std::cout << YELLOW << "ScavTrap default constructor called : " << this->_name << std::endl;
 	return;
 }
 
-ScavTrap::ScavTrap( std::string name ) : ClapTrap(name)
+ScavTrap::ScavTrap( std::string name ) : ClapTrap(name), _HP(100), _EP(50), _AD(20)
 {
 	this->_name = name;
-	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
+	this->_hitPoints = this->_HP;
+	this->_energyPoints = this->_EP;
+	this->_attackDamage = this->_AD;
 	std::cout << YELLOW << "ScavTrap name constructor called : " << name << std::endl;
 	return;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &src)
+ScavTrap::ScavTrap(const ScavTrap &src) : _HP(100), _EP(50), _AD(20)
 {
-	this->setName(src._name);
-	this->setHitP(src._hitPoints);
-	this->setEnergyP(src._energyPoints);
-	this->setAttackP(src._attackDamage);
-	std::cout << YELLOW << "ScavTrap copy constructor called : " << this->_name << std::endl;
 	*this = src;
+	std::cout << YELLOW << "ScavTrap copy constructor called : " << this->_name << std::endl;
 }
 
 ScavTrap & ScavTrap::operator=(const ScavTrap &src)
