@@ -6,13 +6,16 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 11:22:30 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 13:56:46 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/16 10:19:01 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat( void )
+/**********************************************/
+/*			     CONSTRUCTORS                 */
+/* ********************************************/
+Cat::Cat(void)
 {
 	this->_type = "Cat";
 	std::cout << "Cat default constructor called" << std::endl;
@@ -32,12 +35,18 @@ Cat	& Cat::operator=(const Cat &src)
 	return (*this);
 }
 
+/**********************************************/
+/*			        FUNCTIONS                 */
+/* ********************************************/
 void	Cat::makeSound(void) const
 {
 	std::cout << "Miaou miaou" << std::endl;
 	return;
 }
 
+/**********************************************/
+/*			     DESTRUCTOR                   */
+/* ********************************************/
 Cat::~Cat( void )
 {
 	std::cout << "Cat destructor called" << std::endl;

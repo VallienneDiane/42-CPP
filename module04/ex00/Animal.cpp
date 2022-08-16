@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:27:38 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 14:20:52 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/16 10:19:09 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,21 @@
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
-
-Animal::Animal( void ) : _type("animal")
+Animal::Animal(void) : _type("animal")
 {
 	std::cout << "Animal default constructor called" << std::endl;
 	return;
 }
 
-Animal::Animal(const Animal &src) : _type(src._type)
+Animal::Animal(const Animal &src)
 {
 	*this = src;
-	std::cout << "Animal copy constrcutor called" << std::endl;
+	std::cout << "Animal copy constructor called" << std::endl;
 }
 
 Animal & Animal::operator=(const Animal &src)
 {
-	this->_type = src._type;
+	this->_type = src.getType();
 	std::cout << "Animal copy assignement operator called" << std::endl;
 	return (*this);
 }
@@ -38,7 +37,6 @@ Animal & Animal::operator=(const Animal &src)
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
-
 void	Animal::makeSound(void) const
 {
 	std::cout << "bruuuuuuh" << std::endl;
@@ -48,7 +46,6 @@ void	Animal::makeSound(void) const
 /**********************************************/
 /*			        GETTERS                   */
 /* ********************************************/
-
 std::string	Animal::getType(void) const
 {
 	return (this->_type);
@@ -57,7 +54,6 @@ std::string	Animal::getType(void) const
 /**********************************************/
 /*			     DESTRUCTOR                   */
 /* ********************************************/
-
 Animal::~Animal( void )
 {
 	std::cout << "Animal destructor called" << std::endl;
