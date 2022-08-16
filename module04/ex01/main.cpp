@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:12:41 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 16:17:55 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/16 11:44:07 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,25 @@
 
 int main(void)
 {
-	const Animal* Bill = new Dog();
-	const Animal* Duchesse = new Cat();
-	Brain	test;
-	std::cout << std::endl;
+	Animal	*tab_animal[10];
+	int		i;
+	// Dog		basic;
 	
-	test.setIdea(0, "c'est mon idee");
-	delete Bill;
-	delete Duchesse;
+	// Dog tmp = basic;
+	i = -1;
+	while (++i < 10)
+	{
+		if (i % 2)
+			tab_animal[i] = new Dog();
+		else
+			tab_animal[i] = new Cat();
+	}
+	i--;
 	std::cout << std::endl;
+	while (i >= 0)
+	{
+		delete tab_animal[i];
+		i--;
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:33:29 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 17:05:35 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/16 11:47:56 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,47 +15,33 @@
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
-
-Dog::Dog( void ) : Animal::Animal()
+Dog::Dog(void)
 {
 	this->_type = "Dog";
-	std::cout << "Dog default constructor called" << std::endl;
+	this->_dogBrain = new Brain();
+	std::cout << ORANGE << "Dog default constructor called" << std::endl;
 	return;
 }
 
-Dog::Dog( std::string name ) : Animal::Animal(name)
-{
-	this->_type = "Dog";
-	this->_brain = new Brain();
-	std::cout << "Dog constructor called : " << name << std::endl;
-}
-
-Dog::Dog(const Dog &src) : Animal::Animal(src)
+Dog::Dog(const Dog &src)
 {
 	*this = src;
-	std::cout << "Dog copy constructor called" << std::endl;
+	this->_dogBrain = new Brain();
+	std::cout << ORANGE << "Dog copy constructor called" << std::endl;
 }
 
 Dog	& Dog::operator=(const Dog &src)
 {
-	this->_type = src._type;
-	std::cout << "Dog copy assignement operator called" << std::endl;
+	this->_type = src.getType();
+	this->_dogBrain = new Brain();
+	*(this->_dogBrain) = *(src._dogBrain);
+	std::cout << ORANGE << "Dog copy assignement operator called" << std::endl;
 	return (*this);
-}
-
-/**********************************************/
-/*			        GETTERS                   */
-/* ********************************************/
-
-Brain &	Dog::getBrain(int i) const
-{
-	return (*this->_brain);
 }
 
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
-
 void	Dog::makeSound(void) const
 {
 	std::cout << "Ouaf ouaf" << std::endl;
@@ -65,10 +51,9 @@ void	Dog::makeSound(void) const
 /**********************************************/
 /*			     DESTRUCTOR                   */
 /* ********************************************/
-
 Dog::~Dog( void )
 {
-	delete this->_brain;
-	std::cout << "Dog destructor called" << std::endl;
+	delete this->_dogBrain;
+	std::cout << ORANGE << "Dog destructor called" << std::endl;
 	return;
 }

@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 11:31:05 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 13:58:17 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/16 10:38:25 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
-
 WrongAnimal::WrongAnimal( void ) : _type("WrongAnimal")
 {
 	std::cout << "WrongAnimal default constructor called" << std::endl;
 	return;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &src) : _type(src._type)
+WrongAnimal::WrongAnimal(const WrongAnimal &src)
 {
 	*this = src;
 	std::cout << "WrongAnimal copy constructor called" << std::endl;
@@ -30,7 +29,7 @@ WrongAnimal::WrongAnimal(const WrongAnimal &src) : _type(src._type)
 
 WrongAnimal & WrongAnimal::operator=(const WrongAnimal &src)
 {
-	this->_type = src._type;
+	this->_type = src.getType();
 	std::cout << "WrongAnimal copy assignment operator called" << std::endl;
 	return (*this);
 }
@@ -38,7 +37,6 @@ WrongAnimal & WrongAnimal::operator=(const WrongAnimal &src)
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
-
 void	WrongAnimal::makeSound(void) const
 {
 	std::cout << "Wrong Animal sound" << std::endl;
@@ -48,7 +46,6 @@ void	WrongAnimal::makeSound(void) const
 /**********************************************/
 /*			        GETTERS                   */
 /* ********************************************/
-
 std::string	WrongAnimal::getType(void) const
 {
 	return (this->_type);
@@ -57,7 +54,6 @@ std::string	WrongAnimal::getType(void) const
 /**********************************************/
 /*			     DESTRUCTOR                   */
 /* ********************************************/
-
 WrongAnimal::~WrongAnimal( void )
 {
 	std::cout << "WrongAnimal destructor called" << std::endl;

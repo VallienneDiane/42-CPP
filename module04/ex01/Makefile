@@ -6,7 +6,7 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 18:30:10 by dvallien          #+#    #+#              #
-#    Updated: 2022/08/15 16:14:01 by dvallien         ###   ########.fr        #
+#    Updated: 2022/08/16 10:47:44 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC			= 	Animal.cpp			\
 				Cat.cpp				\
 				WrongAnimal.cpp		\
 				WrongCat.cpp		\
+				Brain.cpp			\
 				main.cpp
 
 OBJS		=	$(addprefix $(PATH_OBJS), $(SRC:.cpp=.o))
