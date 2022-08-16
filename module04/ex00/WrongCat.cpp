@@ -6,12 +6,15 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 11:35:14 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 14:20:31 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/16 10:22:55 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
+/**********************************************/
+/*			     CONSTRUCTORS                 */
+/* ********************************************/
 WrongCat::WrongCat( void )
 {
 	this->_type = "WrongCat";
@@ -32,12 +35,18 @@ WrongCat	& WrongCat::operator=(const WrongCat &src)
 	return (*this);
 }
 
+/**********************************************/
+/*			        FUNCTIONS                 */
+/* ********************************************/
 void	WrongCat::makeSound(void) const
 {
 	std::cout << "tut tut " << std::endl;
 	return;
 }
 
+/**********************************************/
+/*			     DESTRUCTOR                   */
+/* ********************************************/
 WrongCat::~WrongCat( void )
 {
 	std::cout << "WrongCat destructor called" << std::endl;
