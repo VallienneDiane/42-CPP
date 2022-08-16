@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:12:41 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/16 11:44:07 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/16 11:53:56 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@
 
 int main(void)
 {
+	// My test
+	std::cout << "---- My test ----" << std::endl;
 	Animal	*tab_animal[10];
 	int		i;
-	// Dog		basic;
-	
-	// Dog tmp = basic;
 	i = -1;
 	while (++i < 10)
 	{
@@ -39,5 +38,21 @@ int main(void)
 		delete tab_animal[i];
 		i--;
 	}
+	std::cout << std::endl;
+	
+	// Deep Copy Test
+	std::cout << "---- Deep copy test ----" << std::endl;
+	Dog		basic;
+	Dog tmp = basic;
+	std::cout << std::endl;
+
+	// Subject test
+	std::cout << "---- Subject test ----" << std::endl;
+	const Animal* j = new Dog();
+	const Animal* k = new Cat();
+	std::cout << std::endl;
+	
+	delete j;
+	delete k;
 	return (0);
 }
