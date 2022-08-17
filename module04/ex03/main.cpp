@@ -6,11 +6,12 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 12:07:16 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/17 16:10:14 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/17 17:08:00 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// # include "IMateriaSource.hpp"
+# include "IMateriaSource.hpp"
+# include "MateriaSource.hpp"
 # include "Ice.hpp"
 # include "Cure.hpp"
 # include "AMateria.hpp"
@@ -18,25 +19,27 @@
 
 int	main(void)
 {
-	Character	robot("Bobby");
-	Character	witch("Lily");
-	// Ice		*iceMatClone;
-	// Cure		cureMat("cure");
-	Ice			*iceMat = new Ice("ice");
-	Ice			*iceMat2 = new Ice("ice");
-	Ice			*iceMat3 = new Ice("ice");
-	Cure		*cureMateria = new Cure("cure");
+	// MY TESTS
+	Character		robot("Bobby");
+	Character		witch("Lily");
+	Ice				*iceMatClone;
+	Cure			cureMat("cure");
+	Ice				*iceMat = new Ice("ice");
+	Ice				*iceMat2 = new Ice("ice");
+	Ice				*iceMat3 = new Ice("ice");
+	Cure			*cureMateria = new Cure("cure");
+	MateriaSource	*materiaSrc = new MateriaSource();
 	
 	std::cout << std::endl;
-	// std::cout << WHITE << " --- Character use a materia --- " << std::endl;
-	// iceMat.use(witch);
-	// cureMat.use(robot);
-	// std::cout << std::endl;
+	std::cout << WHITE << " --- Character use a materia --- " << std::endl;
+	iceMat.use(witch);
+	cureMat.use(robot);
+	std::cout << std::endl;
 	
-	// std::cout << WHITE << " --- Clone a materia and use it --- " << std::endl;
-	// iceMatClone = iceMat.clone();
-	// iceMatClone->use(robot);
-	// std::cout << std::endl;
+	std::cout << WHITE << " --- Clone a materia and use it --- " << std::endl;
+	iceMatClone = iceMat.clone();
+	iceMatClone->use(robot);
+	std::cout << std::endl;
 
 	std::cout << WHITE << " --- Equip & unequip a character with materias --- " << std::endl;
 	witch.equip(iceMat);
@@ -49,19 +52,19 @@ int	main(void)
 	witch.equip(iceMat3);
 	std::cout << std::endl;
 	
-
+	std::cout << WHITE << " --- Add materia --- " << std::endl;
+	materiaSrc->learnMateria(iceMat);
+	materiaSrc->learnMateria(iceMat2);
+	materiaSrc->learnMateria(iceMat3);
+	materiaSrc->learnMateria(cureMateria);
 	std::cout << std::endl;
 	
-	// iceMatClone = iceMat.clone();
-	
+	std::cout << WHITE << " --- Create materia --- " << std::endl;
+	materiaSrc->createMateria("ice");
+	materiaSrc->createMateria("iron");
+	std::cout << std::endl;
 
-	// bob.getName();
-	// bob.use();
-	
-	// Cure test;
-
-	// test.getType();
-
+	// SUBJECTS TESTS
 	// IMateriaSource* src = new MateriaSource();
 	
 	// src->learnMateria(new Ice());

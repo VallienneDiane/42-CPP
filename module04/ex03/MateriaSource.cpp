@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:49:52 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/17 16:32:54 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/17 17:06:28 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,31 @@ MateriaSource & MateriaSource::operator=(const MateriaSource &src)
 /**********************************************/
 /*			       FUNCTIONS                  */
 /* ********************************************/
-void MateriaSource::learnMateria(AMateria*)
+void MateriaSource::learnMateria(AMateria* materia)
 {
-	
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventoryMat[i] == NULL)
+		{
+			this->_inventoryMat[i] = materia;
+			std::cout << GREEN << "Materia is equiped with " << materia->getType()  << " at index " << i << std::endl;
+			return;
+		}
+	}
 }
-// AMateria* createMateria(std::string const & type);
+
+AMateria* MateriaSource::createMateria(std::string const & type)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventoryMat[i]->getType().compare(type) == 0)
+		{
+			std::cout << GREEN << "Materia's type is " << type  << " at index " << i << std::endl;
+			return (this->_inventoryMat[i]->clone());
+		}
+	}
+	return (0);	
+}
 
 /**********************************************/
 /*			       DESTRUCTOR                 */
