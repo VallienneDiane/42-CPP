@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 13:30:55 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/17 13:44:39 by dvallien         ###   ########.fr       */
+/*   Created: 2022/08/17 11:50:35 by dvallien          #+#    #+#             */
+/*   Updated: 2022/08/17 16:30:51 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_H
-# define ICE_H
-# include <iostream>
-# include <string>
-# include "AMateria.hpp"
+#ifndef MATERIASOURCE_H
+# define MATERIASOURCE_H
+# include "IMateriaSource.hpp"
 
-class Ice : public AMateria
+class MateriaSource
 {
 	public:
-		Ice(void);
-		Ice(std::string type);
-		Ice(const Ice &src);
-		Ice & operator=(const Ice &src);
-		Ice* clone(void) const;
-		~Ice(void);
+		MateriaSource(void);
+		MateriaSource(const MateriaSource &src);
+		MateriaSource & operator=(const MateriaSource & src);
+		void learnMateria(AMateria*);
+		// AMateria* createMateria(std::string const & type);
+		~MateriaSource(void);
+		
+	private:
+		AMateria	*_inventoryMat[4];	
 };
 
 #endif
+

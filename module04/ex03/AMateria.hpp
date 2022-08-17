@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Materia.hpp                                       :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 13:24:25 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/16 16:51:05 by dvallien         ###   ########.fr       */
+/*   Created: 2022/08/17 10:42:02 by dvallien          #+#    #+#             */
+/*   Updated: 2022/08/17 15:00:45 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATERIA_H
-# define MATERIA_H
+#ifndef AMATERIA_H
+# define AMATERIA_H
+
 # define RED "\x1B[31m"
 # define GREEN "\x1B[32m"
 # define YELLOW "\x1B[33m"
@@ -20,10 +21,11 @@
 # define BLUE "\x1B[36m"
 # define GREY "\x1B[30m"
 # define WHITE "\x1B[37m"
+
 # include <iostream>
 # include <string>
-class AMateria;
 # include "ICharacter.hpp"
+class ICharacter;
 
 /**********************************************/
 /*			       Abstract class             */
@@ -37,11 +39,12 @@ class AMateria
 		AMateria(void);
 		AMateria(std::string const & type);
 		AMateria(const AMateria &src);
+		virtual ~AMateria(void);
 		AMateria & operator=(const AMateria &src);
+	
 		std::string const & getType(void) const;
 		virtual AMateria*	clone(void) const = 0;
 		virtual void		use(ICharacter & target);
-		virtual ~AMateria(void);
 		
 	protected:
 		std::string _type;

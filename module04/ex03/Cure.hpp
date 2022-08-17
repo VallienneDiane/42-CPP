@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:31:02 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/16 17:02:40 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/17 13:44:54 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CURE_H
 # include <iostream>
 # include <string>
-# include "Materia.hpp"
+# include "AMateria.hpp"
 
 class Cure : public AMateria
 {
@@ -23,7 +23,7 @@ class Cure : public AMateria
 		Cure(std::string type);
 		Cure(const Cure &src);
 		Cure & operator=(const Cure &src);
-		AMateria* clone(void) const;
+		Cure* clone(void) const;
 		~Cure(void);
 };
 

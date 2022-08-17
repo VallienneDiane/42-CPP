@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:29:44 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/16 17:05:30 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/17 10:50:29 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 # define ICHARACTER_H
 # include <iostream>
 # include <string>
-class ICharacter;
-# include "Materia.hpp"
-
+# include "AMateria.hpp"
+class AMateria;
 /**********************************************/
 /*			       Interface                  */
 /*			-> only pure methods              */

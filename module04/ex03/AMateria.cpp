@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Materia.cpp                                        :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 14:11:06 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/16 16:54:10 by dvallien         ###   ########.fr       */
+/*   Created: 2022/08/17 10:42:09 by dvallien          #+#    #+#             */
+/*   Updated: 2022/08/17 14:02:14 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Materia.hpp"
+#include "AMateria.hpp"
 /**********************************************/
 /*			       CONSTRUCTORS               */
 /* ********************************************/
@@ -52,8 +52,10 @@ std::string const & AMateria::getType(void) const
 /* ********************************************/
 void AMateria::use(ICharacter& target)
 {
-	std::cout << "Ice : \"* shoots an ice bolt at " << target.getName() << " * \" " << std::endl;
-	std::cout << "Cure : \"* heals " << target.getName() << " 's wounds * \" " << std::endl;
+	if (this->getType() == "ice")
+		std::cout << BLUE <<"Ice : \"* shoots an ice bolt at " << target.getName() << " * \" " << std::endl;
+	else if (this->getType() == "cure")
+		std::cout << PURPLE << "Cure : \"* heals " << target.getName() << " 's wounds * \" " << std::endl;
 }
 		
 /**********************************************/
@@ -61,6 +63,6 @@ void AMateria::use(ICharacter& target)
 /* ********************************************/
 AMateria::~AMateria(void)
 {
-	std::cout << "AMateria destructor called" << std::endl;
+	std::cout << RED << "AMateria destructor called" << std::endl;
 	return;
 }

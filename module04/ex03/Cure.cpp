@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 14:00:22 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/16 16:53:37 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/17 14:01:38 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 /**********************************************/
 /*			       CONSTRUCTORS               */
 /* ********************************************/
-Cure::Cure(void)
+Cure::Cure(void) : AMateria("cure")
 {
 	this->_type = "cure";
-	std::cout << BLUE << "Cure default constructor called" << std::endl;
+	std::cout << PURPLE << "Cure default constructor called" << std::endl;
 	return;
 }
 
-Cure::Cure(std::string type)
+Cure::Cure(std::string type) : AMateria(type)
 {
 	this->_type = type;
-	std::cout << BLUE << "Cure type constructor called" << std::endl;
+	std::cout << PURPLE << "Cure type constructor called" << std::endl;
 	return;
 }
 
-Cure::Cure(const Cure &src)
+Cure::Cure(const Cure &src) : AMateria(src)
 {
-	std::cout << BLUE << "Cure copy constructor called" << std::endl;
+	std::cout << PURPLE << "Cure copy constructor called" << std::endl;
 	*this = src;
 }
 
 Cure & Cure::operator=(const Cure &src)
 {
-	std::cout << BLUE << "Cure copy assignment operator constructor called" << std::endl;
+	std::cout << PURPLE << "Cure copy assignment operator constructor called" << std::endl;
 	this->_type = src.getType();
 	return (*this);
 }
@@ -44,7 +44,7 @@ Cure & Cure::operator=(const Cure &src)
 /**********************************************/
 /*			       FUNCTIONS                  */
 /* ********************************************/
-AMateria* Cure::clone(void) const
+Cure* Cure::clone(void) const
 {
 	return (new Cure(*this));
 }
@@ -54,6 +54,6 @@ AMateria* Cure::clone(void) const
 /* ********************************************/
 Cure::~Cure(void)
 {
-	std::cout << BLUE << "Cure destructor called" << std::endl;
+	std::cout << PURPLE << "Cure destructor called" << std::endl;
 	return;
 }

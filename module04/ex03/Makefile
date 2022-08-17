@@ -6,7 +6,7 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 18:30:10 by dvallien          #+#    #+#              #
-#    Updated: 2022/08/16 16:54:03 by dvallien         ###   ########.fr        #
+#    Updated: 2022/08/17 11:54:28 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,16 @@ NAME		=	abstract
 
 PATH_OBJS	=	./.OBJS/
 
-INCLUDES	=	Materia.hpp		\
+INCLUDES	=	AMateria.hpp		\
+				IMateriaSource.hpp	\
+				MateriaSource.hpp	\
 				ICharacter.hpp		\
 				Character.hpp		\
 				Ice.hpp				\
 				Cure.hpp
 
-SRC			= 	Materia.cpp		\
+SRC			= 	AMateria.cpp		\
+				MateriaSource.cpp	\
 				Character.cpp		\
 				Ice.cpp				\
 				Cure.cpp			\
