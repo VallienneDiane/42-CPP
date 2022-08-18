@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:49:52 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/17 17:06:28 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/18 11:51:09 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ MateriaSource::MateriaSource(void)
 MateriaSource::MateriaSource(const MateriaSource &src)
 {
 	for (int i = 0; i < 4; i++)
-		this->_inventoryMat[i] = NULL;
+		this->_inventoryMat[i] = src._inventoryMat[i]->clone();
 	std::cout << GREY << "MateriaSource copy constructor called" << std::endl;
 	*this = src;
 }
@@ -33,7 +33,11 @@ MateriaSource::MateriaSource(const MateriaSource &src)
 MateriaSource & MateriaSource::operator=(const MateriaSource &src)
 {
 	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventoryMat[i])
+			delete (this->_inventoryMat[i]);
 		this->_inventoryMat[i] = src._inventoryMat[i]->clone();
+	}
 	std::cout << GREY << "MateriaSource copy assignement constructor called" << std::endl;
 	return (*this);
 }
@@ -47,8 +51,9 @@ void MateriaSource::learnMateria(AMateria* materia)
 	{
 		if (this->_inventoryMat[i] == NULL)
 		{
-			this->_inventoryMat[i] = materia;
-			std::cout << GREEN << "Materia is equiped with " << materia->getType()  << " at index " << i << std::endl;
+			this->_inventoryMat[i] = materia->clone();
+			std::cout << GREEN << "MateriaSource learn the materia " << materia->getType()  << " at index " << i << std::endl;
+			delete materia;
 			return;
 		}
 	}
@@ -58,7 +63,7 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_inventoryMat[i]->getType().compare(type) == 0)
+		if (this->_inventoryMat[i] && this->_inventoryMat[i]->getType().compare(type) == 0)
 		{
 			std::cout << GREEN << "Materia's type is " << type  << " at index " << i << std::endl;
 			return (this->_inventoryMat[i]->clone());

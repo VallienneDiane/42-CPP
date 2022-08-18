@@ -6,11 +6,11 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 18:30:10 by dvallien          #+#    #+#              #
-#    Updated: 2022/08/17 11:54:28 by dvallien         ###   ########.fr        #
+#    Updated: 2022/08/18 10:14:41 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	abstract
+NAME		=	interface
 
 PATH_OBJS	=	./.OBJS/
 

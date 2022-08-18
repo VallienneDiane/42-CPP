@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 14:00:22 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/17 14:01:38 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/18 11:28:50 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 /**********************************************/
 /*			       CONSTRUCTORS               */
 /* ********************************************/
-Cure::Cure(void) : AMateria("cure")
+Cure::Cure(void)
 {
 	this->_type = "cure";
 	std::cout << PURPLE << "Cure default constructor called" << std::endl;
 	return;
 }
 
-Cure::Cure(std::string type) : AMateria(type)
+Cure::Cure(std::string type)
 {
 	this->_type = type;
 	std::cout << PURPLE << "Cure type constructor called" << std::endl;
 	return;
 }
 
-Cure::Cure(const Cure &src) : AMateria(src)
+Cure::Cure(const Cure &src)
 {
 	std::cout << PURPLE << "Cure copy constructor called" << std::endl;
 	*this = src;
