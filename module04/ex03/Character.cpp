@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 15:44:39 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/17 16:00:35 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/18 14:20:55 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,12 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	this->_inventory[idx]->use(target);
+	if (this->_inventory[idx])
+	{
+		this->_inventory[idx]->use(target);
+		delete this->_inventory[idx];
+		this->_inventory[idx] = NULL;
+	}
 }
 
 /**********************************************/

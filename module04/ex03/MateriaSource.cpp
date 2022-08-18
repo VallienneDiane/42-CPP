@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:49:52 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/18 11:51:09 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/18 14:55:51 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void MateriaSource::learnMateria(AMateria* materia)
 		if (this->_inventoryMat[i] == NULL)
 		{
 			this->_inventoryMat[i] = materia->clone();
-			std::cout << GREEN << "MateriaSource learn the materia " << materia->getType()  << " at index " << i << std::endl;
 			delete materia;
 			return;
 		}
@@ -64,10 +63,7 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_inventoryMat[i] && this->_inventoryMat[i]->getType().compare(type) == 0)
-		{
-			std::cout << GREEN << "Materia's type is " << type  << " at index " << i << std::endl;
 			return (this->_inventoryMat[i]->clone());
-		}
 	}
 	return (0);	
 }
@@ -77,8 +73,8 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 /* ********************************************/
 MateriaSource::~MateriaSource(void)
 {
-	for (int i = 0; i < 4; i++)
-		delete (this->_inventoryMat[i]);
 	std::cout << GREY << "MateriaSource destructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+		delete (this->_inventoryMat[i]);			
 	return;
 }

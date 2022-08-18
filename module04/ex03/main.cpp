@@ -6,11 +6,10 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 12:07:16 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/18 11:50:36 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/18 14:55:11 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "IMateriaSource.hpp"
 # include "MateriaSource.hpp"
 # include "Ice.hpp"
 # include "Cure.hpp"
@@ -19,90 +18,79 @@
 
 int	main(void)
 {
-	// MY TESTS
+	////// Create characters ///////
+	std::cout << WHITE << " --- Create characters --- " << std::endl;
 	Character		robot("Bobby");
 	Character		witch("Lily");
-	// Cure			*cureMat = new Cure("cure");
-	// Ice				*iceMat = new Ice("ice");
-	// Ice				*iceMatClone = iceMat->clone();
-	Ice				*iceMat2 = new Ice("ice");
-	Ice				*iceMat3 = new Ice("ice");
-	IMateriaSource	*materiaSrc = new MateriaSource();
 	
-	// (void)robot;
-	// (void)witch;
-	// (void)iceMatClone;
-	// (void)cureMat;
-	// (void)iceMat;
-	// (void)iceMat2;
-	// (void)iceMat3;
-	// (void)materiaSrc;
+	////// Create materia  ///////
+	std::cout << WHITE << " --- Create materias --- " << std::endl;
+	Ice				*ice1 = new Ice("ice");
+	Ice				*ice2 = ice1->clone();
+	Cure			*cure1 = new Cure("cure");
+	
+	////// Create source  ///////
+	std::cout << WHITE << " --- Create source --- " << std::endl;
+	MateriaSource	*source = new MateriaSource();
+	
+	///// Source learn materia ////
+	std::cout << WHITE << " --- Source learn materia --- " << std::endl;
+	source->learnMateria(ice1);
+	source->learnMateria(cure1);
+	
+	///// Create materia from source ////
+	std::cout << WHITE << " --- Create materia from source --- " << std::endl;
+	AMateria *ice3 = source->createMateria("ice");
+	AMateria *cure2 = source->createMateria("cure");
+	
+	///// Character equip materias ////
+	std::cout << WHITE << " --- Character equip/unequip materias --- " << std::endl;
+	witch.equip(ice2);
+	witch.equip(ice2);
+	witch.unequip(0);
+	witch.equip(cure2);
+	witch.equip(ice3);
+	witch.equip(ice2);
+	
+	///// Use materia from empty index ////
+	std::cout << WHITE << " --- Use materias, empty index --- " << std::endl;
+	witch.use(3, robot);
+	
+	///// Use materia successfuly ////
+	std::cout << WHITE << " --- Use materias --- " << std::endl;
+	witch.use(0, robot);
+	witch.use(1, robot);
 	
 	std::cout << std::endl;
-	std::cout << WHITE << " --- Character use a materia --- " << std::endl;
-	// iceMat->use(witch);
-	// cureMat->use(robot);
-	std::cout << std::endl;
-	
-	// std::cout << WHITE << " --- Clone a materia and use it --- " << std::endl;
-	// iceMatClone->use(robot);
-	// std::cout << std::endl;
-
-	// std::cout << WHITE << " --- Equip & unequip a character with materias --- " << std::endl;
-	// witch.equip(iceMat);
-	// witch.equip(iceMat);
-	// witch.equip(cureMat);
-	// witch.unequip(1);
-	// witch.equip(cureMat);
-	witch.equip(iceMat2);
-	witch.equip(iceMat3);
-	witch.equip(iceMat3);
-	// std::cout << std::endl;
-	
-	std::cout << WHITE << " --- Add materia --- " << std::endl;
-	// materiaSrc->learnMateria(iceMat);
-	materiaSrc->learnMateria(iceMat2);
-	materiaSrc->learnMateria(iceMat3);
-	// materiaSrc->learnMateria(cureMat);
-	std::cout << std::endl;
-	
-	std::cout << WHITE << " --- Create materia --- " << std::endl;
-	materiaSrc->createMateria("ice");
-	materiaSrc->createMateria("ice");
-	std::cout << std::endl;
-	
-	// delete cureMat;
-	// delete iceMat;
-	// delete iceMatClone;
-	// delete iceMat2;
-	// delete iceMat3;
-	delete materiaSrc;
+	delete source;
 
 	// SUBJECTS TESTS
-	// IMateriaSource* src = new MateriaSource();
+	std::cout << std::endl;
+	std::cout << WHITE << " --- SUBJECT TESTS --- " << std::endl;
+	IMateriaSource* src = new MateriaSource();
 	
-	// src->learnMateria(new Ice());
-	// src->learnMateria(new Cure());
-	// std::cout << std::endl;
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	std::cout << std::endl;
 	
-	// ICharacter* lea = new Character("Lea");
-	// AMateria* tmp;
+	ICharacter* lea = new Character("Lea");
+	AMateria* tmp;
 	
-	// tmp = src->createMateria("ice");
-	// lea->equip(tmp);
-	// tmp = src->createMateria("cure");
-	// lea->equip(tmp);
-	// std::cout << std::endl;
+	tmp = src->createMateria("ice");
+	lea->equip(tmp);
+	tmp = src->createMateria("cure");
+	lea->equip(tmp);
+	std::cout << std::endl;
 	
-	// ICharacter* bob = new Character("Bob");
+	ICharacter* bob = new Character("Bob");
 	
-	// lea->use(0, *bob);
-	// lea->use(1, *bob);
+	lea->use(0, *bob);
+	lea->use(1, *bob);
 	
-	// std::cout << std::endl;
-	// delete bob;
-	// delete lea;
-	// delete src;
+	std::cout << std::endl;
+	delete bob;
+	delete lea;
+	delete src;
 
 	return (0);
 }
