@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 11:55:03 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/21 14:10:25 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/21 14:38:01 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int Bureaucrat::incrementGrade(void)
 		std::cout << "She can't get a promotion, she is the boss !" << std::endl;
 		throw GradeTooHighException();
 	}
-	std::cout << "INCREMENT : Bravo, you got a promotion !" << std::endl;
+	std::cout << "INCREMENT : Bravo " << this->_name << ", you got a promotion !" << std::endl;
 	return(this->_grade);
 }
 
@@ -93,7 +93,7 @@ int Bureaucrat::decrementGrade(void)
 			std::cout << "She can't be downgrade, her bureaucrat grade is already the lower..." << std::endl;
 			throw GradeTooLowException();
 		}
-	std::cout << "DECREMENT : Outch you loose your place... !" << std::endl;
+	std::cout << "DECREMENT : Outch you loose your place... ! Sorry " << this->_name << std::endl;
 	return(this->_grade);
 }
 

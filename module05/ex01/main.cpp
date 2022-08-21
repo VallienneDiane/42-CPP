@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 11:55:11 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/21 14:23:40 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/21 14:36:08 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,17 +77,21 @@ int main(void)
 		Bureaucrat	annie("Annie", 46);
 		Form		form1("taxes", 14, 10);
 		Form		form2("certificate", 45, 10);
+		Form		form3 = form1;
 		
 		std::cout << lea << std::endl;
 		std::cout << annie << std::endl;
 		std::cout << form1 << std::endl;
 		std::cout << form2 << std::endl;
+		std::cout << form3 << std::endl;
 		lea.signForm(form1);
 		annie.signForm(form2);
+		annie.signForm(form3);
 		std::cout << std::endl;
 		annie.incrementGrade();
 		std::cout << annie << std::endl;
 		annie.signForm(form2);
+		annie.signForm(form3);
 		std::cout << std::endl;
 		lea.decrementGrade();
 		std::cout << lea << std::endl;
