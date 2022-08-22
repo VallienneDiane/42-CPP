@@ -6,12 +6,12 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 14:52:37 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/21 18:15:03 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/22 11:42:09 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
-
+#include <time.h>
 //***********************************************//
 //					CONSTRUCTORS	             //
 //***********************************************//
@@ -45,21 +45,21 @@ std::string	RobotomyRequestForm::getTarget(void) const
 //***********************************************//
 //					FUNCTIONS	                 //
 //***********************************************//
-
-// FAIRE FONCTION ALEATOIRE ET EN FONCTION DU GRADE
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	std::cout << "**** drill noises ****" << std::endl;
+	int	number;
+
 	if (executor.getGrade() <= getExecGrade())
 	{
-		std::cout << executor.getName() << " You've been robotomised" << std::endl;
+		number = rand() % 100;
+		std::cout << "**** drill noises ****" << std::endl;
+		if (number % 2)
+			std::cout << executor.getName() << " has been robotomised ..." << std::endl;
+		else
+			std::cout << executor.getName() << " failed to be robotomised !" << std::endl;
 	}
 	else
-	{
-		std::cout << executor.getName() << " failed to be robotomised" << std::endl;
 		throw GradeTooLowToExecute();	
-	}
-	
 }
 
 //***********************************************//

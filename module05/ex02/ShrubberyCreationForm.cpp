@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 14:50:04 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/21 18:08:25 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/22 11:46:16 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	if (executor.getGrade() <= getExecGrade())
 	{
+		std::cout << executor.getName() << " draw a tree in the file" << std::endl;
 		std::ofstream file(this->_target + "_shrubbery");
 		std::string line;
 		

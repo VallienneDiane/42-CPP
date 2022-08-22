@@ -42,8 +42,8 @@ AForm & AForm::operator=(const AForm &src)
 
 std::ostream & operator<<(std::ostream &stream, const AForm &src )
 {
-	stream << "The Form '" << src.getName() << "' can be sign if grade is higher or equal to ";
-	stream << src.getSignGrade();
+	stream << "Form '" << src.getName() << "': min grade to sign ";
+	stream << src.getSignGrade() << " and min grade to execute " << src.getExecGrade();
 	return (stream);
 }
 
