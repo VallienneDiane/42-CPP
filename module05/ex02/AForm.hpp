@@ -57,9 +57,9 @@ class AForm
 		
 	private:
 		std::string const	_name;
-		bool				_signed;
 		int const			_signGrade;
-		int	const			_execGrade;
+		int const			_execGrade;
+		bool				_signed;
 };
 
 std::ostream & operator<<(std::ostream &stream, const AForm &src);

@@ -6,11 +6,11 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 18:30:10 by dvallien          #+#    #+#              #
-#    Updated: 2022/08/21 16:19:35 by dvallien         ###   ########.fr        #
+#    Updated: 2022/08/22 14:30:47 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	allform
+NAME		=	forms
 
 PATH_OBJS	=	./.OBJS/
 

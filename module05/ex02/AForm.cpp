@@ -15,22 +15,20 @@
 //***********************************************//
 //					CONSTRUCTORS	             //
 //***********************************************//
-AForm::AForm(void) : _name("unamed"), _signed(0),  _signGrade(0), _execGrade(0)
+AForm::AForm(void) : _name("unamed"),_signGrade(0), _execGrade(0), _signed(0)
 {
 }
 
-AForm::AForm(std::string const name, int const signGrade, int const execGrade) : _name(name), _signGrade(signGrade), _execGrade(execGrade)
+AForm::AForm(std::string const name, int const signGrade, int const execGrade) : _name(name), _signGrade(signGrade), _execGrade(execGrade), _signed(0)
 {
 	if (getSignGrade() > 150)
 		throw GradeTooLowException();
 	else if (getSignGrade() < 1)
 		throw GradeTooHighException();
-	this->_signed = 0;
 }
 
-AForm::AForm(const AForm &src) : _name(src.getName()), _signGrade(src.getSignGrade()), _execGrade(src.getExecGrade())
+AForm::AForm(const AForm &src) : _name(src.getName()), _signGrade(src.getSignGrade()), _execGrade(src.getExecGrade()), _signed(src.getSigned())
 {
-	this->_signed = src.getSigned();
 	*this = src;
 }
 

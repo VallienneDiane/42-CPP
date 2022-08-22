@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 14:55:20 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/21 17:47:20 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/22 14:34:28 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("Pres
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src) : AForm("PresidentialPardonForm", 25, 5), _target(src.getTarget())
 {
 	*this = src;
 }
 
 PresidentialPardonForm & PresidentialPardonForm::operator=(const PresidentialPardonForm &src)
 {
-	this->_target = src.getTarget();
+	(void)src;
 	return (*this);
 }
 
@@ -48,7 +48,7 @@ std::string	PresidentialPardonForm::getTarget(void) const
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	if (executor.getGrade() <= getExecGrade())
-		std::cout << this->getName() << " : " << this->_target << " : you've been forgiven by Zaphod Beeblebrox" << std::endl;
+		std::cout << this->_target << " has been forgiven by Zaphod Beeblebrox" << std::endl;
 	else
 		throw GradeTooLowToExecute();
 }

@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 11:55:03 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/21 16:20:09 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/22 14:32:45 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name), _grade(src.get
 //***********************************************//
 Bureaucrat & Bureaucrat::operator=(const Bureaucrat &src)
 {
-	this->_grade = src.getGrade();
+	(void)src;
 	return (*this);
 }
 
@@ -111,6 +111,19 @@ void	Bureaucrat::signForm(AForm &form)
 	
 }
 
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->_name << " executed the form " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	
+}
 //***********************************************//
 //					DESTRUCTOR 	                 //
 //***********************************************//
