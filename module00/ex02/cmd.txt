@@ -1,0 +1,7 @@
+./test > file
+
+cut -c 18- file | cat > cut_file
+
+cut -c 18- logfile | cat > cut_logfile
+
+diff cut_file cut_logfile
