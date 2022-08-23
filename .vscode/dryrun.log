@@ -1,6 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/dvallien/Documents/CPP_github'
-make: Leaving directory `/Users/dvallien/Documents/CPP_github'
- 
-make: *** No targets specified and no makefile found.  Stop.
-
