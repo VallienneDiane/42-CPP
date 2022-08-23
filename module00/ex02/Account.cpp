@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 14:34:36 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/28 11:41:34 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/23 14:48:14 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	Account::makeDeposit( int deposit )
 	_totalAmount += deposit;
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "p_amount:" << this->_amount << ";";
-	std::cout << "deposits:" << deposit << ";";
+	std::cout << "deposit:" << deposit << ";";
 	std::cout << "amount:" << d_amount << ";";
 	this->_nbDeposits++;
 	std::cout << "nb_deposits:" << this->_nbDeposits << std::endl;
@@ -114,7 +114,7 @@ bool Account::makeWithdrawal( int withdrawal )
 	{
 		std::cout << "index:" << this->_accountIndex << ";";
 		std::cout << "p_amount:" << p_amount << ";";
-		std::cout << "withdrawal:refused" << ";" << std::endl;
+		std::cout << "withdrawal:refused" << std::endl;
 	}
 	else
 	{
@@ -125,6 +125,8 @@ bool Account::makeWithdrawal( int withdrawal )
 		std::cout << "amount:" << w_amount << ";";
 		this->_nbWithdrawals++;
 		std::cout << "nb_withdrawals:" << this->_nbWithdrawals << std::endl;
+		this->_totalNbWithdrawals++;
+		this->_amount -= withdrawal;
 	}
 	return (0);
 }
