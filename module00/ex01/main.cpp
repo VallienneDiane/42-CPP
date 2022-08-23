@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 15:23:14 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/31 11:24:52 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/23 14:00:41 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int	main()
 	int			index;
 	int			nbContact;
 	int			i;
-
 
 	index = 0;
 	nbContact = 0;

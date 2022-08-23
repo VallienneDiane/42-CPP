@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:08:17 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/28 17:55:42 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/23 14:01:29 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@
 
 class Contact {
 
-	public:
-		Contact( void );
-		~Contact( void );
-		void	setInfo( void );
-		void	getInfo( int );
-		void	printInfo( void );
-		
 	private:
 		std::string _firstName;
 		std::string _lastName;
 		std::string _nickName;
 		std::string _phoneNumber;
 		std::string _darkestSecret;
+		
+	public:
+		Contact( void );
+		~Contact( void );
+		void	setInfo( void );
+		void	getInfo( int );
+		void	printInfo( void );
 };
 
 #endif
