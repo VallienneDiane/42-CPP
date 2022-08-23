@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 13:04:44 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/22 16:53:06 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/23 11:15:35 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,31 +33,35 @@ Intern::~Intern(void)
 
 AForm*	Intern::makeForm(std::string formName, std::string targetForm)
 {
-	AForm	*form;
-	std::string tab_forms[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+	static const std::string tab_forms[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+	static AForm* (*makeFormFunctions[3])(std::string targetForm) = { makeShrubberyForm, makeRobotomyForm, makePresidentialForm };
 	int	i;
 	
-
-	i = -1;
-	form = NULL;
-	while (i++ < 3 && formName.compare(tab_forms[i]));
-	switch (i)
+	i = 0;
+	while (i < 3)
 	{
-		case 0:
-			form = new ShrubberyCreationForm(targetForm);
+		if (formName.compare(tab_forms[i]) == 0)
+		{
 			std::cout << GREEN << "Intern creates the form : " << formName << std::endl;
-			break;
-		case 1:
-			form = new RobotomyRequestForm(targetForm);
-			std::cout << GREEN << "Intern creates the form : " << formName << std::endl;
-			break;
-		case 2:
-			form = new PresidentialPardonForm(targetForm);
-			std::cout << GREEN << "Intern creates the form : " << formName << std::endl;
-			break;
-		default:
-			std::cout << RED << "Intern error : the form " << formName << " doesn't exist" << std::endl;
-			break;
+			return (makeFormFunctions[i]) (targetForm);
+		}
+		i++;
 	}
-	return (form);
+	std::cout << RED << "Intern error : the form " << formName << " doesn't exist" << std::endl;
+	return (NULL);
+}
+
+AForm*	Intern::makeShrubberyForm(std::string target)
+{
+	return new ShrubberyCreationForm(target);
+}
+
+AForm*	Intern::makeRobotomyForm(std::string target)
+{
+	return new RobotomyRequestForm(target);
+}
+
+AForm*	Intern::makePresidentialForm(std::string target)
+{
+	return new PresidentialPardonForm(target);
 }

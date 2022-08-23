@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 11:55:11 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/22 16:52:19 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/23 11:14:49 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ int main(void)
 	lydie.signForm(*president);
 	lydie.executeForm(*president);
 	std::cout << std::endl;
-	lydie.signForm(*sorry);
-	lydie.executeForm(*sorry);
 
 	delete(shrub);
 	delete(robot);

@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 13:04:37 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/22 15:50:14 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/23 10:58:19 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ class Intern
 		~Intern(void);
 
 		AForm*	makeForm(std::string formName, std::string targetForm);
+		static AForm*	makeShrubberyForm(std::string target);
+		static AForm*	makeRobotomyForm(std::string target);
+		static AForm*	makePresidentialForm(std::string target);
 };
 
 #endif
