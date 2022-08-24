@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 15:23:14 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/23 14:00:41 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/24 14:26:00 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,20 @@ int checkIndex(void)
 	return (0);
 }
 
-int	main()
+int	main(int ac, char **av)
 {
 	PhoneBook	phoneBook;
 	std::string input;
 	int			index;
 	int			nbContact;
 	int			i;
-
+	(void)av;
+	
+	if (ac != 1)
+	{
+		std::cout << "Error : wrong number of arguments" << std::endl;
+		return (0);
+	}
 	index = 0;
 	nbContact = 0;
 	while (1 && !std::cin.eof())
