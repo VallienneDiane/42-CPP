@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 16:03:36 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/24 14:08:10 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/03 16:35:01 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ bool	isNum(std::string arg)
 
 bool	isLitteralFloat(std::string arg)
 {
-	if (arg.compare("-inff") == 0 | arg.compare("+inff") == 0 | arg.compare("nanf") == 0)
+	if (arg.compare("-inff") == 0 || arg.compare("+inff") == 0 || arg.compare("inff") == 0 || arg.compare("nanf") == 0)
 		return true;
 	return false;
 }
@@ -68,7 +68,7 @@ bool	isFloat(std::string arg)
 			i++;
 			negative = true;
 		}
-		if ((i == 0 && arg[i] == '.' && negative == false) | (i == 1 && arg[i] == '.' && negative == true))
+		if ((i == 0 && arg[i] == '.' && negative == false) || (i == 1 && arg[i] == '.' && negative == true))
 			return false;
 		if (dot != 1)
 			return false;
@@ -84,7 +84,7 @@ bool	isFloat(std::string arg)
 
 bool	isLitteralDouble(std::string arg)
 {
-	if (arg.compare("-inf") == 0 | arg.compare("+inf") == 0 | arg.compare("nan") == 0)
+	if (arg.compare("-inf") == 0 || arg.compare("+inf") == 0 || arg.compare("inf") == 0 || arg.compare("nan") == 0)
 		return true;
 	return false;
 }
@@ -112,7 +112,7 @@ bool	isDouble(std::string arg)
 			i++;
 			negative = true;
 		}
-		if ((i == 0 && arg[i] == '.' && negative == false) | (i == 1 && arg[i] == '.' && negative == true))
+		if ((i == 0 && arg[i] == '.' && negative == false) || (i == 1 && arg[i] == '.' && negative == true))
 			return false;
 		if (dot != 1)
 			return false;

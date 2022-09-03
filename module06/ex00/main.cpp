@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 11:25:06 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/24 14:41:30 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/03 17:05:09 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,17 @@
 void	checkType(std::string arg)
 {
 	if (isChar(arg))
-	{
-		std::cout << "it's a char" << std::endl; 
 		convertChar(arg);
-	}
 	else if (isNum(arg))
 	{
-		std::cout << "it's an int" << std::endl; 
-		//convertInt(arg);
+		convertInt(arg);
 	}
 	else if (isFloat(arg))
-	{
-		std::cout << "it's a float" << std::endl;	
-		//convertInt(arg);
-	}
-	else if (isDouble(arg) == true)
-	{
-		std::cout << "it's a double" << std::endl;	
-		//convertInt(arg);
-	}
+		convertFloat(arg);
+	else if (isDouble(arg))
+		convertDouble(arg);
 	else
-		std::cout << "This conversion isn't possible" << std::endl;
+		std::cout << "Error : conversion not possible" << std::endl;
 }
 
 int main(int ac, char **av)
@@ -48,12 +38,16 @@ int main(int ac, char **av)
 		return (0);
 	}
 	arg = av[1];
-	std::cout << arg.length() << std::endl;
 	if (arg.empty() == true)
 	{
 		std::cout << "Error : empty input" << std::endl;
 		return (0);
 	}
+	if (arg.length() > 19 || (arg[0] == '-' && arg.length() > 20))
+	{
+		std::cout << "Error : input too large" << std::endl;
+		return (0);
+	}	
 	checkType(arg);
 	return (0);
 }
