@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:23:22 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/03 18:12:33 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/04 10:39:21 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,22 @@ Data *deserialize(uintptr_t raw)
 
 int	main(void)
 {
-	Data		test;
-	Data		*test2;
+	Data		data;
+	Data		*deserial;
 	uintptr_t	serial;
 	
-	test.issue = 5;
-	serial = serialize(&test);
-	test2 = deserialize(serial);
-	std::cout << serial << " " << test2->issue << std::endl;
+	data.x = 5;
+	data.y = 15;
+	
+	std::cout << "Data address : " << &data << std::endl;
+	std::cout << "Data values : " << data.x << ", " << data.y << std::endl;
+	
+	serial = serialize(&data);
+	std::cout << "Serialize : " << serial << std::endl;
+
+	deserial = deserialize(serial);
+	std::cout << "Deserialize : " << &data << std::endl;
+	std::cout << "Data values : " << data.x << ", " << data.y << std::endl;
+	
+	return (0);
 }

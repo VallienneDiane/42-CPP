@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:49:38 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/03 18:01:32 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/04 10:31:05 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 
 typedef struct Data
 {
-	int issue;
+	int x;
+	int y;
 
 }Data;
 
