@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:04:43 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/04 15:20:31 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/04 15:42:20 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ int	main(void)
 	std::cout << std::endl;
 	::iter(charTab, 5, printTab);
 	std::cout << std::endl;
-	::iterNoConst(charTab, 5, toUpper);
+	::iter(charTab, 5, toUpper);
 }

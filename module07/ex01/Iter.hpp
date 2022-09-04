@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:05:17 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/04 15:20:21 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/04 15:42:11 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	iter(T const *tab, int size, void funct(T const &))
 }
 
 template< typename T >
-void	iterNoConst(T *tab, int size, void funct(T &))
+void	iter(T *tab, int size, void funct(T &))
 {
 	for(int i = 0; i < size; i++)
 		funct(tab[i]);
