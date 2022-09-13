@@ -6,18 +6,18 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 18:30:10 by dvallien          #+#    #+#              #
-#    Updated: 2022/09/04 15:54:48 by dvallien         ###   ########.fr        #
+#    Updated: 2022/09/13 13:29:47 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	template
+NAME		=	array
 
 PATH_OBJS	=	./.OBJS/
 
-INCLUDES	= Array.hpp
+INCLUDES	= Array.hpp \
+			  Array.tpp
 
-SRC			= 	main.cpp	\
-				Array.tpp
+SRC			= 	main.cpp
 
 OBJS		=	$(addprefix $(PATH_OBJS), $(SRC:.cpp=.o))
 
@@ -30,7 +30,7 @@ all :		$(NAME)
 $(NAME) :	$(OBJS) Makefile
 			$(CPPC) $(OBJS) -o $(NAME)
 
-$(PATH_OBJS)%.o :	%.cpp #$(INCLUDES)
+$(PATH_OBJS)%.o :	%.cpp $(INCLUDES)
 					@mkdir -p $(PATH_OBJS)
 					$(CPPC) $(CPPFLAGS) -c $< -o $@
 
