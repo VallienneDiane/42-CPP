@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:16:39 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/06 14:39:51 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/14 14:41:08 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ int main(int ac, char **av)
 	if (ac == 4)
 		replace(av[1], av[2], av[3]);
 	else
-		std::cout << "Error: wrong number of arguments" << std::endl;
+		std::cout << "Usage : ./stream filename <s1> <s2>" << std::endl;
 	return (0);
 }

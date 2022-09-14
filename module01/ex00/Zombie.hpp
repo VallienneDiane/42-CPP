@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 17:46:33 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/30 14:14:53 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/08/23 14:59:49 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 
 class Zombie{
 	
+	private:
+		std::string	_name;
+		
 	public:
 		Zombie( std::string name );
 		~Zombie( void );
 		void	announce( void );
-
-	private:
-		std::string	_name;
 };
 
 Zombie* newZombie( std::string name );
