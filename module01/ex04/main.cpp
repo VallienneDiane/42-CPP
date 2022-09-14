@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:16:39 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/14 14:41:08 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/14 16:48:26 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	replace(std::string filename, std::string s1, std::string s2)
 	
 	if (ifs_read.fail())
 	{
-		std::cout << "Error : fail open file" << std::endl;
+		std::cout << "Error : read access denied" << std::endl;
 		return (1);
 	}
 	while (!s1.empty() && std::getline(ifs_read, line))
