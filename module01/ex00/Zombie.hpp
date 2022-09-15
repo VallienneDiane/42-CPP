@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 17:46:33 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/23 14:59:49 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/15 14:57:55 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ class Zombie{
 };
 
 Zombie* newZombie( std::string name );
-void	randomChup( std::string name );
+void	randomChump( std::string name );
 
 #endif

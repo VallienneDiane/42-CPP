@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 14:40:37 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/30 16:58:31 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/15 14:58:29 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,16 @@
 # include <iostream>
 
 class Zombie{
+
+	private:
+		std::string	_name;
 	
 	public:
 		Zombie( void );
 		~Zombie( void );
 		void	announce( void );
 		void	setName(std::string name);
-
-	private:
-		std::string	_name;
 };
-
 Zombie* zombieHorde( int N, std::string name);
 
 #endif

@@ -6,18 +6,18 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 14:42:50 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/30 17:12:35 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:13:22 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie* zombieHorde( int N, std::string name)
+Zombie* zombieHorde(int N, std::string name)
 {
-	int	i;
+	if (N < 0)
+		return (0);
 	Zombie* newZombie = new Zombie[N];
-
-	i = 0;
+	int	i = 0;
 	while (N > i)
 	{
 		newZombie[i].setName(name);

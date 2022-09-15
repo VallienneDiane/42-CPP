@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 17:33:42 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/31 15:38:27 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/15 14:59:18 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 
 class Weapon{
 
+	private:
+		std::string _type;
+
 	public:
 		Weapon( void );
 		Weapon( std::string type );
 		~Weapon( void );
 		const std::string	&getType( void );
 		void				setType( std::string new_type );
-
-	private:
-		std::string _type;
 };
 
 #endif

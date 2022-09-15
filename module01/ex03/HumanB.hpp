@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 17:33:31 by dvallien          #+#    #+#             */
-/*   Updated: 2022/07/31 15:31:15 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/15 14:57:46 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 
 class HumanB{
 	
+	private :
+		std::string _name;
+		Weapon		*_weapon;
+		
 	public:
 		HumanB( std::string name );
 		~HumanB( void );
 		void	attack( void ) const;
 		void	setWeapon( Weapon &weapon );
-
-	private :
-		std::string _name;
-		Weapon		*_weapon;
 };
 
 #endif

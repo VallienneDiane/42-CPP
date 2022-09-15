@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 14:19:41 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/07 11:22:20 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:00:40 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int main( int ac, char **av )
 		harl.complain(level);
 	}
 	else
-		std::cout << "Error : wrong number of arguments" << std::endl;
+		std::cout << "Usage : ./harl \"<DEBUG> or <INFO> or <WARNING> or <ERROR>\""<< std::endl;
 	return (0);
 }
