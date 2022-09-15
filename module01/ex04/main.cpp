@@ -6,10 +6,9 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 17:16:39 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/14 16:48:26 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/15 13:52:03 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <iostream>
 #include <string>
@@ -18,20 +17,23 @@
 int	replace(std::string filename, std::string s1, std::string s2)
 {
 	std::ifstream	ifs_read(filename);
-	std::ofstream	ofs_write(filename + ".replace");
 	std::string		line;
 	std::size_t		found_i;
 	
 	if (ifs_read.fail())
 	{
 		std::cout << "Error : read access denied" << std::endl;
+		ifs_read.close();
 		return (1);
 	}
-	while (!s1.empty() && std::getline(ifs_read, line))
+	std::ofstream	ofs_write(filename + ".replace");
+	while (std::getline(ifs_read, line))
 	{
 		found_i = line.find(s1);
 		while (found_i != std::string::npos)
 		{
+			if (!found_i && !s1.size())
+				break;
 			line.erase(found_i, s1.length());
 			line.insert(found_i, s2);
 			found_i += s2.size();
