@@ -3,19 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
+#    By: vallienne <vallienne@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 18:30:10 by dvallien          #+#    #+#              #
-#    Updated: 2022/09/16 14:44:11 by dvallien         ###   ########.fr        #
+#    Updated: 2022/09/16 18:09:04 by vallienne        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	span
+NAME		=	stack
 
 PATH_OBJS	=	./.OBJS/
 
-INCLUDES	= MutantStack.hpp \
-			  MutantStack.tpp
+INCLUDES	= MutantStack.hpp
 
 SRC			= 	main.cpp
 
