@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:00:58 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/15 17:12:54 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/16 13:53:46 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 /****************************/
 /* CONSTRUCTOR & DESTRUCTOR */
 /****************************/
-Span::Span(void) : _arrayNb(std::vector<int>()), _size(0)
+Span::Span(void) : _arrayNb(std::vector<int>()), _size(0), _i(0)
 {
 }
 
-Span::Span(unsigned int N) : _arrayNb(std::vector<int>()), _size(N)
+Span::Span(unsigned int N) : _arrayNb(std::vector<int>()), _size(N), _i(0)
 {
 }
-
 
 Span::Span(const Span &src)
 {
 	_arrayNb = src._arrayNb;
 	_size = src._size;
+	_i = src._i;
 	*this = src;
 }
 
@@ -40,44 +40,53 @@ Span::~Span(void)
 /****************************/
 Span & Span::operator=(const Span &src)
 {
-	(void)src;
+	_arrayNb = std::vector<int>(src._arrayNb);
 	return (*this);
-}
-
-std::ostream & operator<<(std::ostream &stream, const Span &src)
-{
-	(void)src;
-	return (stream);
 }
 
 /****************************/
 /******** FUNCTIONS *********/
 /****************************/
 void Span::addNumber(int nb)
-{
-	unsigned int i = 0;
-	if(i < _size)
+{	
+	if (_i < _size)
 	{
 		_arrayNb.push_back(nb);
-		i++;
+		_i++;
 	}
 	else
 		throw TooManyElements();
-	// for (std::vector<int>::iterator it=_arrayNb.begin(); it!=_arrayNb.end(); ++it)
-	// 	std::cout << ' ' << *it << std::endl;
+}
+
+void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	for (std::vector<int>::iterator it = begin; it != end; it++)
+	{	
+		_arrayNb.push_back(*it);
+		_i++;
+	}
+	if (_i > _size)
+		throw TooManyElements();
 }
 
 const char* Span::TooManyElements::what(void) const throw()
 {
-	return("Exception : too many elements to add");
+	return("Exception : too many elements added");
+}
+
+const char* Span::NotEnoughElements::what(void) const throw()
+{
+	return("Exception : not enough elements to find the distance");
 }
 
 int	Span::shortestSpan(void)
 {
-	int diff;
+	int diff = 0;
 	int	shortest;
 	unsigned int j;
 	
+	if (_size < 2)
+		throw NotEnoughElements();
 	shortest = INT_MAX;
 	std::sort(_arrayNb.begin(), _arrayNb.end());
 	for(unsigned int i = _size - 1; i > 0; i--)
@@ -100,6 +109,8 @@ int	Span::longestSpan(void)
 	int	longest;
 	unsigned int j;
 	
+	if (_size < 2)
+		throw NotEnoughElements();
 	longest = 0;
 	std::sort(_arrayNb.begin(), _arrayNb.end());
 	for(unsigned int i = _size - 1; i > 0; i--)

@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:01:04 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/15 16:33:56 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/16 13:34:33 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Span
 	private:
 		std::vector<int>	_arrayNb;
 		unsigned int		_size;
+		unsigned int		_i;
 		
 	public:
 		Span(void);
@@ -32,10 +33,16 @@ class Span
 
 		Span & operator=(const Span &src);
 		void addNumber(int nb);
+		void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 		int	shortestSpan(void);
 		int	longestSpan(void);
 
 		class TooManyElements : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+		class NotEnoughElements : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
