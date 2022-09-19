@@ -6,18 +6,22 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 13:36:23 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/07 15:52:58 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 11:25:33 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-# define FIXED_H
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
 #include <iostream>
 #include <string>
 
 class Fixed{
 	
+	private:
+		int _number;
+		int const static _bits = 8;
+		
 	public:
 		Fixed( void );
 		Fixed( const Fixed &source );
@@ -25,10 +29,6 @@ class Fixed{
 		~Fixed( void );
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
-		
-	private:
-		int _number;
-		int const static _bits = 8;
 };
 
 #endif

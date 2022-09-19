@@ -6,14 +6,14 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 16:30:17 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/10 14:15:41 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 11:40:05 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 #include "Fixed.hpp"
 
-float areaParallelogram( Point const a, Point const b, Point const point)
+float areaParallelogram(Point const a, Point const b, Point const point)
 {
 	float result;
 
@@ -21,7 +21,7 @@ float areaParallelogram( Point const a, Point const b, Point const point)
 	return (result);
 }
 
-bool bsp( Point const a, Point const b, Point const c, Point const point)
+bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
 	float AB = areaParallelogram(a, b, point);
 	float BC = areaParallelogram(b, c, point);
