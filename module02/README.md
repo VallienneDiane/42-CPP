@@ -40,4 +40,5 @@ Example :
 Useful links for :
 
 -> convert int/float to binary : https://www.rapidtables.com/convert/number/decimal-to-binary.html
+
 -> an explanation of Fixed point numbers : https://www.youtube.com/watch?v=ZMsrZvBmQnU
