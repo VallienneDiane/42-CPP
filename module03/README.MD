@@ -3,6 +3,7 @@
 ### Keyword " : public ", Access specifier protected
 
 In C++, it is possible to inherit attributes and methods from one class to another. 
+In such way, you can reuse, extend or modify the attributes and behaviors which are defined in other class.
 
 We group the "inheritance concept" into two categories:
 
