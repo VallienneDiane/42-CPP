@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 13:30:59 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 13:16:55 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:57:50 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
-
 ScavTrap::ScavTrap( void ) : _HP(100), _EP(50), _AD(20)
 {
 	this->_name = "unknow_scav";
@@ -55,7 +54,6 @@ ScavTrap & ScavTrap::operator=(const ScavTrap &src)
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
-
 void ScavTrap::attack(const std::string& target)
 {
 	if (this->getHitP() <= 0 | this->getEnergyP() <= 0)
@@ -79,7 +77,6 @@ void ScavTrap::guardGate(void)
 /**********************************************/
 /*			     DESTRUCTOR                   */
 /* ********************************************/
-
 ScavTrap::~ScavTrap( void )
 {
 	std::cout << YELLOW << "ScavTrap destructor called : " << this->_name << std::endl;

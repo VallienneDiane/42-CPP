@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 16:44:44 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 13:09:45 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:57:07 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
-
 FragTrap::FragTrap( void ) : _HP(100), _EP(100), _AD(30)
 {
 	this->_name = "unknow_frag";
@@ -55,7 +54,6 @@ FragTrap & FragTrap::operator=(const FragTrap &src)
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
-
 void FragTrap::highFivesGuys(void)
 {
 	std::cout << BLUE << this->_name << " : High fives guys ?" << std::endl;
@@ -64,7 +62,6 @@ void FragTrap::highFivesGuys(void)
 /**********************************************/
 /*			     DESTRUCTOR                   */
 /* ********************************************/
-
 FragTrap::~FragTrap( void )
 {
 	std::cout << ORANGE << "FragTrap destructor called : " << this->_name << std::endl;

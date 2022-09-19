@@ -6,12 +6,12 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:19:28 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 14:27:51 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:54:50 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_H
-# define CLAPTRAP_H
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 # include <iostream>
 # include <string>
 
@@ -25,10 +25,11 @@ class ClapTrap{
 
 	public:
 		ClapTrap(void);
-		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &src);
 		ClapTrap & operator=(const ClapTrap &src);
 		~ClapTrap(void);
+		
+		ClapTrap(std::string name);
 		std::string	getName(void) const;
 		int			getHitP(void) const;
 		int			getEnergyP(void) const;

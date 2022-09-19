@@ -6,16 +6,14 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:19:28 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/14 11:04:42 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:59:15 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_H
-# define CLAPTRAP_H
-
-#include <iostream>
-#include <string>
-
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
+# include <iostream>
+# include <string>
 # define RED "\x1B[31m"
 # define GREEN "\x1B[32m"
 # define YELLOW "\x1B[33m"
@@ -26,13 +24,20 @@
 # define WHITE "\x1B[37m"
 
 class ClapTrap{
+		
+	protected:
+		std::string	_name;
+		int			_hitPoints;
+		int			_energyPoints;
+		int			_attackDamage;
 
 	public:
 		ClapTrap(void);
-		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &src);
 		ClapTrap & operator=(const ClapTrap &src);
 		~ClapTrap(void);
+		
+		ClapTrap(std::string name);
 		void		setName(std::string name);
 		void		setHitP(int hitPoints);
 		void		setEnergyP(int energyPoints);
@@ -44,12 +49,6 @@ class ClapTrap{
 		void		attack(const std::string& target);
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
-		
-	protected:
-		std::string	_name;
-		int			_hitPoints;
-		int			_energyPoints;
-		int			_attackDamage;
 };
 
 #endif

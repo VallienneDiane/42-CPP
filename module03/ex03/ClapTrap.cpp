@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:31:54 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/14 13:59:43 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:58:51 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 /**********************************************/
 /*			     CONSTRUCTORS                 */
-/* ********************************************/
-
+/**********************************************/
 ClapTrap::ClapTrap(void): _name("unknow_clap"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << GREEN << "ClapTrap default constructor called : " << this->_name << std::endl;
@@ -46,8 +45,7 @@ ClapTrap & ClapTrap::operator=(const ClapTrap &src)
 
 /**********************************************/
 /*			        SETTERS                   */
-/* ********************************************/
-
+/**********************************************/
 void		ClapTrap::setName(std::string name)
 {
 	this->_name = name;
@@ -70,8 +68,7 @@ void		ClapTrap::setAttackP(int attackDamage)
 
 /**********************************************/
 /*			        GETTERS                   */
-/* ********************************************/
-
+/**********************************************/
 std::string	ClapTrap::getName(void) const
 {
 	return (this->_name);
@@ -94,8 +91,7 @@ int	ClapTrap::getAttackD(void) const
 
 /**********************************************/
 /*			        FUNCTIONS                 */
-/* ********************************************/
-
+/**********************************************/
 void ClapTrap::attack(const std::string& target)
 {
 	if (this->_hitPoints <= 0 | this->_energyPoints <= 0)
@@ -146,8 +142,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 /**********************************************/
 /*			     DESTRUCTOR                   */
-/* ********************************************/
-
+/**********************************************/
 ClapTrap::~ClapTrap(void)
 {
 	std::cout << GREEN << "ClapTrap destructor called : "<< this->_name << std::endl;

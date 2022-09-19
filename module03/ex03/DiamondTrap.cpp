@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 10:39:28 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 13:17:22 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:59:06 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 /**********************************************/
 /*			     CONSTRUCTORS                 */
-/* ********************************************/
-
+/**********************************************/
 DiamondTrap::DiamondTrap( void ) : _name("---")
 {
 	this->_hitPoints = FragTrap::_HP;
@@ -54,8 +53,7 @@ DiamondTrap & DiamondTrap::operator=(const DiamondTrap &src)
 
 /**********************************************/
 /*			     FUNCTION	                 */
-/* ********************************************/
-
+/**********************************************/
 void	DiamondTrap::whoAmI(void)
 {
 	std::cout << BLUE << "My name is " << this->_name ;
@@ -64,8 +62,7 @@ void	DiamondTrap::whoAmI(void)
 
 /**********************************************/
 /*			       DESTRUCTOR                 */
-/* ********************************************/
-
+/**********************************************/
 DiamondTrap::~DiamondTrap( void )
 {
 	std::cout << BLUE << "DiamondTrap destructor called : " << this->_name << std::endl;
