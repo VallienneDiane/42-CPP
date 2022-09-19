@@ -1,4 +1,4 @@
-#Fixed Point Number (Nombre à virgule fixe)
+# Fixed Point Number (Nombre à virgule fixe)
 
 Refers to a method of representing fractional numbers by storing a fixed number of digits of their fractional part.
 A fixed-point representation of a fractional number is essentially an integer that is to be implicitly multiplied by a fixed scaling factor. 
