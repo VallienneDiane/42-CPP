@@ -22,6 +22,19 @@ The purpose of the destructor is to properly tear down objects when they are no 
 Refers to a method of representing fractional numbers by storing a fixed number of digits of their fractional part.
 A fixed-point representation of a fractional number is essentially an integer that is to be implicitly multiplied by a fixed scaling factor. 
 
+Example :
+
+	15.5 in binary is : 1111.1
+
+	15.5f * (1 << 8)     // It means that you want to shift the comma 8 bits to the right.
+
+	Result is an int 3968.
+
+	3968 in binary is 111110000000 (binary 15.5 + 8bits : 1111.1 + 0000000)
+
+	So you can store the integer 3968, and when you need the float, do the division (3968.0f / (1 << 8)) = 15.5
+
+
 ![Fixed-Point representation](https://thedatabus.io/static/fixed-point-b50cf1e085815f50aba9957d93f351f7.png)
 
 Useful link for an explanation of Fixed point numbers : https://www.youtube.com/watch?v=ZMsrZvBmQnU
