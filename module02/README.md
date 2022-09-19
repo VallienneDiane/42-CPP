@@ -1,6 +1,6 @@
-## Canonical Form
+## Canonical Form (Forme canonique)
 
-To support the four basic usage contexts the OCCF(orthodox canonical class form) specifies four required functions that should be implemented for complex, user-defined data types. 
+The orthodox canonical class form specifies four required functions that should be implemented for complex, user-defined data types. 
 
 These are the default constructor, the copy constructor, the copy assignment operator, and the destructor.
 
@@ -37,4 +37,7 @@ Example :
 
 ![Fixed-Point representation](https://thedatabus.io/static/fixed-point-b50cf1e085815f50aba9957d93f351f7.png)
 
-Useful link for an explanation of Fixed point numbers : https://www.youtube.com/watch?v=ZMsrZvBmQnU
+Useful links for :
+
+-> convert int/float to binary : https://www.rapidtables.com/convert/number/decimal-to-binary.html
+-> an explanation of Fixed point numbers : https://www.youtube.com/watch?v=ZMsrZvBmQnU
