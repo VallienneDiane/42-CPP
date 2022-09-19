@@ -6,17 +6,22 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:19:28 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/11 11:42:44 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 14:27:51 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_H
 # define CLAPTRAP_H
-
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 
 class ClapTrap{
+		
+	private:
+		std::string	_name;
+		int			_hitPoints;
+		int			_energyPoints;
+		int			_attackDamage;
 
 	public:
 		ClapTrap(void);
@@ -31,12 +36,6 @@ class ClapTrap{
 		void		attack(const std::string& target);
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
-		
-	private:
-		std::string	_name;
-		int			_hitPoints;
-		int			_energyPoints;
-		int			_attackDamage;
 };
 
 #endif
