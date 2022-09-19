@@ -6,26 +6,25 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:28:25 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/16 11:22:09 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 15:07:06 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_H
-# define BRAIN_H
-
-#include <iostream>
-#include <string>
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
+# include <iostream>
+# include <string>
 
 class Brain
 {
+	private:
+		std::string	_ideas[100];
+		
 	public:
 		Brain(void);
 		Brain(const Brain &src);
 		Brain &operator=(const Brain &src);
 		virtual ~Brain(void);
-		
-	private:
-		std::string	_ideas[100];
 };
 
 #endif

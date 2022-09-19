@@ -6,12 +6,12 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:29:44 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/17 16:42:38 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 15:10:15 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_H
-# define ICHARACTER_H
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 # include <iostream>
 # include <string>
 # include "AMateria.hpp"

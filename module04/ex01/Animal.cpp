@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:27:38 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/16 11:45:36 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 15:04:16 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
-
 Animal::Animal( void ) : _type("animal")
 {
 	std::cout << GREEN << "Animal default constructor called" << std::endl;

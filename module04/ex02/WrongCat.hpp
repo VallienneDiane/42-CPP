@@ -6,16 +6,15 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 11:33:56 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 14:00:47 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 15:08:28 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_H
-# define WRONGCAT_H
-
-#include <iostream>
-#include <string>
-#include "WrongAnimal.hpp"
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
+# include <iostream>
+# include <string>
+# include "WrongAnimal.hpp"
 
 class WrongCat : public WrongAnimal
 {
@@ -23,8 +22,9 @@ class WrongCat : public WrongAnimal
 		WrongCat(void);
 		WrongCat(const WrongCat &src);
 		WrongCat & operator=(const WrongCat &src);
-		void makeSound(void) const;
 		~WrongCat(void);
+		
+		void makeSound(void) const;
 };
 
 #endif
