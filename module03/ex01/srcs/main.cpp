@@ -6,12 +6,12 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:18:40 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/11 16:29:28 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/20 11:27:02 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include "../incs/ClapTrap.hpp"
+#include "../incs/ScavTrap.hpp"
 
 int main(void)
 {

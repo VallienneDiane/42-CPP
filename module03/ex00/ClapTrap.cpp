@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:31:54 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/20 11:02:47 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/20 15:54:22 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->_hitPoints <= 0 | this->_energyPoints <= 0)
+	if (this->_hitPoints <= 0)
 		std::cout << RED << "ClapTrap " << this->_name << " is already dead" << std::endl;
 	else
 	{
@@ -100,7 +100,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->_hitPoints <= 0 | this->_energyPoints <= 0)
+	if (this->_hitPoints <= 0)
 	{
 		std::cout << GREY << "ClapTrap " << this->_name << " doesn't have enough energy or life points to be repaired ";
 		std::cout << "(Life:" << this->_hitPoints << "pts & Energy:" << this->_energyPoints << "pts)" << std::endl;
