@@ -6,12 +6,11 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:31:54 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 14:58:51 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/20 13:07:37 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-
+#include "../incs/ClapTrap.hpp"
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /**********************************************/
@@ -42,7 +41,6 @@ ClapTrap & ClapTrap::operator=(const ClapTrap &src)
 	this->_attackDamage = src._attackDamage;
 	return (*this);
 }
-
 /**********************************************/
 /*			        SETTERS                   */
 /**********************************************/
@@ -65,7 +63,6 @@ void		ClapTrap::setAttackP(int attackDamage)
 {
 	this->_attackDamage = attackDamage;
 }
-
 /**********************************************/
 /*			        GETTERS                   */
 /**********************************************/
@@ -88,7 +85,6 @@ int	ClapTrap::getAttackD(void) const
 {
 	return (this->_attackDamage);
 }
-
 /**********************************************/
 /*			        FUNCTIONS                 */
 /**********************************************/
@@ -139,7 +135,6 @@ void ClapTrap::beRepaired(unsigned int amount)
 		this->_energyPoints--;
 	}
 }
-
 /**********************************************/
 /*			     DESTRUCTOR                   */
 /**********************************************/

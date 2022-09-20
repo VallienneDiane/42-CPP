@@ -6,12 +6,11 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 13:30:59 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 14:57:50 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/20 13:08:09 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
-
+#include "../incs/ScavTrap.hpp"
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
@@ -50,7 +49,6 @@ ScavTrap & ScavTrap::operator=(const ScavTrap &src)
 	this->_attackDamage = src._attackDamage;
 	return (*this);
 }
-
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
@@ -73,7 +71,6 @@ void ScavTrap::guardGate(void)
 {
 	std::cout << BLUE << "Mode Gate keeper activated !" << std::endl;
 }
-
 /**********************************************/
 /*			     DESTRUCTOR                   */
 /* ********************************************/

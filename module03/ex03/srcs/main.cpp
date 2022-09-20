@@ -6,14 +6,14 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:18:40 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/15 13:26:01 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/20 13:08:24 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
-#include "DiamondTrap.hpp"
+#include "../incs/ClapTrap.hpp"
+#include "../incs/ScavTrap.hpp"
+#include "../incs/FragTrap.hpp"
+#include "../incs/DiamondTrap.hpp"
 
 int main(void)
 {

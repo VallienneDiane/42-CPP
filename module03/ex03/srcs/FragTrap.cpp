@@ -6,12 +6,11 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 16:44:44 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 14:57:07 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/20 13:07:58 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
-
+#include "../incs/FragTrap.hpp"
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
@@ -50,7 +49,6 @@ FragTrap & FragTrap::operator=(const FragTrap &src)
 	this->_attackDamage = src._attackDamage;
 	return (*this);
 }
-
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
@@ -58,7 +56,6 @@ void FragTrap::highFivesGuys(void)
 {
 	std::cout << BLUE << this->_name << " : High fives guys ?" << std::endl;
 }
-
 /**********************************************/
 /*			     DESTRUCTOR                   */
 /* ********************************************/

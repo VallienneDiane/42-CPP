@@ -6,12 +6,11 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 10:39:28 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 14:59:06 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/20 13:07:48 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
-
+#include "../incs/DiamondTrap.hpp"
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /**********************************************/
@@ -50,7 +49,6 @@ DiamondTrap & DiamondTrap::operator=(const DiamondTrap &src)
 	std::cout << BLUE << "DiamondTrap copy assignment operator called : " << this->_name << std::endl;
 	return (*this);
 }
-
 /**********************************************/
 /*			     FUNCTION	                 */
 /**********************************************/
@@ -59,7 +57,6 @@ void	DiamondTrap::whoAmI(void)
 	std::cout << BLUE << "My name is " << this->_name ;
 	std::cout << BLUE << " & ClapTrap's name is "<< ClapTrap::_name << std::endl;
 }
-
 /**********************************************/
 /*			       DESTRUCTOR                 */
 /**********************************************/
