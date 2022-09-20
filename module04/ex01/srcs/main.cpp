@@ -6,21 +6,28 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:12:41 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/16 11:53:56 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/20 17:02:23 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "Brain.hpp"
+#include "../incs/Animal.hpp"
+#include "../incs/WrongAnimal.hpp"
+#include "../incs/WrongCat.hpp"
+#include "../incs/Dog.hpp"
+#include "../incs/Cat.hpp"
+#include "../incs/Brain.hpp"
 
 int main(void)
 {
-	// My test
-	std::cout << "---- My test ----" << std::endl;
+	std::cout << std::endl;
+	std::cout << WHITE << "---- Subject test ----" << std::endl;
+	const Animal* j = new Dog();
+	const Animal* k = new Cat();
+	std::cout << std::endl;
+	delete j;
+	delete k;
+	std::cout << std::endl;
+	std::cout << WHITE << "---- Show array is half cat half dog ----" << std::endl;
 	Animal	*tab_animal[10];
 	int		i;
 	i = -1;
@@ -39,20 +46,15 @@ int main(void)
 		i--;
 	}
 	std::cout << std::endl;
-	
-	// Deep Copy Test
-	std::cout << "---- Deep copy test ----" << std::endl;
-	Dog		basic;
-	Dog tmp = basic;
-	std::cout << std::endl;
+	std::cout << WHITE << "---- Set an idea ----" << std::endl;
+	Dog		Idefix;
 
-	// Subject test
-	std::cout << "---- Subject test ----" << std::endl;
-	const Animal* j = new Dog();
-	const Animal* k = new Cat();
+	Idefix.getBrain().setIdea(0, "Where is Obe ?");
+	Idefix.getBrain().setIdea(1, "Oh ! A squirrel !");
+	std::cout << Idefix.getBrain().getIdea(0) << std::endl;
+	std::cout << WHITE << "---- Deep copy test ----" << std::endl;
+	Dog		basic;
+	Dog 	tmp = basic;
 	std::cout << std::endl;
-	
-	delete j;
-	delete k;
 	return (0);
 }

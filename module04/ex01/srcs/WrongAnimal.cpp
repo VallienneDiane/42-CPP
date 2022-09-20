@@ -6,16 +6,15 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 11:31:05 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/16 10:38:25 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/20 16:03:50 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
-
+#include "../incs/WrongAnimal.hpp"
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
-WrongAnimal::WrongAnimal( void ) : _type("WrongAnimal")
+WrongAnimal::WrongAnimal(void) : _type("WrongAnimal")
 {
 	std::cout << "WrongAnimal default constructor called" << std::endl;
 	return;
@@ -23,8 +22,8 @@ WrongAnimal::WrongAnimal( void ) : _type("WrongAnimal")
 
 WrongAnimal::WrongAnimal(const WrongAnimal &src)
 {
-	*this = src;
 	std::cout << "WrongAnimal copy constructor called" << std::endl;
+	*this = src;
 }
 
 WrongAnimal & WrongAnimal::operator=(const WrongAnimal &src)
@@ -33,16 +32,14 @@ WrongAnimal & WrongAnimal::operator=(const WrongAnimal &src)
 	std::cout << "WrongAnimal copy assignment operator called" << std::endl;
 	return (*this);
 }
-
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
 void	WrongAnimal::makeSound(void) const
 {
-	std::cout << "Wrong Animal sound" << std::endl;
+	std::cout << "* Wrong Animal sound *" << std::endl;
 	return;
 }
-
 /**********************************************/
 /*			        GETTERS                   */
 /* ********************************************/
@@ -50,7 +47,6 @@ std::string	WrongAnimal::getType(void) const
 {
 	return (this->_type);
 }
-
 /**********************************************/
 /*			     DESTRUCTOR                   */
 /* ********************************************/

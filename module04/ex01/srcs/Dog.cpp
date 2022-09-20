@@ -1,61 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 16:27:38 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 15:04:16 by dvallien         ###   ########.fr       */
+/*   Created: 2022/08/14 16:33:29 by dvallien          #+#    #+#             */
+/*   Updated: 2022/09/20 16:27:01 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-
+#include "../incs/Dog.hpp"
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
-Animal::Animal( void ) : _type("animal")
+Dog::Dog(void)
 {
-	std::cout << GREEN << "Animal default constructor called" << std::endl;
+	this->_type = "Dog";
+	this->_dogBrain = new Brain();
+	std::cout << ORANGE << "Dog default constructor called" << std::endl;
 	return;
 }
 
-Animal::Animal(const Animal &src)
+Dog::Dog(const Dog &src)
 {
+	std::cout << ORANGE << "Dog copy constructor called" << std::endl;
 	*this = src;
-	std::cout << GREEN << "Animal copy constructor called" << std::endl;
 }
 
-Animal & Animal::operator=(const Animal &src)
+Dog	& Dog::operator=(const Dog &src)
 {
+	std::cout << ORANGE << "Dog copy assignement operator called" << std::endl;
 	this->_type = src.getType();
-	std::cout << GREEN << "Animal copy assignement operator called" << std::endl;
+	this->_dogBrain = new Brain();
+	*(this->_dogBrain) = *(src._dogBrain);
 	return (*this);
 }
-
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
-void	Animal::makeSound(void) const
+void	Dog::makeSound(void) const
 {
-	std::cout << "bruuuuuuh" << std::endl;
+	std::cout << "Ouaf ouaf" << std::endl;
 	return;
 }
-
-/**********************************************/
-/*			        GETTERS                   */
-/* ********************************************/
-std::string	Animal::getType(void) const
-{
-	return (this->_type);
-}
-
 /**********************************************/
 /*			     DESTRUCTOR                   */
 /* ********************************************/
-Animal::~Animal( void )
+Dog::~Dog(void)
 {
-	std::cout << GREEN << "Animal destructor called" << std::endl;
+	delete this->_dogBrain;
+	std::cout << ORANGE << "Dog destructor called" << std::endl;
 	return;
 }

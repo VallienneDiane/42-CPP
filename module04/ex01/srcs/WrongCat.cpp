@@ -6,12 +6,11 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 11:35:14 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/16 10:39:48 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/20 16:02:14 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
-
+#include "../incs/WrongCat.hpp"
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
@@ -24,8 +23,8 @@ WrongCat::WrongCat( void )
 
 WrongCat::WrongCat(const WrongCat &src)
 {
-	*this = src;
 	std::cout << "WrongCat copy constructor called" << std::endl;
+	*this = src;
 }
 
 WrongCat	& WrongCat::operator=(const WrongCat &src)
@@ -34,16 +33,14 @@ WrongCat	& WrongCat::operator=(const WrongCat &src)
 	std::cout << "WrongCat copy assignement operator called" << std::endl;
 	return (*this);
 }
-
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
 void	WrongCat::makeSound(void) const
 {
-	std::cout << "tut tut" << std::endl;
+	std::cout << "wrong miaou" << std::endl;
 	return;
 }
-
 /**********************************************/
 /*			        DESTRUCTOR                */
 /* ********************************************/
