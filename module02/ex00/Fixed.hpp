@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 13:36:23 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 11:47:34 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/20 09:49:18 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Fixed{
 		Fixed(const Fixed &source);
 		Fixed & operator=(const Fixed &source);
 		~Fixed(void);
+		
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 };

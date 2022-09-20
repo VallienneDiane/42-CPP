@@ -6,12 +6,11 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 11:55:13 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 11:40:45 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/20 10:39:28 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
@@ -30,9 +29,18 @@ Fixed::Fixed(const float nb)
 	this->setRawBits(roundf(nb * (1 << this->_bits))) ;
 }
 
-Fixed::Fixed(const Fixed &source): _number(source._number)
+Fixed::Fixed(const Fixed &source)
 {
 	*this = source;
+}
+
+/**********************************************/
+/*			  ASSIGNMENT OPERATORS            */
+/* ********************************************/
+Fixed &	Fixed::operator=(const Fixed &source )
+{
+	this->_number = source.getRawBits();
+	return (*this);
 }
 
 /**********************************************/
@@ -95,16 +103,6 @@ Fixed const &	Fixed::max(const Fixed &lhs, const Fixed &rhs )
 	else
 		return (rhs);
 }
-
-/**********************************************/
-/*			  ASSIGNMENT OPERATORS            */
-/* ********************************************/
-Fixed &	Fixed::operator=(const Fixed &source )
-{
-	this->_number = source.getRawBits();
-	return (*this);
-}
-
 /**********************************************/
 /*			  BITWISE OPERATORS               */
 /* ********************************************/

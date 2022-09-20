@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 11:55:13 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 11:30:35 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/20 09:50:23 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Fixed::Fixed(const float nb)
 	this->setRawBits(roundf(nb * (1 << this->_bits))) ;
 }
 
-Fixed::Fixed(const Fixed &source ): _number(source._number)
+Fixed::Fixed(const Fixed &source )
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = source;
