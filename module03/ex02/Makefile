@@ -6,43 +6,52 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 18:30:10 by dvallien          #+#    #+#              #
-#    Updated: 2022/08/11 16:51:09 by dvallien         ###   ########.fr        #
+#    Updated: 2022/09/20 11:32:31 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	fragtrap
 
-PATH_OBJS	=	./.OBJS/
-
-INCLUDES	=	ClapTrap.hpp	\
-				ScavTrap.hpp	\
-				FragTrap.hpp
-
-SRC			= 	ClapTrap.cpp	\
-				ScavTrap.cpp	\
-				FragTrap.cpp	\
-				main.cpp
-
-OBJS		=	$(addprefix $(PATH_OBJS), $(SRC:.cpp=.o))
-
 CPPC		=	c++
 CPPFLAGS	=	-Wall -Wextra -Werror -std=c++98
 RM			=	rm -rf
 
+DIR_SRCS	:= ./srcs
+DIR_OBJS	:= ./objs
+DIR_INCS	:= ./incs
+
+INCS		:=	ClapTrap.hpp	\
+				ScavTrap.hpp	\
+				FragTrap.hpp
+
+SRCS		:= 	ClapTrap.cpp	\
+				ScavTrap.cpp	\
+				FragTrap.cpp	\
+				main.cpp
+
+LST_OBJS		:= $(SRCS:.cpp=.o)
+
+INCS := $(addprefix $(DIR_INCS)/, $(INCS))
+SRCS := $(addprefix $(DIR_SRCS)/, $(SRCS))
+OBJS := $(addprefix $(DIR_OBJS)/, $(LST_OBJS))
+
 all :		$(NAME)
 
-$(NAME) :	$(OBJS) Makefile
+$(NAME) :	$(OBJS) $(INCS) Makefile
 			$(CPPC) $(OBJS) -o $(NAME)
 
-$(PATH_OBJS)%.o :	%.cpp $(INCLUDES)
-					@mkdir -p $(PATH_OBJS)
-					$(CPPC) $(CPPFLAGS) -c $< -o $@
+$(DIR_OBJS):
+		mkdir -p $(DIR_OBJS)
+
+$(DIR_OBJS)/%.o: $(DIR_SRCS)/%.cpp $(INCS) Makefile | $(DIR_OBJS)
+		$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
-			$(RM) $(PATH_OBJS)
+			$(RM) $(OBJS)
+			$(RM) $(DIR_OBJS)
 
-fclean :		
-			$(RM) $(PATH_OBJS) $(NAME)
+fclean : clean
+			$(RM) $(NAME)
 			
 re :		fclean all
 			

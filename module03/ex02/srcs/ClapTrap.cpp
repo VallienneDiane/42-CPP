@@ -6,12 +6,11 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 14:31:54 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 14:54:03 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/20 11:44:41 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-
+#include "../incs/ClapTrap.hpp"
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
@@ -21,13 +20,13 @@ ClapTrap::ClapTrap(void): _name("noname"), _hitPoints(10), _energyPoints(10), _a
 	return;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ClapTrap::ClapTrap(std::string name): _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << GREEN << "ClapTrap name constructor called : " << this->_name << std::endl;
 	return;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &src): _name(src._name), _hitPoints(src._hitPoints), _energyPoints(src._energyPoints), _attackDamage(src._attackDamage)
+ClapTrap::ClapTrap(const ClapTrap &src)
 {
 	*this = src;
 	std::cout << GREEN << "ClapTrap copy constructor called : " << this->_name << std::endl;
@@ -35,14 +34,13 @@ ClapTrap::ClapTrap(const ClapTrap &src): _name(src._name), _hitPoints(src._hitPo
 
 ClapTrap & ClapTrap::operator=(const ClapTrap &src)
 {
-	this->_name = src._name;
-	this->_hitPoints = src._hitPoints;
-	this->_energyPoints = src._energyPoints;
-	this->_attackDamage = src._attackDamage;
+	this->_name = src.getName();
+	this->_hitPoints = src.getHitP();
+	this->_energyPoints = src.getEnergyP();
+	this->_attackDamage = src.getAttackD();
 	std::cout << GREEN << "ClapTrap copy assignment operator called : " << this->_name << std::endl;
 	return (*this);
 }
-
 /**********************************************/
 /*			        SETTERS                   */
 /* ********************************************/
@@ -65,7 +63,6 @@ void		ClapTrap::setAttackP(int attackDamage)
 {
 	this->_attackDamage = attackDamage;
 }
-
 /**********************************************/
 /*			        GETTERS                   */
 /* ********************************************/
@@ -88,7 +85,6 @@ int	ClapTrap::getAttackD(void) const
 {
 	return (this->_attackDamage);
 }
-
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
@@ -139,7 +135,6 @@ void ClapTrap::beRepaired(unsigned int amount)
 		this->_energyPoints--;
 	}
 }
-
 /**********************************************/
 /*			     DESTRUCTOR                   */
 /* ********************************************/
