@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 14:44:25 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/20 17:03:57 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 09:53:28 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Brain & Brain::operator=(const Brain &src)
 void		Brain::setIdea(unsigned i, std::string idea)
 {
 	if (i >= 100)
-		std::cout << "Too many ideas, this brain is smaller !" << std::endl;
+		std::cout << "Sorry no place for such idea ..." << std::endl;
 	else
 		this->_ideas[i] = idea;
 }
@@ -50,7 +50,7 @@ std::string Brain::getIdea(unsigned i) const
 {
 	if (i >= 100)
 	{
-		std::cout << "Too many ideas, this brain is smaller !" << std::endl;
+		std::cout << "You have 100 ideas in this brain, no less no more !" << std::endl;
 		return("");	
 	}
 	return (this->_ideas[i]);
