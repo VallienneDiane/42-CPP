@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 11:55:03 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/21 13:44:59 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 14:02:18 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name), _grade(src.get
 //***********************************************//
 Bureaucrat & Bureaucrat::operator=(const Bureaucrat &src)
 {
-	(void)src;
+	this->_grade = src.getGrade();
 	return (*this);
 }
 
