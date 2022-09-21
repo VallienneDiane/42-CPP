@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:29:19 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/20 17:03:11 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 10:12:02 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Dog : public Animal
 		Dog & operator=(const Dog &src);
 		virtual ~Dog(void);
 		
-		Brain &	getBrain(void);
+		Brain &	getBrain(void) const;
 		virtual void makeSound(void) const;
 };
 

@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 11:22:30 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/21 10:06:06 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 10:11:42 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Cat	& Cat::operator=(const Cat &src)
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
-Brain &	Cat::getBrain(void)
+Brain &	Cat::getBrain(void) const
 {
 	return (*(this->_catBrain));
 }

@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:33:29 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/21 09:39:29 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 10:11:48 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Dog	& Dog::operator=(const Dog &src)
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
-Brain &	Dog::getBrain(void)
+Brain &	Dog::getBrain(void) const
 {
 	return (*(this->_dogBrain));
 }
