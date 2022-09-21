@@ -6,18 +6,16 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 11:55:03 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/21 14:38:01 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 13:37:51 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
 //***********************************************//
 //					CONSTRUCTORS	             //
 //***********************************************//
 Bureaucrat::Bureaucrat(void)
-{
-}
+{}
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(grade)
 {
@@ -26,12 +24,10 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(
 	else if (grade < 1)
 		throw GradeTooHighException();
 }
-
 Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name), _grade(src.getGrade())
 {
 	*this = src;
 }
-
 //***********************************************//
 //						OPERATORS	             //
 //***********************************************//
@@ -46,7 +42,6 @@ std::ostream & operator<<(std::ostream &stream, const Bureaucrat &source )
 	stream << source.getName() << ", is a bureaucrat and her grade is " << source.getGrade();
 	return (stream);
 }
-
 //***********************************************//
 //						GETTERS		             //
 //***********************************************//
@@ -59,7 +54,6 @@ int Bureaucrat::getGrade(void) const
 {
 	return(this->_grade);
 }
-
 //***********************************************//
 //					FUNCTIONS	                 //
 //***********************************************//
@@ -110,10 +104,8 @@ void	Bureaucrat::signForm(Form &form)
 	}
 	
 }
-
 //***********************************************//
 //					DESTRUCTOR 	                 //
 //***********************************************//
 Bureaucrat::~Bureaucrat(void)
-{
-}
+{}
