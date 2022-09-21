@@ -6,20 +6,20 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 11:25:06 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/03 17:05:09 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:24:23 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
+
+/*The static_cast is used for the ordinary type conversion (explicit or implicit) */
 
 void	checkType(std::string arg)
 {
 	if (isChar(arg))
 		convertChar(arg);
 	else if (isNum(arg))
-	{
 		convertInt(arg);
-	}
 	else if (isFloat(arg))
 		convertFloat(arg);
 	else if (isDouble(arg))

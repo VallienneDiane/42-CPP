@@ -6,15 +6,13 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 18:30:10 by dvallien          #+#    #+#              #
-#    Updated: 2022/08/23 15:57:37 by dvallien         ###   ########.fr        #
+#    Updated: 2022/09/21 17:23:25 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	conversion
 
 PATH_OBJS	=	./.OBJS/
-
-#INCLUDES	=	
 
 SRC			= 	main.cpp
 
@@ -29,7 +27,7 @@ all :		$(NAME)
 $(NAME) :	$(OBJS) Makefile
 			$(CPPC) $(OBJS) -o $(NAME)
 
-$(PATH_OBJS)%.o :	%.cpp #$(INCLUDES)
+$(PATH_OBJS)%.o :	%.cpp
 					@mkdir -p $(PATH_OBJS)
 					$(CPPC) $(CPPFLAGS) -c $< -o $@
 
