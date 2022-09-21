@@ -6,11 +6,13 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:23:22 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/04 10:39:21 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:25:54 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serialize.hpp"
+
+/*Reinterpreted cast convert a pointer of some data type into a pointer of another data type*/
 
 uintptr_t serialize(Data* ptr)
 {
@@ -25,21 +27,21 @@ Data *deserialize(uintptr_t raw)
 int	main(void)
 {
 	Data		data;
-	Data		*deserial;
 	uintptr_t	serial;
+	Data		*deserial;
 	
 	data.x = 5;
 	data.y = 15;
 	
 	std::cout << "Data address : " << &data << std::endl;
-	std::cout << "Data values : " << data.x << ", " << data.y << std::endl;
+	std::cout << "Data values : " << "x: " << data.x << ", " << "y: " << data.y << std::endl;
 	
 	serial = serialize(&data);
 	std::cout << "Serialize : " << serial << std::endl;
 
 	deserial = deserialize(serial);
-	std::cout << "Deserialize : " << &data << std::endl;
-	std::cout << "Data values : " << data.x << ", " << data.y << std::endl;
+	std::cout << "Deserialize : " << deserial << std::endl;
+	std::cout << "Data values : " << "x:" << deserial->x << ", " << "y: " << deserial->y << std::endl;
 	
 	return (0);
 }
