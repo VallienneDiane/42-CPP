@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:12:41 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/21 11:04:50 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:07:46 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 int main(void)
 {
 	AAnimal	*Garfield = new Cat();
+	// AAnimal	*animal = new AAnimal(); // cannot instantiate an Animal cause it's class astract
 	Dog		Idefix;
 	
 	std::cout << WHITE << std::endl;
