@@ -43,6 +43,11 @@ A virtual destructor is used to free up the memory space allocated by the derive
 
 ### Abstract class
 
-An abstract class is a class that contains at least one abstract method. An abstract method is a method that is declared (= 0), but not implemented in the code.
+An abstract class is a class that contains at least one abstract method. An abstract method (pure virtual function) is a method that is declared (= 0), but not implemented in the code.
 These type of classes are designed only to treat like a base class (to be inherited by other classes). 
 It is a designed technique for program development which allows making a base upon which other classes may be built.
+
+### Interface
+
+An interface describes the behavior or capabilities of a C++ class without committing to a particular implementation of that class.
+The C++ interfaces are implemented using abstract classes. Only pure methods and can't have attributes.
