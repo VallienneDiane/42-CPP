@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 13:04:44 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/21 16:20:22 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 16:40:02 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ Intern & Intern::operator=(const Intern &src)
 }
 
 Intern::~Intern(void)
-{
-}
+{}
 
 AForm*	Intern::makeForm(std::string formName, std::string targetForm)
 {
