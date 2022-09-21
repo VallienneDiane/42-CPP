@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 11:29:37 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 15:43:28 by dvallien         ###   ########.fr       */
+/*   Created: 2022/08/15 11:33:56 by dvallien          #+#    #+#             */
+/*   Updated: 2022/09/20 13:46:49 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 # include <iostream>
 # include <string>
+# include "WrongAnimal.hpp"
+# include "Animal.hpp"
 
-class WrongAnimal
+class WrongCat : public WrongAnimal
 {
-	protected:
-		std::string _type;
-		
 	public:
-		WrongAnimal(void);
-		WrongAnimal(const WrongAnimal &src);
-		WrongAnimal & operator=(const WrongAnimal &src);
-		~WrongAnimal(void);
+		WrongCat(void);
+		WrongCat(const WrongCat &src);
+		WrongCat & operator=(const WrongCat &src);
+		~WrongCat(void);
 		
-		void			makeSound(void) const;
-		std::string		getType(void) const;
+		void makeSound(void) const;
 };
 
 #endif

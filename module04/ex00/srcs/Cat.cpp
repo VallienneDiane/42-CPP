@@ -1,54 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 11:35:14 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/16 10:39:55 by dvallien         ###   ########.fr       */
+/*   Created: 2022/08/15 11:22:30 by dvallien          #+#    #+#             */
+/*   Updated: 2022/09/20 15:05:39 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "../incs/Cat.hpp"
 
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
-WrongCat::WrongCat( void )
+Cat::Cat(void)
 {
-	this->_type = "WrongCat";
-	std::cout << "WrongCat default constructor called" << std::endl;
+	this->_type = "Cat";
+	std::cout << GREY << "Cat default constructor called" << std::endl;
 	return;
 }
 
-WrongCat::WrongCat(const WrongCat &src)
+Cat::Cat(const Cat &src)
 {
+	std::cout << ORANGE << "Cat copy constructor called" << std::endl;
 	*this = src;
-	std::cout << "WrongCat copy constructor called" << std::endl;
 }
 
-WrongCat	& WrongCat::operator=(const WrongCat &src)
+Cat	& Cat::operator=(const Cat &src)
 {
-	this->_type = src.getType();
-	std::cout << "WrongCat copy assignement operator called" << std::endl;
+	this->_type = src._type;
+	std::cout << YELLOW << "Cat copy assignement operator called" << std::endl;
 	return (*this);
 }
-
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
-void	WrongCat::makeSound(void) const
+void	Cat::makeSound(void) const
 {
-	std::cout << "tut tut " << std::endl;
+	std::cout << GREEN << "Miaou miaou" << std::endl;
 	return;
 }
-
 /**********************************************/
 /*			     DESTRUCTOR                   */
 /* ********************************************/
-WrongCat::~WrongCat( void )
+Cat::~Cat( void )
 {
-	std::cout << "WrongCat destructor called" << std::endl;
+	std::cout << GREY << "Cat destructor called" << std::endl;
 	return;
 }

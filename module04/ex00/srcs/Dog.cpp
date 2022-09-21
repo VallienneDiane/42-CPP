@@ -1,61 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 16:27:38 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/16 10:19:09 by dvallien         ###   ########.fr       */
+/*   Created: 2022/08/14 16:33:29 by dvallien          #+#    #+#             */
+/*   Updated: 2022/09/20 15:05:36 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-
+#include "../incs/Dog.hpp"
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
-Animal::Animal(void) : _type("animal")
+Dog::Dog(void)
 {
-	std::cout << "Animal default constructor called" << std::endl;
+	this->_type = "Dog";
+	std::cout << GREEN << "Dog default constructor called" << std::endl;
 	return;
 }
 
-Animal::Animal(const Animal &src)
+Dog::Dog(const Dog &src)
 {
+	std::cout << ORANGE << "Dog copy constructor called" << std::endl;
 	*this = src;
-	std::cout << "Animal copy constructor called" << std::endl;
 }
 
-Animal & Animal::operator=(const Animal &src)
+Dog	& Dog::operator=(const Dog &src)
 {
 	this->_type = src.getType();
-	std::cout << "Animal copy assignement operator called" << std::endl;
+	std::cout << YELLOW << "Dog copy assignement operator called" << std::endl;
 	return (*this);
 }
-
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
-void	Animal::makeSound(void) const
+void	Dog::makeSound(void) const
 {
-	std::cout << "bruuuuuuh" << std::endl;
+	std::cout << BLUE << "Ouaf ouaf" << std::endl;
 	return;
 }
-
-/**********************************************/
-/*			        GETTERS                   */
-/* ********************************************/
-std::string	Animal::getType(void) const
-{
-	return (this->_type);
-}
-
 /**********************************************/
 /*			     DESTRUCTOR                   */
 /* ********************************************/
-Animal::~Animal( void )
+Dog::~Dog(void)
 {
-	std::cout << "Animal destructor called" << std::endl;
+	std::cout << GREEN << "Dog destructor called" << std::endl;
 	return;
 }

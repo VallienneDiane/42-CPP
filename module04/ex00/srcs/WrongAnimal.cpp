@@ -1,54 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 16:33:29 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/16 10:18:53 by dvallien         ###   ########.fr       */
+/*   Created: 2022/08/15 11:31:05 by dvallien          #+#    #+#             */
+/*   Updated: 2022/09/20 15:05:26 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-
+#include "../incs/WrongAnimal.hpp"
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
-Dog::Dog( void )
+WrongAnimal::WrongAnimal(void) : _type("WrongAnimal")
 {
-	this->_type = "Dog";
-	std::cout << "Dog default constructor called" << std::endl;
+	std::cout << PURPLE << "WrongAnimal default constructor called" << std::endl;
 	return;
 }
 
-Dog::Dog(const Dog &src)
+WrongAnimal::WrongAnimal(const WrongAnimal &src)
 {
+	std::cout << ORANGE << "WrongAnimal copy constructor called" << std::endl;
 	*this = src;
-	std::cout << "Dog copy constructor called" << std::endl;
 }
 
-Dog	& Dog::operator=(const Dog &src)
+WrongAnimal & WrongAnimal::operator=(const WrongAnimal &src)
 {
 	this->_type = src.getType();
-	std::cout << "Dog copy assignement operator called" << std::endl;
+	std::cout << YELLOW << "WrongAnimal copy assignment operator called" << std::endl;
 	return (*this);
 }
-
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
-void	Dog::makeSound(void) const
+void	WrongAnimal::makeSound(void) const
 {
-	std::cout << "Ouaf ouaf" << std::endl;
+	std::cout << RED << "* wrong animal sounds *" << std::endl;
 	return;
 }
-
+/**********************************************/
+/*			        GETTERS                   */
+/* ********************************************/
+std::string	WrongAnimal::getType(void) const
+{
+	return (this->_type);
+}
 /**********************************************/
 /*			     DESTRUCTOR                   */
 /* ********************************************/
-Dog::~Dog( void )
+WrongAnimal::~WrongAnimal( void )
 {
-	std::cout << "Dog destructor called" << std::endl;
+	std::cout << PURPLE << "WrongAnimal destructor called" << std::endl;
 	return;
 }
