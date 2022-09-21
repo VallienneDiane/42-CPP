@@ -6,13 +6,13 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 18:30:10 by dvallien          #+#    #+#              #
-#    Updated: 2022/08/18 10:14:41 by dvallien         ###   ########.fr        #
+#    Updated: 2022/09/21 11:41:33 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	interface
 
-PATH_OBJS	=	./.OBJS/
+PATH_OBJS	=	./.objs/
 
 INCLUDES	=	AMateria.hpp		\
 				IMateriaSource.hpp	\

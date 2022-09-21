@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 10:42:02 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 15:09:03 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:53:43 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ class AMateria
 	public:
 		AMateria(void);
 		AMateria(const AMateria &src);
-		virtual ~AMateria(void);
 		AMateria & operator=(const AMateria &src);
+		virtual ~AMateria(void);
 	
 		AMateria(std::string const & type);
 		std::string const & getType(void) const;
