@@ -10,14 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "AForm.hpp"
-
+#include "AForm.hpp"
 //***********************************************//
 //					CONSTRUCTORS	             //
 //***********************************************//
 AForm::AForm(void) : _name("unamed"),_signGrade(0), _execGrade(0), _signed(0)
-{
-}
+{}
 
 AForm::AForm(std::string const name, int const signGrade, int const execGrade) : _name(name), _signGrade(signGrade), _execGrade(execGrade), _signed(0)
 {
@@ -44,7 +42,6 @@ std::ostream & operator<<(std::ostream &stream, const AForm &src )
 	stream << src.getSignGrade() << " and min grade to execute " << src.getExecGrade();
 	return (stream);
 }
-
 //***********************************************//
 //						GETTERS		             //
 //***********************************************//
@@ -67,7 +64,6 @@ int	 AForm::getExecGrade(void) const
 {
 	return (this->_execGrade);
 }
-
 //***********************************************//
 //					FUNCTIONS	                 //
 //***********************************************//
@@ -98,10 +94,8 @@ void	AForm::beSigned(Bureaucrat &bureaucrat)
 	else
 		throw GradeTooLowException();
 }
-
 //***********************************************//
 //					DESTRUCTOR                   //
 //***********************************************//
 AForm::~AForm(void)
-{
-}
+{}

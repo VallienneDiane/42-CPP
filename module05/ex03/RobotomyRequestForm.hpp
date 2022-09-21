@@ -6,12 +6,12 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 14:52:29 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/21 17:35:24 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 16:38:49 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_H
-# define ROBOTOMYREQUESTFORM_H
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 # include <iostream>
 # include "AForm.hpp"
 # include "Bureaucrat.hpp"
@@ -24,11 +24,11 @@ class RobotomyRequestForm : public AForm
 		std::string	_target;
 	public:
 		RobotomyRequestForm(void);
-		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm(const RobotomyRequestForm &src);
 		RobotomyRequestForm & operator=(const RobotomyRequestForm &src);
 		~RobotomyRequestForm(void);
 
+		RobotomyRequestForm(std::string target);
 		std::string	getTarget(void) const;
 		void		execute(Bureaucrat const & executor) const;
 };

@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 11:55:11 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/23 11:14:49 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 16:26:30 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main(void)
 	shrub = lyra.makeForm("shrubbery creation", "izzzi");
 	robot = lyra.makeForm("robotomy request", "zzz");
 	president = lyra.makeForm("presidential pardon", "Please");
-	sorry = lyra.makeForm("sorry pardon", "hhh");
+	sorry = lyra.makeForm("\"work\"", "hhh");
 
 	std::cout << BLUE << std::endl;
 	lydie.signForm(*shrub);

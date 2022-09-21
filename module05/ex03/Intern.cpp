@@ -6,15 +6,14 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 13:04:44 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/23 11:15:35 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 16:20:22 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
 Intern::Intern(void)
-{
-}
+{}
 
 Intern::Intern(const Intern &src)
 {
