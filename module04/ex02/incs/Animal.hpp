@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:13:31 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 15:06:48 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 10:46:35 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 # define WHITE "\x1B[37m"
 # include <iostream>
 # include <string>
+/* Animal is an abstract class which contains here one abstract method. */
+/* The abstract method makeSound is a method that is declared (= 0), but not implemented in the code.*/
+/* In the derived classes Dog and Cat the makeSound become a virtual function */
+/* A virtual function is a special form of member function that is declared within a base class and redefined by a derived class. */
 
 class AAnimal
 {

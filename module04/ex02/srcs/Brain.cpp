@@ -6,20 +6,18 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 14:44:25 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/16 11:46:47 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 10:33:43 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
-#include "Animal.hpp"
-
+#include "../incs/Brain.hpp"
+#include "../incs/Animal.hpp"
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
 Brain::Brain(void)
 {
 	std::cout << RED << "Brain default constructor called" << std::endl;
-	return;
 }
 
 Brain::Brain(const Brain &src)
@@ -30,16 +28,35 @@ Brain::Brain(const Brain &src)
 
 Brain & Brain::operator=(const Brain &src)
 {
-	(void)src;
 	std::cout << RED <<"Brain copy assignement operator called" << std::endl;
+	for (int i = 0; i < 100; i++)
+		this->_ideas[i] = src._ideas[i];
 	return (*this);
 }
+/**********************************************/
+/*			      SETTER / GETTER             */
+/* ********************************************/
+void		Brain::setIdea(unsigned i, std::string idea)
+{
+	if (i >= 100)
+		std::cout << "Sorry no place for such idea ..." << std::endl;
+	else
+		this->_ideas[i] = idea;
+}
 
+std::string Brain::getIdea(unsigned i) const
+{
+	if (i >= 100)
+	{
+		std::cout << "You have 100 ideas in this brain, no less no more !" << std::endl;
+		return("");	
+	}
+	return (this->_ideas[i]);
+}
 /**********************************************/
 /*			        DESTRUCTOR                */
 /* ********************************************/
 Brain::~Brain(void)
 {
 	std::cout << RED <<"Brain destructor called" << std::endl;
-	return;
 }

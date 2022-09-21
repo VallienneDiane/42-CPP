@@ -1,54 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 11:35:14 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/16 10:39:48 by dvallien         ###   ########.fr       */
+/*   Created: 2022/08/15 11:22:30 by dvallien          #+#    #+#             */
+/*   Updated: 2022/09/21 11:05:06 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
-
+#include "../incs/Cat.hpp"
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
-WrongCat::WrongCat( void )
+Cat::Cat(void)
 {
-	this->_type = "WrongCat";
-	std::cout << "WrongCat default constructor called" << std::endl;
-	return;
+	this->_type = "Cat";
+	this->_catBrain = new Brain();
+	std::cout << BLUE << "Cat default constructor called" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &src)
+Cat::Cat(const Cat &src)
 {
 	*this = src;
-	std::cout << "WrongCat copy constructor called" << std::endl;
+	this->_catBrain = new Brain();
+	std::cout << BLUE << "Cat copy constructor called" << std::endl;
 }
 
-WrongCat	& WrongCat::operator=(const WrongCat &src)
+Cat	& Cat::operator=(const Cat &src)
 {
 	this->_type = src.getType();
-	std::cout << "WrongCat copy assignement operator called" << std::endl;
+	this->_catBrain = new Brain();
+	*(this->_catBrain) = *(src._catBrain);
+	std::cout << BLUE << "Cat copy assignement operator called" << std::endl;
 	return (*this);
 }
-
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
-void	WrongCat::makeSound(void) const
+Brain &	Cat::getBrain(void) const
 {
-	std::cout << "tut tut" << std::endl;
-	return;
+	return (*(this->_catBrain));
 }
 
-/**********************************************/
-/*			        DESTRUCTOR                */
-/* ********************************************/
-WrongCat::~WrongCat( void )
+void	Cat::makeSound(void) const
 {
-	std::cout << "WrongCat destructor called" << std::endl;
-	return;
+	std::cout << "Miaou miaou" << std::endl;
+}
+/**********************************************/
+/*			     DESTRUCTOR                   */
+/* ********************************************/
+Cat::~Cat( void )
+{
+	delete this->_catBrain;
+	std::cout << BLUE << "Cat destructor called" << std::endl;
 }

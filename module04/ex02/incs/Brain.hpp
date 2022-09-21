@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:28:25 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 15:07:06 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 10:19:09 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ class Brain
 		Brain(const Brain &src);
 		Brain &operator=(const Brain &src);
 		virtual ~Brain(void);
+
+		void		setIdea(unsigned i, std::string idea);
+		std::string getIdea(unsigned i) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 11:21:57 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 15:07:27 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:05:11 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Cat : public AAnimal
 		Cat & operator=(const Cat &src);
 		virtual ~Cat(void);
 		
+		Brain &	getBrain(void) const;
 		virtual void makeSound(void) const;
 };
 

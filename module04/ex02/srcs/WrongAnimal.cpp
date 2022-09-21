@@ -1,58 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 11:22:30 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/16 11:47:26 by dvallien         ###   ########.fr       */
+/*   Created: 2022/08/15 11:31:05 by dvallien          #+#    #+#             */
+/*   Updated: 2022/09/21 10:34:24 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "../incs/WrongAnimal.hpp"
 /**********************************************/
 /*			     CONSTRUCTORS                 */
 /* ********************************************/
-Cat::Cat(void)
+WrongAnimal::WrongAnimal( void ) : _type("WrongAnimal")
 {
-	this->_type = "Cat";
-	this->_catBrain = new Brain();
-	std::cout << BLUE << "Cat default constructor called" << std::endl;
-	return;
+	std::cout << "WrongAnimal default constructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &src)
+WrongAnimal::WrongAnimal(const WrongAnimal &src)
 {
 	*this = src;
-	this->_catBrain = new Brain();
-	std::cout << BLUE << "Cat copy constructor called" << std::endl;
+	std::cout << "WrongAnimal copy constructor called" << std::endl;
 }
 
-Cat	& Cat::operator=(const Cat &src)
+WrongAnimal & WrongAnimal::operator=(const WrongAnimal &src)
 {
 	this->_type = src.getType();
-	this->_catBrain = new Brain();
-	*(this->_catBrain) = *(src._catBrain);
-	std::cout << BLUE << "Cat copy assignement operator called" << std::endl;
+	std::cout << "WrongAnimal copy assignment operator called" << std::endl;
 	return (*this);
 }
-
 /**********************************************/
 /*			        FUNCTIONS                 */
 /* ********************************************/
-void	Cat::makeSound(void) const
+void	WrongAnimal::makeSound(void) const
 {
-	std::cout << "Miaou miaou" << std::endl;
-	return;
+	std::cout << "Wrong Animal sound" << std::endl;
 }
-
+/**********************************************/
+/*			        GETTERS                   */
+/* ********************************************/
+std::string	WrongAnimal::getType(void) const
+{
+	return (this->_type);
+}
 /**********************************************/
 /*			     DESTRUCTOR                   */
 /* ********************************************/
-Cat::~Cat( void )
+WrongAnimal::~WrongAnimal( void )
 {
-	delete this->_catBrain;
-	std::cout << BLUE << "Cat destructor called" << std::endl;
-	return;
+	std::cout << "WrongAnimal destructor called" << std::endl;
 }
