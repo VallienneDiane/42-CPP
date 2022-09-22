@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 14:55:20 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 16:38:25 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:23:29 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,21 @@
 //					CONSTRUCTORS	             //
 //***********************************************//
 PresidentialPardonForm::PresidentialPardonForm(void): AForm("PresidentialPardonForm", 25, 5), _target("none") 
-{
-}
+{}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", 25, 5), _target(target) 
-{
-}
+{}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src) : AForm("PresidentialPardonForm", 25, 5), _target(src.getTarget())
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src) : AForm("PresidentialPardonForm", 25, 5)
 {
 	*this = src;
 }
 
 PresidentialPardonForm & PresidentialPardonForm::operator=(const PresidentialPardonForm &src)
 {
-	(void)src;
+	this->_target = src.getTarget();
 	return (*this);
 }
-
 //***********************************************//
 //						GETTERS		             //
 //***********************************************//
@@ -40,7 +37,6 @@ std::string	PresidentialPardonForm::getTarget(void) const
 {
 	return (this->_target);
 }
-
 //***********************************************//
 //					FUNCTIONS	                 //
 //***********************************************//
@@ -51,10 +47,8 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 	else
 		throw GradeTooLowToExecute();
 }
-
 //***********************************************//
 //					DESTRUCTOR                   //
 //***********************************************//
 PresidentialPardonForm::~PresidentialPardonForm(void)
-{
-}
+{}

@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 11:54:49 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 16:38:03 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/22 09:58:50 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ class Bureaucrat
 				virtual const char* what() const throw();
 		};
 };
-
 std::ostream & operator<<(std::ostream &stream, const Bureaucrat &src);
 
 #endif

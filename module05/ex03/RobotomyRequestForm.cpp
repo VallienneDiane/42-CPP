@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 14:52:37 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/22 14:28:57 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:23:38 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,21 @@
 //					CONSTRUCTORS	             //
 //***********************************************//
 RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RobotomyRequestForm", 72, 45), _target("none")
-{
-}
+{}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45), _target(target) 
-{
-}
+{}
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) : AForm("RobotomyRequestForm", 72, 45), _target(src.getTarget()) 
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) : AForm("RobotomyRequestForm", 72, 45)
 {
 	*this = src;
 }
 
 RobotomyRequestForm & RobotomyRequestForm::operator=(const RobotomyRequestForm &src)
 {
-	(void)src;
+	this->_target = src.getTarget();
 	return (*this);
 }
-
 //***********************************************//
 //						GETTERS		             //
 //***********************************************//
@@ -41,7 +38,6 @@ std::string	RobotomyRequestForm::getTarget(void) const
 {
 	return (this->_target);
 }
-
 //***********************************************//
 //					FUNCTIONS	                 //
 //***********************************************//
@@ -61,10 +57,8 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 	else
 		throw GradeTooLowToExecute();	
 }
-
 //***********************************************//
 //					DESTRUCTOR                   //
 //***********************************************//
 RobotomyRequestForm::~RobotomyRequestForm(void)
-{
-}
+{}

@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 11:55:11 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/21 16:26:30 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:22:54 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int main(void)
 {
 	Bureaucrat	lydie("Lydie", 4);
 	Intern		lyra;
-	AForm*	shrub;
-	AForm*	president;
-	AForm*	robot;
-	AForm*	sorry;
+	AForm*		shrub;
+	AForm*		president;
+	AForm*		robot;
+	AForm*		sorry;
 
 	shrub = lyra.makeForm("shrubbery creation", "izzzi");
 	robot = lyra.makeForm("robotomy request", "zzz");
@@ -32,6 +32,14 @@ int main(void)
 	sorry = lyra.makeForm("\"work\"", "hhh");
 
 	std::cout << BLUE << std::endl;
+	/////////Test with a Form null : have to check before, to avoid segfault////////
+	if (sorry)
+	{
+		std::cout << sorry << std::endl;
+		lydie.signForm(*sorry);
+		lydie.executeForm(*sorry);
+	}
+	///////////////////////////////////////////////
 	lydie.signForm(*shrub);
 	lydie.executeForm(*shrub);
 	std::cout << std::endl;
