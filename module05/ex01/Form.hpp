@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 10:35:49 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/19 16:34:59 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/22 11:47:33 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@ class Form
 		bool		getSigned(void) const;
 		int			getSignGrade(void) const;
 		int			getExecGrade(void) const;
-		
 		void		beSigned(Bureaucrat &bureaucrat);
-		
 		class	GradeTooHighException : public std::exception
 		{
 			public :
@@ -51,7 +49,6 @@ class Form
 				virtual const char * what() const throw();
 		};
 };
-
 std::ostream & operator<<(std::ostream &stream, const Form &src);
 
 #endif
