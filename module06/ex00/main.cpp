@@ -6,14 +6,13 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 11:25:06 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/21 17:24:23 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/26 11:06:30 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+# include "main.hpp"
 
 /*The static_cast is used for the ordinary type conversion (explicit or implicit) */
-
 void	checkType(std::string arg)
 {
 	if (isChar(arg))
@@ -25,7 +24,12 @@ void	checkType(std::string arg)
 	else if (isDouble(arg))
 		convertDouble(arg);
 	else
-		std::cout << "Error : conversion not possible" << std::endl;
+	{
+		std::cout << "char : impossible" << std::endl;
+		std::cout << "int : impossible" << std::endl;
+		std::cout << "float : impossible" << std::endl;
+		std::cout << "double : impossible" << std::endl;
+	}
 }
 
 int main(int ac, char **av)
@@ -45,9 +49,12 @@ int main(int ac, char **av)
 	}
 	if (arg.length() > 19 || (arg[0] == '-' && arg.length() > 20))
 	{
-		std::cout << "Error : input too large" << std::endl;
+		std::cout << "char : impossible" << std::endl;
+		std::cout << "int : impossible" << std::endl;
+		std::cout << "float : impossible" << std::endl;
+		std::cout << "double : impossible" << std::endl;
 		return (0);
-	}	
+	}
 	checkType(arg);
 	return (0);
 }

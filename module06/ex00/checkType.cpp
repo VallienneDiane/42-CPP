@@ -6,16 +6,14 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 16:03:36 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/03 16:35:01 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/26 11:05:23 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
-
 bool	isChar(std::string arg)
 {
-	if (arg.length() == 1 && isalpha(arg[0]))
+	if (arg.length() == 1 && isprint(arg[0]))
 		return true;
 	return false;
 }

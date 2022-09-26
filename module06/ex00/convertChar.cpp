@@ -6,16 +6,15 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 10:37:21 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/03 11:10:05 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/26 10:46:07 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
-
 void	charToChar(char arg)
 {
 	char c = static_cast<char>(arg);
-	std::cout << "char : " << c << std::endl;
+	std::cout << "char : '" << c << "'" << std::endl;
 }
 
 void	charToInt(char arg)

@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 10:36:44 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/03 17:12:16 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/26 10:54:44 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	intToChar(int nb)
 {
 	if (nb < 32 || nb > 126)
 		std::cout << "char : Non displayable " << std::endl;
+	else if (nb < 0 || nb > 127)
+		std::cout << "char : impossible" << std::endl;
 	else
 	{
 		char c = static_cast<char>(nb);
@@ -51,7 +53,10 @@ void	convertInt(std::string arg)
 	nb = stol(arg);
 	if (nb < INT_MIN || nb > INT_MAX)
 	{
-		std::cout << "Error : int overflow" << std::endl;
+		std::cout << "char : impossible" << std::endl;
+		std::cout << "int : overflow" << std::endl;
+		std::cout << "float : impossible" << std::endl;
+		std::cout << "double : impossible" << std::endl;
 		return;
 	}
 	intToChar(nb);
