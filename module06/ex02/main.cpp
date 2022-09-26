@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 10:41:23 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/22 16:08:04 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/26 10:05:28 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,5 +119,6 @@ int main(void)
 	identify(*isNull);
 
 	delete (abc);
+	delete(isNull);
 	return (0);
 }
