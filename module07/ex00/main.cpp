@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 13:21:52 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/04 14:03:21 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/26 11:31:56 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@
 
 int main( void ) 
 {
+	std::cout << "-- Correction test --" << std::endl;
+    Awesome e(2), f(4);
+    swap(e, f);
+    std::cout << "e " << e << " " << "f " << f << std::endl;
+    std::cout << "max " << max(e, f) << std::endl;
+    std::cout << "min " << min(e, f) << std::endl;
+	std::cout << std::endl;
+	std::cout << "-- My test --" << std::endl;
 	int a = 2;
 	int b = 3;
 	
