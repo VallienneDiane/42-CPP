@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 15:47:07 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/26 12:12:57 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/26 13:18:03 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ template <typename T>
 T & Array<T>::operator[](unsigned int i)
 {
 	if (i >= _size)
-		throw SizeTooHighException();
+		throw WrongIndexException();
 	return (_array[i]);
 }
 
@@ -59,7 +59,7 @@ template <typename T>
 const T & Array<T>::operator[](unsigned int i) const
 {
 	if (i >= _size)
-		throw SizeTooHighException();
+		throw WrongIndexException();
 	return (_array[i]);
 }
 
@@ -70,7 +70,7 @@ unsigned int Array<T>::size(void) const
 }
 
 template <typename T>
-const char* Array<T>::SizeTooHighException::what(void) const throw()
+const char* Array<T>::WrongIndexException::what(void) const throw()
 {
 	return ("EXCEPTION : wrong index");
 }
