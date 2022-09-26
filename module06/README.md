@@ -1,4 +1,9 @@
 # Casts conversion
+A cast is a special operator that forces one data type to be converted into another. As an operator, a cast is unary and has the same precedence as any other unary operator.
+
+The most general cast supported by most of the C++ compilers is as follows −
+
+(type) expression 
 
 ## Static cast
 
