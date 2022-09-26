@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:05:17 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/04 15:42:11 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/26 11:33:39 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,16 @@ void	printTab(T const &str)
 	std::cout << str << " ";
 }
 
+class Awesome
+{
+	public:
+		Awesome( void ): _n( 42 ) { return; }
+		int get( void ) const { return this->_n; }
+	private:
+		int _n;
+};
+std::ostream & operator<< (std::ostream & o, Awesome const & rhs) {o << rhs.get(); return o; }
+
+template<typename T>
+void print (T const & x) { std::cout << x << std::endl; return; }
 #endif
