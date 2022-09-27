@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:01:04 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/27 11:32:22 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/27 16:48:53 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <vector>
 # include <limits.h>
 # include <stdlib.h> 
+# include <time.h>
 
 class Span
 {
@@ -34,10 +35,10 @@ class Span
 
 		Span & operator=(const Span &src);
 		void addNumber(int nb);
-		void addManyNumbers(int nb);
+		// void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+		void addNumber(void);
 		int	shortestSpan(void);
 		int	longestSpan(void);
-
 		class TooManyElements : public std::exception
 		{
 			public:

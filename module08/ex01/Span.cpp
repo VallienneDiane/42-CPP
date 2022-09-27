@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:00:58 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/27 11:42:14 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/27 16:58:55 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ Span::~Span(void)
 Span & Span::operator=(const Span &src)
 {
 	_arrayNb = src._arrayNb;
+	_size = src._size;
 	return (*this);
 }
 
@@ -54,16 +55,18 @@ void Span::addNumber(int nb)
 		throw Span::TooManyElements();
 }
 
-void	Span::addManyNumbers(int nb)
+int	randomNumber(void)
 {
-	if (nb > _size)
-		throw Span::TooManyElements();
-	for (int i = 0; i < nb; i++)
-	{	
-		int number = rand() % 100;
-		// std::cout << number << ' ';
-		_arrayNb.push_back(number);
-	}
+	return (std::rand()%100);
+}
+
+void	Span::addNumber(void)
+{
+	srand(time(NULL));
+	_arrayNb.assign(_size, 0); //reset _size of array
+	std::generate(_arrayNb.begin(), _arrayNb.end(), randomNumber); //iterate and generate random numbers
+	// for (int i = 0; i < _size; i++) // print numbers
+	// 	std::cout << _arrayNb[i] << std::endl;
 }
 
 const char* Span::TooManyElements::what(void) const throw()
