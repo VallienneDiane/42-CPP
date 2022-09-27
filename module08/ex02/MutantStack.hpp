@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 13:56:51 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/27 14:32:01 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/27 15:13:11 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,13 @@
 # include <stack>
 # include <list>
 
-/**************************************************************************************************************************/
-/* std::stack																		  									  */
-/* template <class T, class Container = deque<T> > class stack;															  */
-/* Stacks are a type of container adaptor, where elements are inserted and extracted only from one end of the container.  */
-/* Stacks are implemented as container adaptors, which are classes that use an encapsulated object of a specific container*/
-/* Class as its underlying container, providing a specific set of member functions to access its elements. 				  */
-/* Elements are pushed/popped from the "back" of the specific container, which is known as the top of the stack.          */
-/**************************************************************************************************************************/
-// Container : Type of the internal underlying container object where the elements are stored. 
-// Aliased as member type stack::container_type.
+/***************************************************************************************/
+/* std::stack		
+/* -> is a container adaptor that gives the programmer the functionnality of a stack
+/* -> it is LIFO (last-in, first-out data structure)
+/* -> allows to push(insert) or pop(remove) only from back																  									  */
+/* -> internally it uses std::deque STL container															
+/***************************************************************************************/
 
 template <typename T>
 class MutantStack : public std::stack<T>
