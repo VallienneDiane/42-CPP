@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:01:04 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/16 13:34:33 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/27 11:32:22 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,24 @@
 # include <algorithm>
 # include <vector>
 # include <limits.h>
+# include <stdlib.h> 
 
 class Span
 {
 	private:
 		std::vector<int>	_arrayNb;
-		unsigned int		_size;
-		unsigned int		_i;
+		int					_size;
+		int					_nbElements;
 		
 	public:
 		Span(void);
-		Span(unsigned int N);
+		Span(int N);
 		Span(const Span &src);
 		~Span(void);
 
 		Span & operator=(const Span &src);
 		void addNumber(int nb);
-		void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+		void addManyNumbers(int nb);
 		int	shortestSpan(void);
 		int	longestSpan(void);
 

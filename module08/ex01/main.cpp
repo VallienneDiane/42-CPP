@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:00:50 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/16 13:54:56 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/27 11:43:27 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int main(void)
 		sp1.addNumber(11);
 		sp1.addNumber(6);
 
-		std::cout << "Shortest " << sp1.shortestSpan() << std::endl;
-		std::cout << "Longest  " << sp1.longestSpan() << std::endl;
+		std::cout << "Shortest : " << sp1.shortestSpan() << std::endl;
+		std::cout << "Longest  : " << sp1.longestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -36,7 +36,7 @@ int main(void)
 	std::cout << "------------ TOO MANY ELEMENTS ADDED ------------" << std::endl;
 	try
 	{
-		Span sp2 = Span(6);
+		Span sp2 = Span(5);
 		
 		sp2.addNumber(3);
 		sp2.addNumber(6);
@@ -72,14 +72,12 @@ int main(void)
 	std::cout << "------------ USE ITERATORS  ------------" << std::endl;
 	try
 	{
-		Span sp4 = Span(100);
+		Span sp4(1000);
 		
-		std::vector<int> tab(100, 10);
-		tab[0] = 18;
-		sp4.addNumber(tab.begin(), tab.end());
+		sp4.addManyNumbers(1000);
 
-		std::cout << sp4.shortestSpan() << std::endl;
-		std::cout << sp4.longestSpan() << std::endl;
+		std::cout << "Shortest : " << sp4.shortestSpan() << std::endl;
+		std::cout << "Longest  : " << sp4.longestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
