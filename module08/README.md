@@ -33,15 +33,18 @@ Sequence Containers: implement data structures that can be accessed in a sequent
 	deque
 	arrays
 	forward_list( Introduced in C++11)
+
 Container Adaptors: provide a different interface for sequential containers.
 	queue
 	priority_queue
 	stack
+
 Associative Containers: implement sorted data structures that can be quickly searched (O(log n) complexity).
 	set
 	multiset
 	map
 	multimap
+
 Unordered Associative Containers: implement unordered data structures that can be quickly searched
 	unordered_set (Introduced in C++11)
 	unordered_multiset (Introduced in C++11)
