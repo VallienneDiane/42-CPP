@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:04:43 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/04 15:42:20 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/26 11:37:38 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	toUpper(char &c)
 {
 	c = toupper(c);
-	std::cout << c;
+	std::cout << c << ' ';
 }
 
 int	main(void)
@@ -31,4 +31,11 @@ int	main(void)
 	::iter(charTab, 5, printTab);
 	std::cout << std::endl;
 	::iter(charTab, 5, toUpper);
+
+	std::cout << std::endl;
+	std::cout << "-- Correction test -- " << std::endl;
+	int tab1[] = {0, 1, 2, 3, 4};
+	Awesome tab2[5];
+	iter(tab1, 5, print);
+	iter(tab2, 5, print);
 }

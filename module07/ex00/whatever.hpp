@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 13:49:49 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/04 13:59:59 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/26 11:30:40 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,21 @@ T const &	max(T const &a, T const &b)
 	return( a >= b ? a : b);
 }
 
+class Awesome
+{
+    private:
+        int _n;
+    public:
+        Awesome(void) : _n(0) {}
+        Awesome(int n) : _n(n) {}
+        Awesome &operator=(Awesome &a) { _n = a._n; return *this;}
+        bool operator==( Awesome const &rhs) const {return (this->_n == rhs._n);}
+        bool operator!=( Awesome const &rhs) const {return (this->_n != rhs._n);}
+        bool operator>( Awesome const &rhs) const {return (this->_n > rhs._n);}
+        bool operator<( Awesome const &rhs) const {return (this->_n < rhs._n);}
+        bool operator>=( Awesome const &rhs) const {return (this->_n >= rhs._n);}
+        bool operator<=( Awesome const &rhs) const {return (this->_n <= rhs._n);}
+        int get_n() const {return _n;}
+};
+std::ostream &operator<<(std::ostream & o, const Awesome &a) { o<<a.get_n(); return o;}
 #endif

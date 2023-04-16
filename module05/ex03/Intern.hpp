@@ -6,12 +6,12 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 13:04:37 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/23 10:58:19 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 16:38:17 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERN_H
-# define INTERN_H
+#ifndef INTERN_HPP
+# define INTERN_HPP
 # include <iostream>
 # include "AForm.hpp"
 # include "ShrubberyCreationForm.hpp"

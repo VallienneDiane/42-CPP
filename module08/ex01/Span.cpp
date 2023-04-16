@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:00:58 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/16 13:53:46 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/27 16:58:55 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,29 @@
 /****************************/
 /* CONSTRUCTOR & DESTRUCTOR */
 /****************************/
-Span::Span(void) : _arrayNb(std::vector<int>()), _size(0), _i(0)
-{
-}
+Span::Span(void) : _size(0), _nbElements(0)
+{}
 
-Span::Span(unsigned int N) : _arrayNb(std::vector<int>()), _size(N), _i(0)
-{
-}
+Span::Span(int N) : _size(N), _nbElements(0)
+{}
 
 Span::Span(const Span &src)
 {
 	_arrayNb = src._arrayNb;
 	_size = src._size;
-	_i = src._i;
 	*this = src;
 }
 
 Span::~Span(void)
-{
-}
+{}
 
 /****************************/
 /********* OPERATORS ********/
 /****************************/
 Span & Span::operator=(const Span &src)
 {
-	_arrayNb = std::vector<int>(src._arrayNb);
+	_arrayNb = src._arrayNb;
+	_size = src._size;
 	return (*this);
 }
 
@@ -49,24 +46,27 @@ Span & Span::operator=(const Span &src)
 /****************************/
 void Span::addNumber(int nb)
 {	
-	if (_i < _size)
+	if (_nbElements < _size)
 	{
 		_arrayNb.push_back(nb);
-		_i++;
+		_nbElements++;
 	}
 	else
-		throw TooManyElements();
+		throw Span::TooManyElements();
 }
 
-void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+int	randomNumber(void)
 {
-	for (std::vector<int>::iterator it = begin; it != end; it++)
-	{	
-		_arrayNb.push_back(*it);
-		_i++;
-	}
-	if (_i > _size)
-		throw TooManyElements();
+	return (std::rand()%100);
+}
+
+void	Span::addNumber(void)
+{
+	srand(time(NULL));
+	_arrayNb.assign(_size, 0); //reset _size of array
+	std::generate(_arrayNb.begin(), _arrayNb.end(), randomNumber); //iterate and generate random numbers
+	// for (int i = 0; i < _size; i++) // print numbers
+	// 	std::cout << _arrayNb[i] << std::endl;
 }
 
 const char* Span::TooManyElements::what(void) const throw()
@@ -81,21 +81,17 @@ const char* Span::NotEnoughElements::what(void) const throw()
 
 int	Span::shortestSpan(void)
 {
-	int diff = 0;
+	int diff;
 	int	shortest;
-	unsigned int j;
 	
-	if (_size < 2)
-		throw NotEnoughElements();
+	if (_arrayNb.size() < 2)
+		throw Span::NotEnoughElements();
 	shortest = INT_MAX;
-	std::sort(_arrayNb.begin(), _arrayNb.end());
-	for(unsigned int i = _size - 1; i > 0; i--)
+	for(std::vector<int>::iterator i = _arrayNb.begin(); i != _arrayNb.end(); i++)	
 	{
-		for(j = i; j > 0; j--)
+		for(std::vector<int>::iterator j = i + 1; j != _arrayNb.end(); j++)
 		{
-			diff = _arrayNb[i] - _arrayNb[j - 1];
-			if (diff < 0)
-				diff = diff * -1;
+			diff = std::abs(*i - *j);
 			if (diff < shortest)
 				shortest = diff;
 		}
@@ -107,19 +103,15 @@ int	Span::longestSpan(void)
 {
 	int diff;
 	int	longest;
-	unsigned int j;
 	
-	if (_size < 2)
-		throw NotEnoughElements();
+	if (_arrayNb.size() < 2)
+		throw Span::NotEnoughElements();
 	longest = 0;
-	std::sort(_arrayNb.begin(), _arrayNb.end());
-	for(unsigned int i = _size - 1; i > 0; i--)
+	for(std::vector<int>::iterator i = _arrayNb.begin(); i != _arrayNb.end(); i++)	
 	{
-		for(j = i; j > 0; j--)
+		for(std::vector<int>::iterator j = i + 1; j != _arrayNb.end(); j++)
 		{
-			diff = _arrayNb[i] - _arrayNb[j - 1];
-			if (diff < 0)
-				diff = diff * -1;
+			diff = std::abs(*i - *j);
 			if (diff > longest)
 				longest = diff;
 		}

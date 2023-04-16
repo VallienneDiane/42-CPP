@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 15:44:39 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/18 14:20:55 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:49:08 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,13 @@ Character::Character(void) : _name("unamed")
 	for(int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
 	std::cout << YELLOW << "Character default constructor called" << std::endl;
-	return;
 }
 
 Character::Character(std::string name) : _name(name)
 {
+	std::cout << YELLOW << "Character name constructor called : " << this->_name << std::endl;
 	for(int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
-	std::cout << YELLOW << "Character name constructor called" << std::endl;
-	return;
 }
 
 Character::Character(const Character &src)
@@ -46,7 +44,6 @@ Character & Character::operator=(const Character &src)
 	std::cout << YELLOW << "Character copy assignement constructor called" << std::endl;
 	return (*this);
 }
-
 /**********************************************/
 /*			       GETTER                     */
 /* ********************************************/
@@ -54,7 +51,6 @@ std::string const & Character::getName(void) const
 {
 	return (this->_name);
 }
-
 /**********************************************/
 /*			       FUNCTIONS                  */
 /* ********************************************/
@@ -95,7 +91,6 @@ void Character::use(int idx, ICharacter& target)
 		this->_inventory[idx] = NULL;
 	}
 }
-
 /**********************************************/
 /*			       DESTRUCTOR                 */
 /* ********************************************/
@@ -104,5 +99,4 @@ Character::~Character(void)
 	for (int i = 0; i < 4; i++)
 		delete (this->_inventory[i]);
 	std::cout << YELLOW << "Character destructor called" << std::endl;
-	return;
 }

@@ -6,12 +6,12 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:47:36 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/18 10:27:48 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 15:10:31 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIASOURCE_H
-# define IMATERIASOURCE_H
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 # include <iostream>
 # include <string>
 # include "AMateria.hpp"

@@ -6,12 +6,12 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:31:02 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/17 13:44:54 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 15:09:50 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_H
-# define CURE_H
+#ifndef CURE_HPP
+# define CURE_HPP
 # include <iostream>
 # include <string>
 # include "AMateria.hpp"
@@ -20,11 +20,12 @@ class Cure : public AMateria
 {
 	public:
 		Cure(void);
-		Cure(std::string type);
 		Cure(const Cure &src);
 		Cure & operator=(const Cure &src);
-		Cure* clone(void) const;
 		~Cure(void);
+		
+		Cure(std::string type);
+		Cure* clone(void) const;
 };
 
 #endif

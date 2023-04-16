@@ -10,14 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "AForm.hpp"
-
+#include "AForm.hpp"
 //***********************************************//
 //					CONSTRUCTORS	             //
 //***********************************************//
 AForm::AForm(void) : _name("unamed"),_signGrade(0), _execGrade(0), _signed(0)
-{
-}
+{}
 
 AForm::AForm(std::string const name, int const signGrade, int const execGrade) : _name(name), _signGrade(signGrade), _execGrade(execGrade), _signed(0)
 {
@@ -38,13 +36,13 @@ AForm & AForm::operator=(const AForm &src)
 	return (*this);
 }
 
-std::ostream & operator<<(std::ostream &stream, const AForm &src )
+std::ostream & operator<<(std::ostream &stream, const AForm &src)
 {
 	stream << "Form '" << src.getName() << "': min grade to sign ";
 	stream << src.getSignGrade() << " and min grade to execute " << src.getExecGrade();
+	stream << " Bool sign is " << src.getSigned();
 	return (stream);
 }
-
 //***********************************************//
 //						GETTERS		             //
 //***********************************************//
@@ -67,7 +65,6 @@ int	 AForm::getExecGrade(void) const
 {
 	return (this->_execGrade);
 }
-
 //***********************************************//
 //					FUNCTIONS	                 //
 //***********************************************//
@@ -90,18 +87,20 @@ const char* AForm::GradeTooLowToExecute::what(void) const throw()
 	return ("EXCEPTION : Bureaucrat grade is too low to execute");
 }
 
-
 void	AForm::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() <= getSignGrade())
-		this->_signed = 1;
+	{
+		if (getSigned() == 1)
+			std::cout << "The form " << this->_name << " is already sign" << std::endl;
+		else
+			this->_signed = 1;
+	}
 	else
 		throw GradeTooLowException();
 }
-
 //***********************************************//
 //					DESTRUCTOR                   //
 //***********************************************//
 AForm::~AForm(void)
-{
-}
+{}

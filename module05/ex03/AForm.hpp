@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AFORM_H
-# define AFORM_H
+#ifndef AFORM_HPP
+# define AFORM_HPP
 # include <iostream>
 # include <string>
 # include <fstream>
@@ -20,13 +20,19 @@ class Bureaucrat;
 
 class AForm
 {
+	private:
+		std::string const	_name;
+		int const			_signGrade;
+		int const			_execGrade;
+		bool				_signed;
+
 	public:
 		AForm(void);
-		AForm(std::string const name, int signGrade, int execGrade);
 		AForm(const AForm &src);
 		AForm & operator=(const AForm &src);
 		virtual ~AForm(void);
 
+		AForm(std::string const name, int signGrade, int execGrade);
 		std::string	getName(void) const;
 		bool		getSigned(void) const;
 		int			getSignGrade(void) const;
@@ -54,14 +60,7 @@ class AForm
 			public:
 				virtual const char* what() const throw();
 		};
-		
-	private:
-		std::string const	_name;
-		int const			_signGrade;
-		int const			_execGrade;
-		bool				_signed;
 };
-
 std::ostream & operator<<(std::ostream &stream, const AForm &src);
 
 #endif

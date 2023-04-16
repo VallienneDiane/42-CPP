@@ -6,18 +6,16 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 11:55:03 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/21 14:38:01 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/22 13:00:19 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
 //***********************************************//
 //					CONSTRUCTORS	             //
 //***********************************************//
 Bureaucrat::Bureaucrat(void)
-{
-}
+{}
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(grade)
 {
@@ -26,12 +24,10 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(
 	else if (grade < 1)
 		throw GradeTooHighException();
 }
-
-Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name), _grade(src.getGrade())
+Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name)
 {
 	*this = src;
 }
-
 //***********************************************//
 //						OPERATORS	             //
 //***********************************************//
@@ -46,7 +42,6 @@ std::ostream & operator<<(std::ostream &stream, const Bureaucrat &source )
 	stream << source.getName() << ", is a bureaucrat and her grade is " << source.getGrade();
 	return (stream);
 }
-
 //***********************************************//
 //						GETTERS		             //
 //***********************************************//
@@ -59,7 +54,6 @@ int Bureaucrat::getGrade(void) const
 {
 	return(this->_grade);
 }
-
 //***********************************************//
 //					FUNCTIONS	                 //
 //***********************************************//
@@ -88,11 +82,11 @@ int Bureaucrat::incrementGrade(void)
 int Bureaucrat::decrementGrade(void)
 {
 	this->_grade++;
-		if (this->_grade > 150)
-		{
-			std::cout << "She can't be downgrade, her bureaucrat grade is already the lower..." << std::endl;
-			throw GradeTooLowException();
-		}
+	if (this->_grade > 150)
+	{
+		std::cout << "She can't be downgrade, her bureaucrat grade is already the lower..." << std::endl;
+		throw GradeTooLowException();
+	}
 	std::cout << "DECREMENT : Outch you loose your place... ! Sorry " << this->_name << std::endl;
 	return(this->_grade);
 }
@@ -101,19 +95,24 @@ void	Bureaucrat::signForm(Form &form)
 {
 	try
 	{
-		form.beSigned(*this);
-		std::cout << this->_name << " signed the form " << form.getName() << std::endl;
+		if (form.getSigned() == 0)
+		{
+			form.beSigned(*this);
+			std::cout << this->_name << " signed the form " << form.getName() << std::endl;
+		}
+		else if (form.getSigned() == 1)
+		{
+			std::cout << this->_name << " add another signature on the form " << form.getName() << std::endl;
+			return;
+		}
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	
 }
-
 //***********************************************//
 //					DESTRUCTOR 	                 //
 //***********************************************//
 Bureaucrat::~Bureaucrat(void)
-{
-}
+{}

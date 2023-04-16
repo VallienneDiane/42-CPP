@@ -6,12 +6,12 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 14:55:13 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/21 17:35:29 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/19 16:38:30 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_H
-# define PRESIDENTIALPARDONFORM_H
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 # include <iostream>
 # include "AForm.hpp"
 # include "Bureaucrat.hpp"

@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 14:00:22 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/18 11:28:50 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:38:26 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ Cure::Cure(void)
 {
 	this->_type = "cure";
 	std::cout << PURPLE << "Cure default constructor called" << std::endl;
-	return;
 }
 
 Cure::Cure(std::string type)
@@ -40,7 +39,6 @@ Cure & Cure::operator=(const Cure &src)
 	this->_type = src.getType();
 	return (*this);
 }
-
 /**********************************************/
 /*			       FUNCTIONS                  */
 /* ********************************************/
@@ -48,12 +46,10 @@ Cure* Cure::clone(void) const
 {
 	return (new Cure(*this));
 }
-
 /**********************************************/
 /*			       DESTRUCTOR                 */
 /* ********************************************/
 Cure::~Cure(void)
 {
 	std::cout << PURPLE << "Cure destructor called" << std::endl;
-	return;
 }

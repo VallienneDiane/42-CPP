@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 14:38:58 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/18 11:28:57 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 11:38:30 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ Ice::Ice(void)
 {
 	this->_type = "ice";
 	std::cout << BLUE << "Ice default constructor called" << std::endl;
-	return;
 }
 
 Ice::Ice(std::string type)
@@ -40,7 +39,6 @@ Ice & Ice::operator=(const Ice &src)
 	this->_type = src.getType();
 	return (*this);
 }
-
 /**********************************************/
 /*			       FUNCTIONS                  */
 /* ********************************************/
@@ -48,12 +46,10 @@ Ice* Ice::clone(void) const
 {
 	return (new Ice(*this));
 }
-
 /**********************************************/
 /*			       DESTRUCTOR                 */
 /* ********************************************/
 Ice::~Ice(void)
 {
 	std::cout << BLUE << "Ice destructor called" << std::endl;
-	return;
 }

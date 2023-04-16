@@ -6,34 +6,30 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 14:50:04 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/22 14:29:40 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/21 13:51:21 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ShrubberyCreationForm.hpp"
-
 //***********************************************//
 //					CONSTRUCTORS	             //
 //***********************************************//
 ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("ShrubberyCreationForm", 145, 137), _target("none") 
-{
-}
+{}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137), _target(target) 
-{
-}
+{}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src): AForm("ShrubberyCreationForm", 145, 137), _target(src.getTarget()) 
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src): AForm("ShrubberyCreationForm", 145, 137) 
 {
 	*this = src;
 }
 
 ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src)
 {
-	(void)src;
+	this->_target = src.getTarget();
 	return (*this);
 }
-
 //***********************************************//
 //						GETTERS		             //
 //***********************************************//
@@ -71,11 +67,8 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	else
 		throw GradeTooLowToExecute();
 }
-
-
 //***********************************************//
 //					DESTRUCTOR                   //
 //***********************************************//
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
-{
-}
+{}

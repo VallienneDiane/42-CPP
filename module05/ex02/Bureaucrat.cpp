@@ -6,18 +6,16 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 11:55:03 by dvallien          #+#    #+#             */
-/*   Updated: 2022/08/22 14:32:45 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/22 13:41:32 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
 //***********************************************//
 //					CONSTRUCTORS	             //
 //***********************************************//
 Bureaucrat::Bureaucrat(void)
-{
-}
+{}
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(grade)
 {
@@ -27,17 +25,16 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(
 		throw GradeTooHighException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name), _grade(src.getGrade())
+Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name)
 {
 	*this = src;
 }
-
 //***********************************************//
 //						OPERATORS	             //
 //***********************************************//
 Bureaucrat & Bureaucrat::operator=(const Bureaucrat &src)
 {
-	(void)src;
+	this->_grade = src.getGrade();
 	return (*this);
 }
 
@@ -46,7 +43,6 @@ std::ostream & operator<<(std::ostream &stream, const Bureaucrat &source )
 	stream << source.getName() << ", is a bureaucrat and her grade is " << source.getGrade();
 	return (stream);
 }
-
 //***********************************************//
 //						GETTERS		             //
 //***********************************************//
@@ -59,7 +55,6 @@ int Bureaucrat::getGrade(void) const
 {
 	return(this->_grade);
 }
-
 //***********************************************//
 //					FUNCTIONS	                 //
 //***********************************************//
@@ -101,14 +96,21 @@ void	Bureaucrat::signForm(AForm &form)
 {
 	try
 	{
-		form.beSigned(*this);
-		std::cout << this->_name << " signed the form " << form.getName() << std::endl;
+		if (form.getSigned() == 0)
+		{
+			form.beSigned(*this);
+			std::cout << this->_name << " signed the form " << form.getName() << std::endl;
+		}
+		else if (form.getSigned() == 1)
+		{
+			std::cout << this->_name << " add another signature on the form " << form.getName() << std::endl;
+			return;
+		}
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-	
 }
 
 void	Bureaucrat::executeForm(AForm const & form)
@@ -128,5 +130,4 @@ void	Bureaucrat::executeForm(AForm const & form)
 //					DESTRUCTOR 	                 //
 //***********************************************//
 Bureaucrat::~Bureaucrat(void)
-{
-}
+{}

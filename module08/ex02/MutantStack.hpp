@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vallienne <vallienne@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 13:56:51 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/16 18:08:19 by vallienne        ###   ########.fr       */
+/*   Updated: 2022/09/27 16:27:44 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@
 # include <stack>
 # include <list>
 
+/**********************************************************************************/
+/* std::stack																	  */
+/* is a container adaptor that gives the programmer the functionnality of a stack */
+/* it is LIFO (last-in, first-out data structure)								  */
+/* allows to push(insert) or pop(remove) only from back							  */
+/* internally it uses std::deque STL container									  */						
+/**********************************************************************************/
+
 template <typename T>
 class MutantStack : public std::stack<T>
 {
@@ -27,9 +35,7 @@ class MutantStack : public std::stack<T>
 		MutantStack & operator=(const MutantStack &src);
 		~MutantStack(void);
 
-		typedef typename std::stack<T>::container_type	container_type;
-		typedef typename container_type::iterator		iterator;
-
+		typedef typename std::stack<T>::container_type::iterator	iterator;
 		iterator		begin(void)
 		{
 			return (this->c.begin());
@@ -38,13 +44,11 @@ class MutantStack : public std::stack<T>
 		{
 			return (this->c.end());
 		}
-
 };
 
 template <typename T>
 MutantStack<T>::MutantStack(void)
-{
-}
+{}
 
 template <typename T>
 MutantStack<T>::MutantStack(const MutantStack &src)
@@ -61,7 +65,6 @@ MutantStack<T> & MutantStack<T>::operator=(const MutantStack<T> &src)
 
 template <typename T>
 MutantStack<T>::~MutantStack(void)
-{
-}
+{}
 
 #endif

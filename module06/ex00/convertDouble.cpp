@@ -6,12 +6,11 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 14:03:41 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/03 17:16:35 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/26 10:48:17 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
-#include <stdlib.h> 
 
 void	doubleToChar(double nb)
 {

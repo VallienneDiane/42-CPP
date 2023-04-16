@@ -6,7 +6,7 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 18:30:10 by dvallien          #+#    #+#              #
-#    Updated: 2022/08/23 15:57:37 by dvallien         ###   ########.fr        #
+#    Updated: 2022/09/26 10:47:45 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,14 @@ NAME		=	conversion
 
 PATH_OBJS	=	./.OBJS/
 
-#INCLUDES	=	
+INCLUDES	= main.hpp
 
-SRC			= 	main.cpp
+SRC			= 	main.cpp			\
+				checkType.cpp		\
+				convertChar.cpp		\
+				convertInt.cpp		\
+				convertFloat.cpp	\
+				convertDouble.cpp
 
 OBJS		=	$(addprefix $(PATH_OBJS), $(SRC:.cpp=.o))
 
@@ -29,7 +34,7 @@ all :		$(NAME)
 $(NAME) :	$(OBJS) Makefile
 			$(CPPC) $(OBJS) -o $(NAME)
 
-$(PATH_OBJS)%.o :	%.cpp #$(INCLUDES)
+$(PATH_OBJS)%.o :	%.cpp $(INCLUDES)
 					@mkdir -p $(PATH_OBJS)
 					$(CPPC) $(CPPFLAGS) -c $< -o $@
 

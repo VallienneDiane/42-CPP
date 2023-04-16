@@ -6,23 +6,18 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 15:47:07 by dvallien          #+#    #+#             */
-/*   Updated: 2022/09/13 17:46:45 by dvallien         ###   ########.fr       */
+/*   Updated: 2022/09/26 13:18:03 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
-
-
-/* CONSTRUCTORS && DESTRUCTOR */
 template <typename T>
 Array<T>::Array(void): _size(0), _array(NULL)
-{
-}
+{}
 
 template <typename T>
 Array<T>::Array(unsigned int n): _size(n), _array(new T[n])
-{
-} 
+{} 
 
 template <typename T>
 Array<T>::Array(const Array &src) : _size(src._size), _array(new T[src._size])
@@ -38,7 +33,6 @@ Array<T>::~Array(void)
 	return;
 }
 
-/* OPERATORS */
 template <typename T>
 Array<T> & Array<T>::operator=(const Array &src)
 {
@@ -57,7 +51,7 @@ template <typename T>
 T & Array<T>::operator[](unsigned int i)
 {
 	if (i >= _size)
-		throw SizeTooHighException();
+		throw WrongIndexException();
 	return (_array[i]);
 }
 
@@ -65,11 +59,10 @@ template <typename T>
 const T & Array<T>::operator[](unsigned int i) const
 {
 	if (i >= _size)
-		throw SizeTooHighException();
+		throw WrongIndexException();
 	return (_array[i]);
 }
 
-/* FUNCTIONS */
 template <typename T>
 unsigned int Array<T>::size(void) const
 {
@@ -77,7 +70,7 @@ unsigned int Array<T>::size(void) const
 }
 
 template <typename T>
-const char* Array<T>::SizeTooHighException::what(void) const throw()
+const char* Array<T>::WrongIndexException::what(void) const throw()
 {
 	return ("EXCEPTION : wrong index");
 }

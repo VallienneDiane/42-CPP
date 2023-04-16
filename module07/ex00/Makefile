@@ -6,7 +6,7 @@
 #    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 18:30:10 by dvallien          #+#    #+#              #
-#    Updated: 2022/09/04 13:46:04 by dvallien         ###   ########.fr        #
+#    Updated: 2022/09/26 11:29:52 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		=	template
 
 PATH_OBJS	=	./.OBJS/
 
-# INCLUDES	=
+INCLUDES	=	whatever.hpp
 
 SRC			= 	main.cpp
 
@@ -29,7 +29,7 @@ all :		$(NAME)
 $(NAME) :	$(OBJS) Makefile
 			$(CPPC) $(OBJS) -o $(NAME)
 
-$(PATH_OBJS)%.o :	%.cpp #$(INCLUDES)
+$(PATH_OBJS)%.o :	%.cpp $(INCLUDES)
 					@mkdir -p $(PATH_OBJS)
 					$(CPPC) $(CPPFLAGS) -c $< -o $@
 
