@@ -6,7 +6,7 @@
 /*   By: vallienne <vallienne@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 19:57:38 by vallienne         #+#    #+#             */
-/*   Updated: 2023/04/16 18:53:44 by vallienne        ###   ########.fr       */
+/*   Updated: 2023/04/18 00:22:10 by vallienne        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,10 @@
 #include <sstream>
 #include <ctype.h>
 #include <algorithm> 
-
-
 // pair {
 //     first: 2001-10-05;
 //     second: 3;
 // }
-
 void saveData(std::vector <std::pair<std::string, float> > &data) 
 {
     std::ifstream myfile("data.csv");
@@ -62,23 +59,54 @@ std::vector<std::string> splitLine(std::string &line, char delim)
     return splitResult;
 }
 
+bool checkCaractersDate(std::string date)
+{
+    for(size_t i = 0; i < date.size(); i++) {
+        if(date[i] != '-' && !isdigit(date[i]))
+            return (false);
+    }
+    return (true);
+}
+
 int checkDate(std::string date) 
 {
-    remove_if(date.begin(), date.end(), isspace);
+    std::vector<std::string> splitDate;
     
-    return (0);
-                    
+    if(date.size() != 10 || checkCaractersDate(date) == false) {
+        std::cout << "Error: wrong date format" << std::endl;
+        return (1);
+    }
+    splitDate = splitLine(date, '-');
+    int year = atoi(splitDate[0].c_str());
+    int month = atoi(splitDate[1].c_str());
+    int day = atoi(splitDate[2].c_str());
+    if((day < 1 || day > 31) || (year < 2009 || year > 2022) || (month < 1 || month > 12)) {
+        std::cout << "Error: invalid date => " << date << std::endl;
+        return (1);
+    }
+    else if((month == 4 || month == 6 || month == 9 || month == 11) && day == 31) {
+        std::cout << "Error: invalid date (wrong number days per month) => " << date << std::endl;
+        return (1);
+    }
+    else if((month == 2 && (year % 4 == 0) && day > 29) || (month == 2 && (year % 4 != 0) && day > 28)) {
+        std::cout << "Error: invalid date (february is 28d except bissextile year) => " << date << std::endl;
+        return (1);
+    }
+    return (0);                
 }
 
 int checkValue(std::string value) 
 {
     float valuef = std::atof(value.c_str());
-    
-    remove_if(value.begin(), value.end(), isspace);
-    if(valuef < 0)
-        std::cout << "Error: not a positive number." << valuef << std::endl;
-    if (valuef > 1000)
+
+    if(valuef < 0) {
+        std::cout << "Error: not a positive number. " << valuef << std::endl;
+        return (1);
+    }
+    else if (valuef > 1000) {
         std::cout << "Error: too large number. " << valuef << std::endl;
+        return (1);
+    }
     return (0);
                     
 }
@@ -88,8 +116,10 @@ void checkInput(char *inputFile, std::vector <std::pair<std::string, float> > &d
     std::vector<std::string> result;
     std::ifstream myinput(inputFile);
     std::string line;
-    (void)data;
-    
+    std::string value;
+    std::string date;
+    float bitcoin;
+
     if(myinput.is_open()) {
         std::getline(myinput, line);
         while(std::getline(myinput, line))
@@ -98,25 +128,30 @@ void checkInput(char *inputFile, std::vector <std::pair<std::string, float> > &d
             if(result.size() != 2) {
                 std::cout << "Error: bad input => " << line << std::endl;
             }
-            std::string date = result[0];
-            std::string value = result[1];
-            if(checkDate(date) == 0) {
-                //si la date est dans data.csv alors super
-                std::vector<std::pair<std::string, float> >::iterator it = data.begin();
-                std::vector<std::pair<std::string, float> >::iterator end = data.end();
-                for(; it != end; it++) {     
-                    if(date == (*it).first) {
-                        if (checkValue(value) == 0) {
-                            std::cout << date << " => " << value << " = " << (*it).second << std::endl;
+            else {
+                date = result[0];
+                value = result[1];
+                value.erase(std::remove_if(value.begin(), value.end(), isspace), value.end());
+                date.erase(std::remove_if(date.begin(), date.end(), isspace), date.end());
+                if(checkDate(date) == 0 && checkValue(value) == 0) 
+                {
+                    std::vector<std::pair<std::string, float> >::iterator it = data.begin();
+                    std::vector<std::pair<std::string, float> >::iterator end = data.end();
+                    for(; it != end; it++) {
+                        if(strcmp((*it).first.c_str(), date.c_str()) != 0) {
+                            bitcoin = (*it).second * (atof(value.c_str()));
+                            std::cout << (*it).second << " & " << (atof(value.c_str())) << std::endl;
+                            std::cout << date << " => " << value << " = " << bitcoin << std::endl;
+                            break;
+                        }
+                        else {
+                            std::cout << "take closer date" << std::endl;
                         }
                     }
-                    else {
-                        //prendre la date avant
-                    }
                 }
-            }
-            else {
-                std::cout << "Error: wrong date format" << std::endl;
+                else {
+                   ;
+                }
             }
         }
         myinput.close();
@@ -125,7 +160,6 @@ void checkInput(char *inputFile, std::vector <std::pair<std::string, float> > &d
         throw std::runtime_error("Error: could not open file");
     }
 }
-
 
 int main(int ac, char **av) {
     
