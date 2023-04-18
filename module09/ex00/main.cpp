@@ -6,7 +6,7 @@
 /*   By: vallienne <vallienne@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 19:57:38 by vallienne         #+#    #+#             */
-/*   Updated: 2023/04/18 00:22:10 by vallienne        ###   ########.fr       */
+/*   Updated: 2023/04/18 10:51:17 by vallienne        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,6 @@ void checkInput(char *inputFile, std::vector <std::pair<std::string, float> > &d
     std::string line;
     std::string value;
     std::string date;
-    float bitcoin;
 
     if(myinput.is_open()) {
         std::getline(myinput, line);
@@ -138,14 +137,9 @@ void checkInput(char *inputFile, std::vector <std::pair<std::string, float> > &d
                     std::vector<std::pair<std::string, float> >::iterator it = data.begin();
                     std::vector<std::pair<std::string, float> >::iterator end = data.end();
                     for(; it != end; it++) {
-                        if(strcmp((*it).first.c_str(), date.c_str()) != 0) {
-                            bitcoin = (*it).second * (atof(value.c_str()));
-                            std::cout << (*it).second << " & " << (atof(value.c_str())) << std::endl;
-                            std::cout << date << " => " << value << " = " << bitcoin << std::endl;
-                            break;
-                        }
-                        else {
-                            std::cout << "take closer date" << std::endl;
+                       if(strcmp((*it).first.c_str(), date.c_str()) == 0) {
+                            float valuef = (atof(value.c_str()));
+                            std::cout << date << " => " << value << " = " << (valuef * ((*it).second)) << std::endl;
                         }
                     }
                 }
