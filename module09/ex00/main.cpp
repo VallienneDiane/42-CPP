@@ -20,20 +20,16 @@ int main(int ac, char **av) {
         std::cout << "Usage : ./btc input.txt " << std::endl;
         return (1);
     }
-    try
-    {
+    try {
         saveData(data);
     }
-    catch(const std::exception& e)
-    {
+    catch(const std::exception& e) {
         std::cerr << e.what() << '\n';
     }
-    try
-    {
+    try {
         checkInput(av[1], data);
     }
-    catch(const std::exception& e)
-    {
+    catch(const std::exception& e) {
         std::cerr << e.what() << '\n';
     }
     return (0);
