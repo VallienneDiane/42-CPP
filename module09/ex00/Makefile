@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vallienne <vallienne@student.42.fr>        +#+  +:+       +#+         #
+#    By: dvallien <dvallien@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/08 19:55:31 by vallienne         #+#    #+#              #
-#    Updated: 2023/04/15 19:00:26 by vallienne        ###   ########.fr        #
+#    Created: 2023/04/08 19:55:31 by dvallien         #+#    #+#              #
+#    Updated: 2023/05/01 14:35:34 by dvallien        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,10 @@ NAME		=	btc
 
 PATH_OBJS	=	./.OBJS/
 
-INCLUDES	= 	
+INCLUDES	= 	BitcoinExchange.hpp
 
-SRC			= 	main.cpp
+SRC			= 	main.cpp \
+				BitcoinExchange.cpp
 
 OBJS		=	$(addprefix $(PATH_OBJS), $(SRC:.cpp=.o))
 
