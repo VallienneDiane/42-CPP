@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvallien <dvallien@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/08 20:17:00 by dvallien         #+#    #+#             */
-/*   Updated: 2023/04/08 20:25:36 by dvallien        ###   ########.fr       */
+/*   Created: 2023/05/01 15:10:05 by dvallien         #+#    #+#             */
+/*   Updated: 2023/05/01 15:10:06 by dvallien        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#ifndef RPN_HPP
+#define RPN_HPP
+#include <iostream>
+#include <string.h>
+#include <stack>
+#include <sstream>
+#include <stdlib.h> 
 
-int main(int ac, char **av) {
+int checkData(std::string polishexp);
+int doTheMath(std::string expr);
 
-    if(ac != 2) {
-        std::cout << "Usage : ./RPN \"Reverse Polish Expression\"" << std::endl;
-        return (1);
-    }
-    else {
-        checkData(av[1]);
-    }
-    return (0);
-}
+#endif

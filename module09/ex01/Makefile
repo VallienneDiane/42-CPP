@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vallienne <vallienne@student.42.fr>        +#+  +:+       +#+         #
+#    By: dvallien <dvallien@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/08 19:55:31 by vallienne         #+#    #+#              #
-#    Updated: 2023/04/08 20:18:49 by vallienne        ###   ########.fr        #
+#    Created: 2023/04/08 19:55:31 by dvallien         #+#    #+#              #
+#    Updated: 2023/04/08 20:18:49 by dvallien        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ PATH_OBJS	=	./.OBJS/
 
 INCLUDES	= 	RPN.hpp
 
-SRC			= 	main.cpp /
+SRC			= 	main.cpp	\
 				RPN.cpp
 
 OBJS		=	$(addprefix $(PATH_OBJS), $(SRC:.cpp=.o))
