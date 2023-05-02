@@ -20,37 +20,90 @@ int checkNumbers(int number) {
     return (0);
 }
 
+int checkElementType(std::string polishExpr) {
+
+    for(size_t i = 0; i < polishExpr.length(); i++) {
+        if(!isdigit(polishExpr[i]) && polishExpr[i] != '*' && polishExpr[i] != '+' && polishExpr[i] != '-' && polishExpr[i] != '/' && polishExpr[i] != ' ') {
+            std::cout << "Error: wrong expression format : polishExpr[i] = " << polishExpr[i] << std::endl;
+            return (1);
+        }
+    }
+    return(0);
+}
+
+int checkNbElements(std::string polishExpr) {
+    int countNumbers = 0;
+    int countOperators = 0;
+
+    for(size_t i = 0; i < polishExpr.length(); i++) {
+        if(isdigit(polishExpr[i]) != 0) {
+            countNumbers++;
+        }
+        else if(polishExpr[i] == '*' || polishExpr[i] == '+' || polishExpr[i] == '-' || polishExpr[i] == '/') {
+            countOperators++;
+        }
+    }
+    countNumbers--;
+    if(countNumbers != countOperators) {
+        std::cout << "Error: too much operators or numbers" << std::endl;
+        return (1);
+    }
+    return(0);
+}
+
 int checkData(std::string polishExpr) 
 {
     std::stringstream ss(polishExpr);
-    std::string element;
-    std::stack<int> calcul;
+    std::stack<int> stack;
+    int result = 0;
 
     if(polishExpr.size() == 0) {
         std::cout << "Error: empty expression" << std::endl;
         return (1);
     }
-    
-    while(std::getline(ss, element, ' '))
-    {
-        for(size_t i = 0; i < element.length(); i++) {
-            if(!isdigit(element[i]) && element[i] != '*' && element[i] != '+'&& element[i] != '-' && element[i] != '/') {
-                std::cout << "Error: wrong expression format" << std::endl;
-                return (1);
+    if(checkElementType(polishExpr) == 1) 
+        return (1);
+    if(checkNbElements(polishExpr) == 1) 
+        return (1);
+
+    for(size_t i = 0; i < polishExpr.length(); i++) {
+        //remove spaces !!!
+        if(isdigit(polishExpr[i])) {
+            int number = polishExpr[i] - 48;
+            if(checkNumbers(number) == 0) {
+                stack.push(number);
             }
-            if(isdigit(element[i])) {
-                int number = atoi(element.c_str());
-                if(checkNumbers(number) == 0) {
-                    calcul.push(number);
+        }
+        else {
+            char ope = polishExpr[i];
+            if(stack.size() >= 2) {
+                int newNb1 = stack.top();
+                std::cout << ope << " nb1 " << newNb1 << std::endl;
+                stack.pop();
+                int newNb2 = stack.top();
+                std::cout << ope << " nb2 " << newNb2 << std::endl;
+                stack.pop();
+                switch(ope) 
+                {
+                    case '+': 
+                        result = newNb2 + newNb1;
+                        std::cout << " result = " << result << std::endl;
+                        stack.push(result);
+                        break;
+                    case '-':
+                        result = newNb2 - newNb1;
+                        std::cout << " result = " << result << std::endl;
+                        stack.push(result);
+                        break;
+                    default : 
+                        break;
                 }
             }
             else {
-                std::cout << "element = " << element << std::endl;
-                char ope = element[i];
-                // check if ope is + - * /
-                int newNumber = calcul.top();
-            }          
-        }
+                std::cout << "Error: invalid input" << std::endl;
+                return (1);
+            }
+        }          
     }
     return (0);
 }

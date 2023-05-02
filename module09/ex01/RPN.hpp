@@ -12,6 +12,10 @@
 
 #ifndef RPN_HPP
 #define RPN_HPP
+# define GREEN "\x1B[32m"
+# define ORANGE "\x1B[34m"
+# define PURPLE "\x1B[35m"
+# define BLUE "\x1B[36m"
 #include <iostream>
 #include <string.h>
 #include <stack>
@@ -19,6 +23,5 @@
 #include <stdlib.h> 
 
 int checkData(std::string polishexp);
-int doTheMath(std::string expr);
 
 #endif

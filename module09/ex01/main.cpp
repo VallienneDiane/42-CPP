@@ -19,7 +19,8 @@ int main(int ac, char **av) {
         return (1);
     }
     else {
-        checkData(av[1]);
+        if(checkData(av[1]) == 1)
+            return (1);
     }
     return (0);
 }
