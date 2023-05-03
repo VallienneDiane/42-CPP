@@ -24,4 +24,17 @@
 
 int checkData(std::string polishexp);
 
+class DivisionByZeroException : public std::exception {
+    public:
+        virtual const char* what() const throw() {
+            return "Error: impossible division";
+        }
+};
+class InvalidExpressionException : public std::exception {
+    public:
+        virtual const char* what() const throw() {
+            return "Error: invalid expression";
+        }
+};
+
 #endif
