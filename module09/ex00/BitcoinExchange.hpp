@@ -12,7 +12,7 @@
 
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
-# define GREEN "\x1B[32m"
+# define WHITE "\x1b[37m"
 # define ORANGE "\x1B[34m"
 # define PURPLE "\x1B[35m"
 # define BLUE "\x1B[36m"

@@ -50,7 +50,7 @@ std::vector<std::string> splitLine(std::string &line, char delim)
 bool checkCharactersDate(std::string date)
 {
     for(size_t i = 0; i < date.size(); i++) {
-        if(date[i] != '-' && !isdigit(date[i]))
+        if(date[i] != '-' && date[i] != ' ' && !isdigit(date[i]))
             return (false);
     }
     return (true);
@@ -60,19 +60,19 @@ int checkDate(std::string date)
 {
     std::vector<std::string> splitDate;
     
-    if(date.size() != 10 || checkCharactersDate(date) == false) {
+    if(date.size() != 11 || date[10] != ' ' || checkCharactersDate(date) == false) {
         std::cout << BLUE << "Error: invalid date => " << date << std::endl;
         return (1);
     }
     splitDate = splitLine(date, '-');
-    if(splitDate[0].size() > 4 || splitDate[1].size() > 2 || splitDate[2].size() > 2) {
+    if(splitDate[0].size() > 4 || splitDate[1].size() > 2 || splitDate[2].size() > 3) {
         std::cout << BLUE << "Error: invalid date => " << date << std::endl;
         return (1);
     }
     int year = atoi(splitDate[0].c_str());    
     int month = atoi(splitDate[1].c_str());
     int day = atoi(splitDate[2].c_str());
-    if((day < 1 || day > 31) || (year < 2009 || year > 2022) || (month < 1 || month > 12)) {
+    if((day < 1 || day > 31) || (year < 2009) || (month < 1 || month > 12)) {
         std::cout << BLUE <<"Error: invalid date => " << date << std::endl;
         return (1);
     }
@@ -81,7 +81,7 @@ int checkDate(std::string date)
         return (1);
     }
     else if((month == 2 && (year % 4 == 0) && day > 29) || (month == 2 && (year % 4 != 0) && day > 28)) {
-        std::cout << BLUE << "Error: invalid date => " << date << std::endl;
+        std::cout << BLUE << "Error: invalid date 4=> " << date << std::endl;
         return (1);
     }
     return (0);                
@@ -89,23 +89,32 @@ int checkDate(std::string date)
 
 int checkValue(std::string value) 
 {
-    float valuef = std::atof(value.c_str());
     size_t count = 0;
+    std::vector<std::string> splitValue;
     
-    for(size_t i = 0; i < value.size(); i++) {
-        if(!isdigit(value[i]) && value[i] != '.' && value[i] != '-') {
-            std::cout << PURPLE << "Error: not a number => " << value << std::endl;  
+    splitValue = splitLine(value, ' ');
+    if(splitValue.size() > 2) {
+        std::cout << PURPLE << "Error: invalid number => " << value << std::endl;  
+        return (1);
+    }
+    if(splitValue[0].size() > 1 || splitValue[0][0] != ' ') {
+        std::cout << PURPLE << "Error: missing space before value => " << value << std::endl;  
+        return (1);
+    }
+    for(size_t i = 0; i < splitValue[1].size(); i++) {
+        if(!isdigit(splitValue[1][i]) && splitValue[1][i] != '.' && splitValue[1][i] != '-') {
+            std::cout << PURPLE << "Error: not a number => " << splitValue[i] << std::endl;  
             return (1);
         }
-        if(value[i] == '.') {
+        if(splitValue[1][i] == '.') {
             count++;
         }
         if(count > 1) {
-            std::cout << PURPLE << "Error: not a float number => " << value << std::endl;
+            std::cout << PURPLE << "Error: not a float number => " << splitValue[1] << std::endl;
             return(1);
         }
     }
-    
+    float valuef = std::atof(splitValue[1].c_str());
     if(valuef < 0) {
         std::cout << PURPLE << "Error: not a positive number => " << valuef << std::endl;
         return (1);
@@ -129,6 +138,10 @@ void checkInput(char *inputFile, std::vector <std::pair<std::string, float> > &d
 
     if(myinput.is_open()) {
         std::getline(myinput, line);
+        if(strcmp(line.c_str(), "date | value") != 0) {
+            std::cout << "Error: first line should be \"date | value\"" << std::endl;
+            return;
+        }
         while(std::getline(myinput, line))
         {
             result = splitLine(line, '|');
@@ -138,8 +151,6 @@ void checkInput(char *inputFile, std::vector <std::pair<std::string, float> > &d
             else {
                 date = result[0];;
                 value = result[1];
-                value.erase(std::remove_if(value.begin(), value.end(), isspace), value.end());
-                date.erase(std::remove_if(date.begin(), date.end(), isspace), date.end());
                 if(checkDate(date) == 0 && checkValue(value) == 0) 
                 {
                     std::vector<std::pair<std::string, float> >::iterator it = data.begin();
@@ -147,10 +158,10 @@ void checkInput(char *inputFile, std::vector <std::pair<std::string, float> > &d
                     for(; it != end; it++) {
                         valuef = (atof(value.c_str()));
                         if(strcmp((*it).first.c_str(), date.c_str()) == 0) {                         
-                            std::cout << GREEN << date << " => " << value << " = " << (valuef * ((*it).second)) << std::endl;
+                            std::cout << WHITE << date << " => " << value << " = " << (valuef * ((*it).second)) << std::endl;
                         }
                         else if(((it+1) != end) && (strcmp((*(it+1)).first.c_str(), date.c_str()) > 0) && (strcmp((*it).first.c_str(), date.c_str()) < 0)) {
-                            std::cout << GREEN << date << " => " << value << " = " << (valuef * ((*it).second)) << std::endl;
+                            std::cout << WHITE << date << " => " << value << " = " << (valuef * ((*it).second)) << std::endl;
                         }                   
                     }
                 }
