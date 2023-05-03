@@ -45,12 +45,9 @@ float doTheMath(std::stack<float> &stack, char ope) {
 
     if(stack.size() > 1) {
         newNb1 = stack.top();
-        std::cout << "NB1 " << newNb1 << std::endl;
         stack.pop();
         newNb2 = stack.top();
-        std::cout << "NB2 " << newNb2 << std::endl;
         stack.pop();
-        std::cout << "size stack calcul " << newNb2 << " " << ope << " " << newNb1 << std::endl;
         switch(ope) 
         {
             case '+': 
@@ -70,7 +67,6 @@ float doTheMath(std::stack<float> &stack, char ope) {
                     throw DivisionByZeroException();
                 }
                 result = newNb2 / newNb1;
-                std::cout << "float ? " << result << std::endl;
                 stack.push(result);
                 break;
             default : 
