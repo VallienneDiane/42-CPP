@@ -27,7 +27,8 @@ int main(int ac, char **av) {
         std::cerr << e.what() << '\n';
     }
     try {
-        checkInput(av[1], data);
+        if(checkInput(av[1], data) == 1)
+            return (1);
     }
     catch(const std::exception& e) {
         std::cerr << e.what() << '\n';

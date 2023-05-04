@@ -28,7 +28,7 @@
 
 std::vector<std::string>    splitLine(std::string &line, char delim);
 void                        saveData(std::vector <std::pair<std::string, float> > &data);
-void                        checkInput(char *inputFile, std::vector <std::pair<std::string, float> > &data);
+int                         checkInput(char *inputFile, std::vector <std::pair<std::string, float> > &data);
 bool                        checkCharactersDate(std::string date);
 int                         checkDate(std::string date);
 int                         checkValue(std::string value);
