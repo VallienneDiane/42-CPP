@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vallienne <vallienne@student.42.fr>        +#+  +:+       +#+         #
+#    By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/08 19:55:31 by vallienne         #+#    #+#              #
-#    Updated: 2023/04/08 20:32:14 by vallienne        ###   ########.fr        #
+#    Created: 2023/05/04 15:59:53 by dvallien          #+#    #+#              #
+#    Updated: 2023/05/04 16:14:56 by dvallien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ PATH_OBJS	=	./.OBJS/
 
 INCLUDES	= 	PmergeMe.hpp
 
-SRC			= 	main.cpp /
+SRC			= 	main.cpp \
 				PmergeMe.cpp
 
 OBJS		=	$(addprefix $(PATH_OBJS), $(SRC:.cpp=.o))

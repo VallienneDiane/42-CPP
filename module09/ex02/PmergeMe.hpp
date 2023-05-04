@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/08 20:31:27 by dvallien          #+#    #+#             */
-/*   Updated: 2023/05/04 16:16:53 by dvallien         ###   ########.fr       */
+/*   Created: 2023/05/04 16:00:01 by dvallien          #+#    #+#             */
+/*   Updated: 2023/05/04 16:50:51 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PmergeMe.hpp"
+#ifndef PMERGEME_HPP
+#define PMERGEME_HPP
+# define GREEN "\x1B[32m"
+# define ORANGE "\x1B[34m"
+# define PURPLE "\x1B[35m"
+# define BLUE "\x1B[36m"
+#include <iostream>
+#include <string.h>
+#include <cstdlib> 
+#include <deque>
+#include <climits>
+#include <list>
 
-int main(int av, char **ac)
-{
-    if(av < 2) {
-        std::cout << "Usage : ./PmergeMe Numbers" << std::endl;
-        return (1);
-    }
-    else {
-        for(int i = 1; i < av; i++) {
-            if(checkSequence(ac[i]) == 1)
-                return (1);
-        }
-    }
-    return (0);
-}
+int checkSequence(std::string sequence);
+
+#endif
