@@ -12,17 +12,16 @@
 
 #ifndef RPN_HPP
 #define RPN_HPP
-# define GREEN "\x1B[32m"
-# define ORANGE "\x1B[34m"
-# define PURPLE "\x1B[35m"
-# define BLUE "\x1B[36m"
 #include <iostream>
 #include <string.h>
 #include <stack>
 #include <sstream>
 #include <stdlib.h> 
 
-int checkData(std::string polishexp);
+int     checkElementType(std::string polishExpr);
+int     checkNbElements(std::string polishExpr);
+float   doTheMath(std::stack<float> &stack, char ope);
+int     checkData(std::string polishexp);
 
 class DivisionByZeroException : public std::exception {
     public:
