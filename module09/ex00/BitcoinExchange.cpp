@@ -83,8 +83,9 @@ int checkDate(std::string date)
         std::cout << ORANGE << "Error: invalid date => \"" << date << "\"" << std::endl;
         return (1);
     }
-    else if((month == 2 && (year % 4 == 0) && day > 29) || (month == 2 && (year % 4 != 0) && day > 28)) {
-        std::cout << ORANGE << "Error: invalid date => \"" << date << "\"" << std::endl;
+    else if((month == 2 && ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) && day > 29) 
+    || (month == 2 && ((year % 4 != 0) || (year % 100 == 0 && year % 400 != 0)) && day > 28)) {
+        std::cout << ORANGE << "Error: invalid date, not a bissextile year => \"" << date << "\"" << std::endl;
         return (1);
     }
     return (0);                
@@ -151,17 +152,23 @@ int checkInput(char *inputFile, std::vector <std::pair<std::string, float> > &da
                 if(checkDate(date) == 0 && checkValue(value) == 0) 
                 {
                     std::vector<std::pair<std::string, float> >::iterator it = data.begin();
-                    std::vector<std::pair<std::string, float> >::iterator end = data.end()-1;
+                    std::vector<std::pair<std::string, float> >::iterator end = data.end();
                     for(; it != end; it++) {
                         value.erase(std::remove_if(value.begin(), value.end(), isspace), value.end());
                         date.erase(std::remove_if(date.begin(), date.end(), isspace), date.end());
                         valuef = (atof(value.c_str()));
                         if(strcmp((*it).first.c_str(), date.c_str()) == 0) {                         
                             std::cout << WHITE << date << " => " << value << " = " << (valuef * ((*it).second)) << std::endl;
+                            break;
                         }
-                        else if(((it+1) != end) && (strcmp((*(it+1)).first.c_str(), date.c_str()) > 0) && (strcmp((*it).first.c_str(), date.c_str()) < 0)) {
+                        else if((((it+1) != end) && (strcmp((*(it+1)).first.c_str(), date.c_str()) > 0)) && (strcmp((*it).first.c_str(), date.c_str()) < 0)) {
                             std::cout << WHITE << date << " => " << value << " = " << (valuef * ((*it).second)) << std::endl;
-                        }                   
+                            break;
+                        }
+                        else if(((it+1) == end)) {
+                            std::cout << WHITE << date << " => " << value << " = " << (valuef * ((*it).second)) << std::endl;
+                            break;
+                        }
                     }
                 }
             }
