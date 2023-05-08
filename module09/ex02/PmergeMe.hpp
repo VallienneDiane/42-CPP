@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:00:01 by dvallien          #+#    #+#             */
-/*   Updated: 2023/05/05 17:15:31 by dvallien         ###   ########.fr       */
+/*   Updated: 2023/05/08 14:40:40 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@
 
 int checkElement(std::string element);
 std::deque<int> sort(std::deque<int> &deque);
+void printArray(std::deque<int> deque);
 
 #endif

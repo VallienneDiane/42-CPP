@@ -6,61 +6,72 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:59:16 by dvallien          #+#    #+#             */
-/*   Updated: 2023/05/05 17:15:16 by dvallien         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:18:31 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-std::deque<int> mergeDeque(std::deque<int> &dequeLeft, std::deque<int> &dequeRight) {
-    std::deque<int> deque;
-
+void printArray(std::deque<int> deque) {
     std::deque<int>::iterator it = deque.begin();
     std::deque<int>::iterator end = deque.end();
     
-    for(size_t i = 0; i < dequeLeft.size(); i++) {
-        deque.push_back(dequeLeft[i]);
+    for(; it < end; it++) {
+        std::cout << *it << " "; 
     }
-    for(size_t i = deque.size() + 1; i < dequeRight.size(); i++) {
-        deque.push_back(dequeRight[i]);
-    }
+    std::cout << std::endl;
+}
+
+std::deque<int> mergeDeque(std::deque<int> &dequeLeft, std::deque<int> &dequeRight) {
     
-    for(; it != end ; it++) {
-        std::cout << "merge deque value : " << *it << std::endl;
+    std::deque<int>::iterator itL = dequeLeft.begin();
+    std::deque<int>::iterator itR = dequeRight.begin();
+
+    for(; itL != dequeLeft.end(); itL++) {
+        while(itR != dequeRight.end() && *itL > *itR) {
+            dequeLeft.insert(itL, *itR);
+            itR++;
+        }
     }
+    for(; itR != dequeRight.end(); itR++) {
+        dequeLeft.push_back(*itR);
+    }
+    return (dequeLeft);
+}
+
+void swap(int &a, int &b) {
+    int tmp;
+
+    tmp = a;
+    a = b;
+    b = tmp;
+}
+
+std::deque<int> insertSort(std::deque<int> &deque) {
+    for(size_t i = 1; i < deque.size(); i++) {
+        while(i > 0 && deque[i] < deque[i-1]) {
+            swap(deque[i], deque[i-1]);
+            i--;
+        }
+    } 
     return (deque);
 }
 
 std::deque<int> sort(std::deque<int> &deque) {
-    std::deque<int> dequeLeft;
-    std::deque<int> dequeRight;
     
-    std::deque<int>::iterator it = dequeLeft.begin();
-    std::deque<int>::iterator end = dequeLeft.end();
-    std::deque<int>::iterator itR = dequeRight.begin();
-    std::deque<int>::iterator endR = dequeRight.end();
-    
-    std::cout << "ici" << std::endl;
-    while(deque.size() > 6) {
-        for(size_t i = 0; i < (deque.size() / 2); i++) {
-            dequeLeft.push_back(deque[i]);
+    std::deque<int>::iterator half = deque.begin();
+
+    if(deque.size() > 6) {
+        for(size_t i = 0; i < (deque.size()/2); i++) {
+            half++;
         }
-        sort(dequeLeft);
-        for(size_t i = (deque.size() / 2) + 1; i < deque.size(); i++) {
-            dequeRight.push_back(deque[i]);
-        }
-        sort(dequeRight);
+        std::deque<int> dequeLeft(deque.begin(), half);
+        std::deque<int> dequeRight(half, deque.end());
+        dequeLeft = sort(dequeLeft);
+        dequeRight = sort(dequeRight);
         return mergeDeque(dequeLeft, dequeRight);
     }
-
-    for(; it != end ; it++) {
-        std::cout << "sort deque value : " << *it << std::endl;
-    }
-    for(; itR != endR ; itR++) {
-        std::cout << "sort deque value : " << *itR << std::endl;
-    }
-
-    return (deque);
+    return insertSort(deque);
 }
 
 int checkElement(std::string element) {

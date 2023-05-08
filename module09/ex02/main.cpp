@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 20:31:27 by dvallien          #+#    #+#             */
-/*   Updated: 2023/05/05 16:42:14 by dvallien         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:07:39 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ int main(int av, char **ac)
         deque.push_back(number);
         list.push_back(number);
     }
-    sort(deque);
+    std::cout << "Before: ";
+    printArray(deque);
+    deque = sort(deque);
+    std::cout << "After: ";
+    printArray(deque);
 
     return (0);
 }
