@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:59:16 by dvallien          #+#    #+#             */
-/*   Updated: 2023/05/08 15:18:31 by dvallien         ###   ########.fr       */
+/*   Updated: 2023/05/08 18:06:59 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,29 @@ void printArray(std::deque<int> deque) {
     std::deque<int>::iterator it = deque.begin();
     std::deque<int>::iterator end = deque.end();
     
-    for(; it < end; it++) {
+    for(; it != end; it++) {
         std::cout << *it << " "; 
     }
     std::cout << std::endl;
 }
 
-std::deque<int> mergeDeque(std::deque<int> &dequeLeft, std::deque<int> &dequeRight) {
+std::deque<int> mergeDeque(std::deque<int> &left, std::deque<int> &right) {
     
-    std::deque<int>::iterator itL = dequeLeft.begin();
-    std::deque<int>::iterator itR = dequeRight.begin();
-
-    for(; itL != dequeLeft.end(); itL++) {
-        while(itR != dequeRight.end() && *itL > *itR) {
-            dequeLeft.insert(itL, *itR);
-            itR++;
+    std::deque<int> newDeque;
+    
+    
+    while(left.size() || right.size()) {
+        if(right.size() == 0 || ((left.size() && right.size()) && (*left.begin() <= *right.begin()))) {
+            newDeque.push_back(*(left.begin()));
+            left.pop_front();
         }
+        else {
+            newDeque.push_back(*(right.begin()));
+            right.pop_front();
+        }
+
     }
-    for(; itR != dequeRight.end(); itR++) {
-        dequeLeft.push_back(*itR);
-    }
-    return (dequeLeft);
+    return (newDeque);
 }
 
 void swap(int &a, int &b) {
@@ -48,20 +50,20 @@ void swap(int &a, int &b) {
 }
 
 std::deque<int> insertSort(std::deque<int> &deque) {
+    
     for(size_t i = 1; i < deque.size(); i++) {
         while(i > 0 && deque[i] < deque[i-1]) {
             swap(deque[i], deque[i-1]);
             i--;
         }
-    } 
+    }
     return (deque);
 }
 
 std::deque<int> sort(std::deque<int> &deque) {
-    
-    std::deque<int>::iterator half = deque.begin();
 
     if(deque.size() > 6) {
+        std::deque<int>::iterator half = deque.begin();
         for(size_t i = 0; i < (deque.size()/2); i++) {
             half++;
         }
