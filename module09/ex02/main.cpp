@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 20:31:27 by dvallien          #+#    #+#             */
-/*   Updated: 2023/05/11 16:54:16 by dvallien         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:52:59 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int main(int av, char **ac)
         Pmerge.setDeque(number);
         Pmerge.setList(number);
     }
-    
     {
         struct timeval timeBeforeSort, timeAfterSort;
         std::deque<int> deque = Pmerge.getDeque();
@@ -43,7 +42,6 @@ int main(int av, char **ac)
         std::cout << WHITE  << "Time to process a range of " << deque.size() << " elements with std::deque : " << microseconds << " us" << std::endl;
         std::cout << std::endl;
     }
-
     {
         struct timeval timeBeforeSort, timeAfterSort;
         std::list<int> list = Pmerge.getList();
@@ -57,6 +55,5 @@ int main(int av, char **ac)
         long microseconds = timeAfterSort.tv_usec - timeBeforeSort.tv_usec;
         std::cout << WHITE << "Time to process a range of " << list.size() << " elements with std::list : " << microseconds << " us" << std::endl;
     }
-
     return (0);
 }
