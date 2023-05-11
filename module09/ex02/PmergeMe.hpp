@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:00:01 by dvallien          #+#    #+#             */
-/*   Updated: 2023/05/11 15:38:11 by dvallien         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:17:03 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 #include <deque>
 #include <climits>
 #include <list>
+#include <sys/time.h>
 
 class PmergeMe 
 {
@@ -55,13 +56,6 @@ public:
     std::deque<int> sortDeque(std::deque<int> &deque);
     std::deque<int> mergeDeque(std::deque<int> &left, std::deque<int> &right);
     std::list<int> sortList(std::list<int> &list);
-    
-    template <typename Container>
-    void printResult(Container arr) 
-    {
-        arr = 
-        
-    }
     
     template <typename Container>
     void printArray(Container arr) 

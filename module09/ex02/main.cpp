@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 20:31:27 by dvallien          #+#    #+#             */
-/*   Updated: 2023/05/11 15:36:04 by dvallien         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:54:16 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,35 @@ int main(int av, char **ac)
         Pmerge.setDeque(number);
         Pmerge.setList(number);
     }
-    std::deque<int> deque;
-    deque = Pmerge.getDeque();
-    std::cout << ORANGE<< "Before: (deque) ";
-    Pmerge.printArray(deque);
     
-    deque = Pmerge.sortDeque(deque);
-    std::cout << WHITE << "After: (deque) ";
-    Pmerge.printArray(deque);
+    {
+        struct timeval timeBeforeSort, timeAfterSort;
+        std::deque<int> deque = Pmerge.getDeque();
+        std::cout << BLUE << "Before: (deque) ";
+        Pmerge.printArray(deque);
+        gettimeofday(&timeBeforeSort, NULL);
+        deque = Pmerge.sortDeque(deque);
+        gettimeofday(&timeAfterSort, NULL);
+        std::cout << GREEN<< "After: (deque) ";
+        Pmerge.printArray(deque);
+        long microseconds = timeAfterSort.tv_usec - timeBeforeSort.tv_usec;
+        std::cout << WHITE  << "Time to process a range of " << deque.size() << " elements with std::deque : " << microseconds << " us" << std::endl;
+        std::cout << std::endl;
+    }
 
-    
-    std::list<int> list;
-    list = Pmerge.getList();
-    std::cout << ORANGE<< "Before: (list) ";
-    Pmerge.printArray(list);
-    list = Pmerge.sortList(list);
-    std::cout << WHITE << "After: (list) ";
-    Pmerge.printArray(list);
-
+    {
+        struct timeval timeBeforeSort, timeAfterSort;
+        std::list<int> list = Pmerge.getList();
+        std::cout << ORANGE<< "Before: (list) ";
+        Pmerge.printArray(list);
+        gettimeofday(&timeBeforeSort, NULL);
+        list = Pmerge.sortList(list);
+        gettimeofday(&timeAfterSort, NULL);
+        std::cout << GREEN << "After: (list) ";
+        Pmerge.printArray(list);
+        long microseconds = timeAfterSort.tv_usec - timeBeforeSort.tv_usec;
+        std::cout << WHITE << "Time to process a range of " << list.size() << " elements with std::list : " << microseconds << " us" << std::endl;
+    }
 
     return (0);
 }
