@@ -6,7 +6,7 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 20:31:27 by dvallien          #+#    #+#             */
-/*   Updated: 2023/05/08 16:42:48 by dvallien         ###   ########.fr       */
+/*   Updated: 2023/05/11 15:36:04 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int main(int av, char **ac)
 {
-    std::deque<int> deque;
-    std::list<int> list;
+    PmergeMe Pmerge;
     int number = 0;
     
     if(av < 2) {
@@ -23,17 +22,30 @@ int main(int av, char **ac)
         return (1);
     }
     for(int i = 1; i < av; i++) {
-        if(checkElement(ac[i]) == 1)
+        if(Pmerge.checkElement(ac[i]) == 1)
             return (1);
         number = atoi(ac[i]);
-        deque.push_back(number);
-        list.push_back(number);
+        Pmerge.setDeque(number);
+        Pmerge.setList(number);
     }
-    std::cout << PURPLE << "Before: ";
-    printArray(deque);
-    deque = sort(deque);
-    std::cout << GREEN << "After: ";
-    printArray(deque);
+    std::deque<int> deque;
+    deque = Pmerge.getDeque();
+    std::cout << ORANGE<< "Before: (deque) ";
+    Pmerge.printArray(deque);
+    
+    deque = Pmerge.sortDeque(deque);
+    std::cout << WHITE << "After: (deque) ";
+    Pmerge.printArray(deque);
+
+    
+    std::list<int> list;
+    list = Pmerge.getList();
+    std::cout << ORANGE<< "Before: (list) ";
+    Pmerge.printArray(list);
+    list = Pmerge.sortList(list);
+    std::cout << WHITE << "After: (list) ";
+    Pmerge.printArray(list);
+
 
     return (0);
 }

@@ -6,26 +6,15 @@
 /*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:59:16 by dvallien          #+#    #+#             */
-/*   Updated: 2023/05/08 18:06:59 by dvallien         ###   ########.fr       */
+/*   Updated: 2023/05/11 15:03:54 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-void printArray(std::deque<int> deque) {
-    std::deque<int>::iterator it = deque.begin();
-    std::deque<int>::iterator end = deque.end();
-    
-    for(; it != end; it++) {
-        std::cout << *it << " "; 
-    }
-    std::cout << std::endl;
-}
-
-std::deque<int> mergeDeque(std::deque<int> &left, std::deque<int> &right) {
+std::deque<int> PmergeMe::mergeDeque(std::deque<int> &left, std::deque<int> &right) {
     
     std::deque<int> newDeque;
-    
     
     while(left.size() || right.size()) {
         if(right.size() == 0 || ((left.size() && right.size()) && (*left.begin() <= *right.begin()))) {
@@ -36,31 +25,11 @@ std::deque<int> mergeDeque(std::deque<int> &left, std::deque<int> &right) {
             newDeque.push_back(*(right.begin()));
             right.pop_front();
         }
-
     }
     return (newDeque);
 }
 
-void swap(int &a, int &b) {
-    int tmp;
-
-    tmp = a;
-    a = b;
-    b = tmp;
-}
-
-std::deque<int> insertSort(std::deque<int> &deque) {
-    
-    for(size_t i = 1; i < deque.size(); i++) {
-        while(i > 0 && deque[i] < deque[i-1]) {
-            swap(deque[i], deque[i-1]);
-            i--;
-        }
-    }
-    return (deque);
-}
-
-std::deque<int> sort(std::deque<int> &deque) {
+std::deque<int> PmergeMe::sortDeque(std::deque<int> &deque) {
 
     if(deque.size() > 6) {
         std::deque<int>::iterator half = deque.begin();
@@ -69,14 +38,31 @@ std::deque<int> sort(std::deque<int> &deque) {
         }
         std::deque<int> dequeLeft(deque.begin(), half);
         std::deque<int> dequeRight(half, deque.end());
-        dequeLeft = sort(dequeLeft);
-        dequeRight = sort(dequeRight);
+        dequeLeft = sortDeque(dequeLeft);
+        dequeRight = sortDeque(dequeRight);
         return mergeDeque(dequeLeft, dequeRight);
     }
     return insertSort(deque);
 }
 
-int checkElement(std::string element) {
+std::list<int> PmergeMe::sortList(std::list<int> &list) {
+
+    if(list.size() > 6) {
+        std::list<int>::iterator half = list.begin();
+        for(size_t i = 0; i < (list.size()/2); i++) {
+            half++;
+        }
+        std::list<int> listLeft(list.begin(), half);
+        std::list<int> listRight(half, list.end());
+        listLeft = sortList(listLeft);
+        listRight = sortList(listRight);
+        listLeft.merge(listRight);
+        return listLeft;
+    }
+    return insertSort(list);
+}
+
+int PmergeMe::checkElement(std::string element) {
     long number = 0;
     
     if(element.empty()) {
