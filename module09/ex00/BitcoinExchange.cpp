@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dvallien <dvallien@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dvallien <dvallien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/08 19:57:58 by dvallien         #+#    #+#             */
-/*   Updated: 2023/05/01 14:44:46 by dvallien        ###   ########.fr       */
+/*   Created: 2023/05/12 17:21:43 by dvallien          #+#    #+#             */
+/*   Updated: 2023/05/12 17:21:47 by dvallien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
