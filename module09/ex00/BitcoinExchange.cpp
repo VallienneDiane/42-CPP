@@ -146,13 +146,13 @@ int checkInput(char *inputFile, std::vector <std::pair<std::string, float> > &da
         }
         while(std::getline(myinput, line))
         {
+            pipeNb = 0;
             for(size_t i = 0; i < line.size(); i++) {
                 if(line[i] == '|')
                     pipeNb++;
             }
             result = splitLine(line, '|');
             if(result.size() != 2 || pipeNb != 1 || result[1].size() < 2) {
-                pipeNb = 0;
                 std::cout << "Error: invalid input => \"" << line << "\" " << std::endl;
             }
             else {

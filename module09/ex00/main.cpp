@@ -22,11 +22,6 @@ int main(int ac, char **av) {
     }
     try {
         saveData(data);
-    }
-    catch(const std::exception& e) {
-        std::cerr << e.what() << '\n';
-    }
-    try {
         if(checkInput(av[1], data) == 1)
             return (1);
     }

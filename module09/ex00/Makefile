@@ -28,7 +28,7 @@ RM			=	rm -rf
 all :		$(NAME)
 
 $(NAME) :	$(OBJS) Makefile
-			$(CPPC) $(OBJS) -o $(NAME)
+			$(CPPC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 $(PATH_OBJS)%.o :	%.cpp $(INCLUDES)
 					@mkdir -p $(PATH_OBJS)
