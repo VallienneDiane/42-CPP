@@ -14,7 +14,7 @@ The try and catch keywords come in pairs:
 
 	try
 	{
-	/* do some stuff with bureaucrats */
+	/* do some stuff */
 	}
 	catch (std::exception & e)
 	{
